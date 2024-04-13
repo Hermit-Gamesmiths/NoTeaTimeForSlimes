@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwaf0r1ydb085"]
+[gd_scene load_steps=8 format=3 uid="uid://cwaf0r1ydb085"]
 
 [ext_resource type="TileSet" uid="uid://c8v4sw3txrunf" path="res://tiles/default_tiles.tres" id="1_cqu7a"]
 [ext_resource type="Script" path="res://screens/level.gd" id="1_qm5qm"]
 [ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="2_vkuep"]
 [ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_1kuxs"]
 [ext_resource type="PackedScene" uid="uid://bpdyh51bynks2" path="res://scenes/props/heavy_edible.tscn" id="4_hkcwd"]
+[ext_resource type="PackedScene" uid="uid://cdg78ixm1xjq4" path="res://scenes/props/hidden_spikes.tscn" id="6_imj8e"]
+[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="7_uwcnt"]
 
 [node name="DefaultTestLevel" type="Node2D"]
 script = ExtResource("1_qm5qm")
@@ -12,7 +14,7 @@ script = ExtResource("1_qm5qm")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_cqu7a")
 format = 2
-layer_0/tile_data = PackedInt32Array(655360, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 589843, 0, 0, 524307, 0, 0, 458771, 0, 0, 393235, 0, 0, 327699, 0, 0, 262163, 0, 0, 589838, 0, 0, 524302, 0, 0, 458766, 0, 0, 589835, 0, 1, 393220, 0, 0, 393221, 0, 0, 393219, 0, 0, 393218, 0, 0, 393217, 0, 805306369, 327684, 0, 1, 327683, 0, 1, 327682, 0, 1, 589833, 0, 0, 524297, 0, 0, 589829, 0, 0, 458755, 0, 0, 524291, 0, 0, 327681, 0, 0, 458756, 0, 805306369)
+layer_0/tile_data = PackedInt32Array(655360, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 589843, 0, 0, 524307, 0, 0, 458771, 0, 0, 393235, 0, 0, 327699, 0, 0, 262163, 0, 0, 589838, 0, 0, 524302, 0, 0, 458766, 0, 0, 393220, 0, 0, 393221, 0, 0, 393219, 0, 0, 393218, 0, 0, 393217, 0, 805306369, 327684, 0, 1, 327683, 0, 1, 327682, 0, 1, 589833, 0, 0, 524297, 0, 0, 589829, 0, 0, 458755, 0, 0, 524291, 0, 0, 327681, 0, 0, 458756, 0, 805306369)
 
 [node name="Player" parent="." instance=ExtResource("2_vkuep")]
 position = Vector2(197, 1200)
@@ -22,3 +24,9 @@ position = Vector2(1087, 1216)
 
 [node name="HeavyEdible" parent="." instance=ExtResource("4_hkcwd")]
 position = Vector2(577, 1216)
+
+[node name="HiddenSpikes" parent="." instance=ExtResource("6_imj8e")]
+position = Vector2(1600, 1216)
+
+[node name="ProximityActivator" parent="HiddenSpikes" instance=ExtResource("7_uwcnt")]
+telegraph_duration = 1.0
