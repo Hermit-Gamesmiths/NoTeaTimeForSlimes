@@ -7,15 +7,15 @@
 [ext_resource type="Script" path="res://scenes/player/hitbox.gd" id="3_4gvt4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xboy"]
-size = Vector2(110, 107)
+size = Vector2(110, 85)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u300o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5lvu"]
-size = Vector2(110, 90)
+size = Vector2(110, 51)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0c1t"]
-radius = 17.0
+radius = 35.0
 height = 110.0
 
 [sub_resource type="Animation" id="Animation_8tpkf"]
@@ -244,7 +244,7 @@ collision_mask = 2
 script = ExtResource("3_4gvt4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, 4.5)
+position = Vector2(0, 15.5)
 shape = SubResource("RectangleShape2D_2xboy")
 debug_color = Color(0.960784, 0, 0.505882, 0.419608)
 
@@ -274,11 +274,11 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_u300o")
 
 [node name="Collider_box" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_n5lvu")
 
 [node name="Collider_bottom" type="CollisionShape2D" parent="."]
-position = Vector2(0, 41)
+position = Vector2(0, 24)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_k0c1t")
 
