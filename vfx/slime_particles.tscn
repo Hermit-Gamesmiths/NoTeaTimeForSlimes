@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://yfivpkj87sip"]
+
+[ext_resource type="Texture2D" uid="uid://debrgutdgbg0v" path="res://vfx/slime.png" id="1_w771k"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_row2q"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bxabf"]
+particle_flag_disable_z = true
+direction = Vector3(0, 20, 0)
+spread = 0.0
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.5
+scale_max = 0.9
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="SlimeParticles" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_row2q")
+position = Vector2(690, 645)
+process_material = SubResource("ParticleProcessMaterial_bxabf")
+texture = ExtResource("1_w771k")
+lifetime = 2.0

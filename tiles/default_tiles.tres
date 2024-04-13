@@ -30,8 +30,11 @@ use_texture_padding = false
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_1/angular_velocity = 0.0
 0:0/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
-12: [0],
+7: [0],
+8: [0],
 "type": 0
 }
 1:0/0 = 0
@@ -41,8 +44,11 @@ use_texture_padding = false
 1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_1/angular_velocity = 0.0
 1:0/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
-12: [0],
+7: [0],
+8: [0],
 "type": 0
 }
 2:0/0 = 0
@@ -52,8 +58,11 @@ use_texture_padding = false
 2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_1/angular_velocity = 0.0
 2:0/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
-12: [0],
+7: [0],
+8: [0],
 "type": 0
 }
 3:0/0 = 0
@@ -63,8 +72,11 @@ use_texture_padding = false
 3:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_1/angular_velocity = 0.0
 3:0/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
-12: [0],
+7: [0],
+8: [0],
 "type": 0
 }
 4:0/0 = 0
@@ -74,8 +86,11 @@ use_texture_padding = false
 4:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_1/angular_velocity = 0.0
 4:0/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
-12: [0],
+7: [0],
+8: [0],
 "type": 0
 }
 5:0/0 = 0
@@ -84,8 +99,15 @@ use_texture_padding = false
 5:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_1/angular_velocity = 0.0
 5:0/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
 12: [0],
-"type": -1
+15: [0],
+"type": 0
 }
 6:0/0 = 0
 6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -93,8 +115,15 @@ use_texture_padding = false
 6:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 6:0/0/physics_layer_1/angular_velocity = 0.0
 6:0/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
 12: [0],
-"type": -1
+15: [0],
+"type": 0
 }
 7:0/0 = 0
 7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -102,8 +131,15 @@ use_texture_padding = false
 7:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 7:0/0/physics_layer_1/angular_velocity = 0.0
 7:0/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
 12: [0],
-"type": -1
+15: [0],
+"type": 0
 }
 8:0/0 = 0
 8:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -111,8 +147,15 @@ use_texture_padding = false
 8:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 8:0/0/physics_layer_1/angular_velocity = 0.0
 8:0/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
 12: [0],
-"type": -1
+15: [0],
+"type": 0
 }
 9:0/0 = 0
 9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -120,8 +163,15 @@ use_texture_padding = false
 9:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 9:0/0/physics_layer_1/angular_velocity = 0.0
 9:0/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
 12: [0],
-"type": -1
+15: [0],
+"type": 0
 }
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -130,7 +180,11 @@ use_texture_padding = false
 0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_1/angular_velocity = 0.0
 0:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
+7: [0],
+8: [0],
 "type": 0
 }
 1:1/0 = 0
@@ -140,7 +194,11 @@ use_texture_padding = false
 1:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_1/angular_velocity = 0.0
 1:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
+7: [0],
+8: [0],
 "type": 0
 }
 2:1/0 = 0
@@ -150,7 +208,11 @@ use_texture_padding = false
 2:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_1/angular_velocity = 0.0
 2:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
+7: [0],
+8: [0],
 "type": 0
 }
 3:1/0 = 0
@@ -160,7 +222,11 @@ use_texture_padding = false
 3:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_1/angular_velocity = 0.0
 3:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
+7: [0],
+8: [0],
 "type": 0
 }
 4:1/0 = 0
@@ -170,7 +236,11 @@ use_texture_padding = false
 4:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_1/angular_velocity = 0.0
 4:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
+7: [0],
+8: [0],
 "type": 0
 }
 5:1/0 = 0
@@ -180,7 +250,14 @@ use_texture_padding = false
 5:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 5:1/0/physics_layer_1/angular_velocity = 0.0
 5:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
 "type": 0
 }
 6:1/0 = 0
@@ -190,7 +267,14 @@ use_texture_padding = false
 6:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 6:1/0/physics_layer_1/angular_velocity = 0.0
 6:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
 "type": 0
 }
 7:1/0 = 0
@@ -200,7 +284,14 @@ use_texture_padding = false
 7:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 7:1/0/physics_layer_1/angular_velocity = 0.0
 7:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
 "type": 0
 }
 8:1/0 = 0
@@ -210,7 +301,14 @@ use_texture_padding = false
 8:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 8:1/0/physics_layer_1/angular_velocity = 0.0
 8:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
 "type": 0
 }
 9:1/0 = 0
@@ -220,9 +318,39 @@ use_texture_padding = false
 9:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 9:1/0/physics_layer_1/angular_velocity = 0.0
 9:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
 4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
 "type": 0
 }
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_1/angular_velocity = 0.0
+0:2/0/metadata/_better_terrain = {
+"type": -2
+}
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_1/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_1/angular_velocity = 0.0
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_1/angular_velocity = 0.0
 
 [resource]
 tile_size = Vector2i(128, 128)
@@ -237,6 +365,8 @@ metadata/_better_terrain = {
 "path": "res://addons/better-terrain/icons/Decoration.svg"
 }],
 "terrains": [["Bricks", Color(0.172549, 0.764706, 0.901961, 1), 0, [], {
+"path": ""
+}], ["New terrain", Color(0.693529, 0.675748, 0.347722, 1), 0, [], {
 "path": ""
 }]],
 "version": "0.2"
