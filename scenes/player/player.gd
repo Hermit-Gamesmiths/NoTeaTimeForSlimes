@@ -13,7 +13,9 @@ extends CharacterBody2D
 
 @export var hitbox:Hitbox
 
-@onready var model:Node2D = $Model
+@export var model: Node2D
+@export var swallow_checker: Area2D
+@export var stomache: Node2D
 
 # 1 = right, -1 = left
 var facing: int = 1
@@ -41,10 +43,18 @@ func _physics_process(delta: float) -> void:
 
 	model.scale.x = facing
 
+	if Input.is_action_just_pressed("stomache"):
+		if stomache.get_child_count() > 0:
+			spit()
+		else:
+			swallow()
+
 	move_and_slide()
+
 
 func die():
 	Events.player_died.emit()
+
 
 func jump() -> void:
 	velocity.y = jump_velocity
@@ -56,4 +66,14 @@ func get_gravity() -> Vector2:
 # Eating Stuff
 
 func swallow():
-	pass
+	print("swallowing")
+	var edibles = swallow_checker.get_overlapping_areas()
+	if len(edibles) == 0:
+		return
+	var edible = edibles[0]
+	edible.pack(stomache)
+
+
+func spit():
+	var edible = stomache.get_child(0)
+	edible.unpack(get_parent(), self.position + Vector2(Const.TILE_SIZE * facing, 0))

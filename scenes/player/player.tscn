@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpi7jy48rc0e0"]
+[gd_scene load_steps=16 format=3 uid="uid://bpi7jy48rc0e0"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_072ya"]
 [ext_resource type="Texture2D" uid="uid://bc33o3ph4b6am" path="res://sprites/characters/player_background_layer.png" id="2_b7wxg"]
 [ext_resource type="Texture2D" uid="uid://d0igl7x22ecsk" path="res://sprites/characters/player.png" id="2_xchj6"]
 [ext_resource type="Script" path="res://scenes/player/hitbox.gd" id="3_4gvt4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u300o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5lvu"]
 size = Vector2(110, 104)
@@ -220,9 +222,12 @@ _data = {
 "walk": SubResource("Animation_t8yt0")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache")]
 script = ExtResource("1_072ya")
 hitbox = NodePath("hitbox")
+model = NodePath("Model")
+swallow_checker = NodePath("Model/SwallowChecker")
+stomache = NodePath("Model/Stomache")
 
 [node name="Model" type="Node2D" parent="."]
 
@@ -231,12 +236,23 @@ position = Vector2(0, -3)
 texture = ExtResource("2_b7wxg")
 hframes = 9
 
+[node name="Stomache" type="Node2D" parent="Model"]
+modulate = Color(0.443137, 1, 0.258824, 1)
+position = Vector2(0, 29)
+scale = Vector2(0.5, 0.5)
+
 [node name="Sprite" type="Sprite2D" parent="Model"]
 position = Vector2(0, -3)
 texture = ExtResource("2_xchj6")
 hframes = 9
 
-[node name="Stomache" type="Node2D" parent="Model"]
+[node name="SwallowChecker" type="Area2D" parent="Model"]
+position = Vector2(83, 0)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Model/SwallowChecker"]
+shape = SubResource("CircleShape2D_u300o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
