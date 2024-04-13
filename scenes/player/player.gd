@@ -44,6 +44,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider() as Node
+		if collider.has_meta(ContactActivator.COLLISION_LISTENER):
+			collider.get_meta(ContactActivator.COLLISION_LISTENER).on_collision()
+
 
 func current_jump() -> Jump:
 	if stomache.get_child_count() > 0:

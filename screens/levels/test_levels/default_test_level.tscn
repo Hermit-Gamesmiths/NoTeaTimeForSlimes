@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwaf0r1ydb085"]
+[gd_scene load_steps=10 format=3 uid="uid://cwaf0r1ydb085"]
 
 [ext_resource type="TileSet" uid="uid://c8v4sw3txrunf" path="res://tiles/default_tiles.tres" id="1_cqu7a"]
 [ext_resource type="Script" path="res://screens/level.gd" id="1_qm5qm"]
@@ -7,11 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bpdyh51bynks2" path="res://scenes/props/heavy_edible.tscn" id="4_hkcwd"]
 [ext_resource type="PackedScene" uid="uid://cdg78ixm1xjq4" path="res://scenes/props/hidden_spikes.tscn" id="6_imj8e"]
 [ext_resource type="PackedScene" uid="uid://b0ftdiycda1no" path="res://scenes/props/falling_platform.tscn" id="7_cxwbi"]
-[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="7_uwcnt"]
 [ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="8_y2ywt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3h7gv"]
-size = Vector2(128, 128)
+[ext_resource type="PackedScene" uid="uid://bdp16s8h4ndp0" path="res://scenes/components/contact_activator.tscn" id="9_iv1cb"]
 
 [node name="DefaultTestLevel" type="Node2D"]
 script = ExtResource("1_qm5qm")
@@ -19,13 +16,13 @@ script = ExtResource("1_qm5qm")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_cqu7a")
 format = 2
-layer_0/tile_data = PackedInt32Array(655360, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 589843, 0, 0, 524307, 0, 0, 458771, 0, 0, 393235, 0, 0, 327699, 0, 0, 262163, 0, 0, 589838, 0, 0, 524302, 0, 0, 458766, 0, 0, 393220, 0, 0, 393221, 0, 0, 393217, 0, 805306369, 589833, 0, 0, 524297, 0, 0, 589829, 0, 0, 458755, 0, 0, 524291, 0, 0, 327681, 0, 0, 458756, 0, 805306369, 327682, 0, 0, 393219, 0, 0, 393230, 0, 0)
+layer_0/tile_data = PackedInt32Array(655360, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 589843, 0, 0, 524307, 0, 0, 458771, 0, 0, 393235, 0, 0, 327699, 0, 0, 262163, 0, 0, 589838, 0, 0, 524302, 0, 0, 458766, 0, 0, 393220, 0, 0, 393221, 0, 0, 393217, 0, 805306369, 589833, 0, 0, 524297, 0, 0, 589829, 0, 0, 458755, 0, 0, 524291, 0, 0, 327681, 0, 0, 458756, 0, 805306369, 327682, 0, 0, 393219, 0, 0, 393230, 0, 0, 458761, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_vkuep")]
 position = Vector2(448, 576)
 
 [node name="LevelEndDoor" parent="." instance=ExtResource("4_1kuxs")]
-position = Vector2(1087, 1216)
+position = Vector2(1344, 1216)
 
 [node name="HeavyEdible" parent="." instance=ExtResource("4_hkcwd")]
 position = Vector2(577, 1216)
@@ -34,15 +31,11 @@ position = Vector2(577, 1216)
 position = Vector2(1600, 1216)
 
 [node name="FallingPlatform" parent="." instance=ExtResource("7_cxwbi")]
-position = Vector2(832, 832)
+position = Vector2(1088, 576)
 
 [node name="FallingComponent" parent="FallingPlatform" instance=ExtResource("8_y2ywt")]
 
-[node name="ProximityActivator" parent="FallingPlatform/FallingComponent" instance=ExtResource("7_uwcnt")]
-telegraph_duration = 0.0
-
-[node name="CollisionShape2D" parent="FallingPlatform/FallingComponent/ProximityActivator" index="0"]
-shape = SubResource("RectangleShape2D_3h7gv")
+[node name="ContactActivator" parent="FallingPlatform/FallingComponent" node_paths=PackedStringArray("body") instance=ExtResource("9_iv1cb")]
+body = NodePath("../..")
 
 [editable path="FallingPlatform"]
-[editable path="FallingPlatform/FallingComponent/ProximityActivator"]
