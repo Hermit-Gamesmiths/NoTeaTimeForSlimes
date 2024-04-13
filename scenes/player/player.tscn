@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpi7jy48rc0e0"]
+[gd_scene load_steps=17 format=3 uid="uid://bpi7jy48rc0e0"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_072ya"]
 [ext_resource type="Texture2D" uid="uid://bc33o3ph4b6am" path="res://sprites/characters/player_background_layer.png" id="2_b7wxg"]
 [ext_resource type="Texture2D" uid="uid://d0igl7x22ecsk" path="res://sprites/characters/player.png" id="2_xchj6"]
+[ext_resource type="Resource" uid="uid://dpyf2ugxtod78" path="res://resources/jumps/default_jump.tres" id="2_y8npj"]
 [ext_resource type="Script" path="res://scenes/player/hitbox.gd" id="3_4gvt4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u300o"]
@@ -226,6 +227,7 @@ _data = {
 collision_layer = 16
 collision_mask = 33
 script = ExtResource("1_072ya")
+default_jump = ExtResource("2_y8npj")
 hitbox = NodePath("hitbox")
 model = NodePath("Model")
 swallow_checker = NodePath("Model/SwallowChecker")

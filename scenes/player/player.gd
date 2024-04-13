@@ -2,14 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 350
 
-@export var jump_height_tiles = 2.1
-@onready var jump_height : float = (Const.TILE_SIZE * jump_height_tiles)
-@export var jump_time_to_peak : float = .5
-@export var jump_time_to_descend : float = .4
-
-@onready var jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1
-@onready var jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak ** 2)) * -1
-@onready var fall_gravity = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_descend)) * -1
+@export var default_jump: Jump
 
 @export var hitbox:Hitbox
 
@@ -52,16 +45,23 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func current_jump() -> Jump:
+	if stomache.get_child_count() > 0:
+		var jump_data = stomache.get_child(0).modified_jump
+		if jump_data != null:
+			return jump_data
+	return default_jump
+
 func die():
 	Events.player_died.emit()
 
 
 func jump() -> void:
-	velocity.y = jump_velocity
+	velocity.y = current_jump().jump_velocity()
 
 
 func get_gravity() -> Vector2:
-	return Vector2(0, jump_gravity if velocity.y < 0 else fall_gravity)
+	return Vector2(0, current_jump().jump_gravity() if velocity.y < 0 else current_jump().fall_gravity())
 
 # Eating Stuff
 

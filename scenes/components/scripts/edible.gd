@@ -2,6 +2,7 @@ extends Area2D
 class_name Edible
 
 @onready var parent: Node2D = get_parent()
+@export var modified_jump: Jump
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
