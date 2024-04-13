@@ -1,0 +1,33 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cb3ug25absgwj"]
+
+[ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="1_xg0ev"]
+[ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="2_pu5ag"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bgw11"]
+texture = ExtResource("1_xg0ev")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_1/angular_velocity = 0.0
+0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_suyss"]
+resource_name = "Props"
+scenes/1/scene = ExtResource("2_pu5ag")
+
+[resource]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 48
+physics_layer_1/collision_layer = 2
+physics_layer_1/collision_mask = 16
+sources/0 = SubResource("TileSetAtlasSource_bgw11")
+sources/1 = SubResource("TileSetScenesCollectionSource_suyss")
