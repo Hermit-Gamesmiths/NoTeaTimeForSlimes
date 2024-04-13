@@ -8,5 +8,4 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func player_entered(_body) -> void:
-	print("player in door")
 	Events.level_finished.emit()
