@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpi7jy48rc0e0"]
+[gd_scene load_steps=18 format=3 uid="uid://bpi7jy48rc0e0"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_072ya"]
 [ext_resource type="Texture2D" uid="uid://bc33o3ph4b6am" path="res://sprites/characters/player_background_layer.png" id="2_b7wxg"]
@@ -6,13 +6,17 @@
 [ext_resource type="Resource" uid="uid://dpyf2ugxtod78" path="res://resources/jumps/default_jump.tres" id="2_y8npj"]
 [ext_resource type="Script" path="res://scenes/player/hitbox.gd" id="3_4gvt4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xboy"]
+size = Vector2(110, 107)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_u300o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5lvu"]
-size = Vector2(110, 104)
+size = Vector2(110, 90)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xboy"]
-size = Vector2(110, 104)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0c1t"]
+radius = 17.0
+height = 110.0
 
 [sub_resource type="Animation" id="Animation_8tpkf"]
 resource_name = "eat"
@@ -233,6 +237,16 @@ model = NodePath("Model")
 swallow_checker = NodePath("Model/SwallowChecker")
 stomache = NodePath("Model/Stomache")
 
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("3_4gvt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_2xboy")
+debug_color = Color(0.960784, 0, 0.505882, 0.419608)
+
 [node name="Model" type="Node2D" parent="."]
 
 [node name="SpriteBGLayer" type="Sprite2D" parent="Model"]
@@ -258,19 +272,14 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Model/SwallowChecker"]
 shape = SubResource("CircleShape2D_u300o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+[node name="Collider_box" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_n5lvu")
 
-[node name="hitbox" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 2
-script = ExtResource("3_4gvt4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_2xboy")
-debug_color = Color(0.960784, 0, 0.505882, 0.419608)
+[node name="Collider_bottom" type="CollisionShape2D" parent="."]
+position = Vector2(0, 41)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_k0c1t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
