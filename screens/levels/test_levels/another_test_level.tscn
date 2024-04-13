@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsh1awg0wgqpt"]
+
+[ext_resource type="Script" path="res://screens/levels/test_levels/level.gd" id="1_000un"]
+[ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="2_ktw6o"]
+[ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="3_hqakr"]
+[ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_aaj1u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bgw11"]
+texture = ExtResource("2_ktw6o")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_1/angular_velocity = 0.0
+0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_suyss"]
+resource_name = "Props"
+scenes/1/scene = ExtResource("4_aaj1u")
+
+[sub_resource type="TileSet" id="TileSet_hv2lo"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 48
+physics_layer_1/collision_layer = 2
+physics_layer_1/collision_mask = 16
+sources/0 = SubResource("TileSetAtlasSource_bgw11")
+sources/1 = SubResource("TileSetScenesCollectionSource_suyss")
+
+[node name="AnotherTestLevel" type="Node2D"]
+script = ExtResource("1_000un")
+
+[node name="TileMap" type="TileMap" parent="."]
+rotation = -0.000285027
+tile_set = SubResource("TileSet_hv2lo")
+format = 2
+layer_0/tile_data = PackedInt32Array(655360, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 589843, 0, 0, 524307, 0, 0, 458771, 0, 0, 393235, 0, 0, 327699, 0, 0, 262163, 0, 0, 327681, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 589829, 1, 65536)
+
+[node name="Player" parent="." instance=ExtResource("3_hqakr")]
+position = Vector2(196, 1200)

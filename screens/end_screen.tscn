@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://r0wqj630ctkc"]
+[gd_scene load_steps=3 format=3 uid="uid://r0wqj630ctkc"]
 
-[node name="EndScreen" type="Node2D"]
+[ext_resource type="PackedScene" path="res://ui/SceneTransitionButton.tscn" id="1_ehips"]
+[ext_resource type="PackedScene" uid="uid://cr0e6i18bdmgq" path="res://ui/QuitButton.tscn" id="2_8fhgp"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 148.0
+offset_right = 2370.0
+offset_bottom = 736.0
+rotation = 0.325492
+theme_override_font_sizes/font_size = 431
+text = "THE END"
+
+[node name="SceneTransitionButton" parent="Label" instance=ExtResource("1_ehips")]
+offset_left = 1321.43
+offset_top = 59.5665
+offset_right = 1508.43
+offset_bottom = 137.567
+theme_override_font_sizes/font_size = 51
+text = "Restart"
+scene_to_load = "res://screens/levels/test_levels/default_test_level.tscn"
+
+[node name="QuitButton" parent="Label" instance=ExtResource("2_8fhgp")]
+layout_mode = 1
+offset_left = 1575.69
+offset_top = 62.4099
+offset_right = -126.309
+offset_bottom = -447.59

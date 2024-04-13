@@ -15,7 +15,6 @@ func _ready():
 	button_up.connect(_on_Button_pressed)
 
 func _on_Button_pressed():
-	print("testing!")
 	if scene_to_load == null||scene_to_load == "":
 		printerr("TransitionButton: no scene to load.")
 		return
