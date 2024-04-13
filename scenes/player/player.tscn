@@ -236,6 +236,8 @@ position = Vector2(0, -3)
 texture = ExtResource("2_xchj6")
 hframes = 9
 
+[node name="Stomache" type="Node2D" parent="Model"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_n5lvu")
@@ -255,5 +257,3 @@ libraries = {
 "": SubResource("AnimationLibrary_qsd4x")
 }
 autoplay = "idle"
-
-[node name="Stomache" type="Node2D" parent="."]

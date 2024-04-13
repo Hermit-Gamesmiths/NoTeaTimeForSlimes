@@ -15,6 +15,9 @@ extends CharacterBody2D
 
 @onready var model:Node2D = $Model
 
+# 1 = right, -1 = left
+var facing: int = 1
+
 func _ready() -> void:
 	hitbox.on_hit.connect(die)
 
@@ -31,9 +34,12 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
+		facing = sign(direction)
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+
+	model.scale.x = facing
 
 	move_and_slide()
 
