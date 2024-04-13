@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwaf0r1ydb085"]
+[gd_scene load_steps=6 format=3 uid="uid://cwaf0r1ydb085"]
 
+[ext_resource type="Script" path="res://screens/levels/test_levels/level.gd" id="1_fwmxj"]
 [ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="1_v4f1s"]
 [ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="2_vkuep"]
 
@@ -28,6 +29,8 @@ physics_layer_1/collision_mask = 16
 sources/0 = SubResource("TileSetAtlasSource_bgw11")
 
 [node name="DefaultTestLevel" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_fwmxj")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_g0epc")

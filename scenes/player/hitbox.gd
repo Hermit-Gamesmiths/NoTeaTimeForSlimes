@@ -1,12 +1,15 @@
 extends Area2D
+class_name Hitbox
 
+signal on_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.area_entered.connect(on_hit)
-	self.body_entered.connect(on_hit)
+	self.area_entered.connect(hit_by)
+	self.body_entered.connect(hit_by)
 
 
-func on_hit(hit_by) -> void:
-	print(hit_by)
+func hit_by(something) -> void:
+	print("hit by: ", something)
+	on_hit.emit()
 	pass
