@@ -1,4 +1,4 @@
 class_name Const
 
-const tile_size = 128
-const screen_size = Vector2i(2560, 1440)
+const TILE_SIZE = 128
+const SCREEN_SIZE = Vector2i(2560, 1440)

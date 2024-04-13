@@ -24,3 +24,10 @@ TransitionManager="*res://global/TransitionManager.tscn"
 
 window/size/viewport_width=2560
 window/size/viewport_height=1440
+
+[layer_names]
+
+2d_physics/layer_1="Walls"
+2d_physics/layer_2="Death"
+2d_physics/layer_5="Player"
+2d_physics/layer_6="Enemies"
