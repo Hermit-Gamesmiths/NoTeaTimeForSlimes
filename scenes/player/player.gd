@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 @export var speed = 350
 
-@export var jump_height : float = (Const.TILE_SIZE * 2.1)
+@export var jump_height_tiles = 2.1
+@onready var jump_height : float = (Const.TILE_SIZE * jump_height_tiles)
 @export var jump_time_to_peak : float = .5
 @export var jump_time_to_descend : float = .4
 
