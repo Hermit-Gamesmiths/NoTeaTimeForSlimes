@@ -11,6 +11,10 @@ extends CharacterBody2D
 @onready var jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak ** 2)) * -1
 @onready var fall_gravity = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_descend)) * -1
 
+@export var hitbox:Hitbox
+
+func _ready() -> void:
+	hitbox.on_hit.connect(die)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -31,6 +35,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func die():
+	Events.player_died.emit()
 
 func jump() -> void:
 	velocity.y = jump_velocity

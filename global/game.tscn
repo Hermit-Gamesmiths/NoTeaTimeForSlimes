@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://bs2q5udhxgvul"]
+[gd_scene load_steps=2 format=3 uid="uid://bs2q5udhxgvul"]
+
+[ext_resource type="Script" path="res://global/game.gd" id="1_wipiu"]
 
 [node name="Game" type="Node"]
+script = ExtResource("1_wipiu")
