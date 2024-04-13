@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://do7wfpobvc8dq"]
+
+[ext_resource type="Script" path="res://scenes/components/scripts/timer_activator.gd" id="1_xwmvb"]
+
+[node name="TimerActivator" type="Node"]
+script = ExtResource("1_xwmvb")

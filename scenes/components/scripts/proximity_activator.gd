@@ -7,7 +7,7 @@ var is_active: bool = false
 @export var cooldown: float = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var should_activate = has_overlapping_bodies()
 	if should_activate && !is_active:
 		start_activation()

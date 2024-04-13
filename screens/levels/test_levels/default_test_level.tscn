@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_1kuxs"]
 [ext_resource type="PackedScene" uid="uid://bpdyh51bynks2" path="res://scenes/props/heavy_edible.tscn" id="4_hkcwd"]
 [ext_resource type="PackedScene" uid="uid://cdg78ixm1xjq4" path="res://scenes/props/hidden_spikes.tscn" id="6_imj8e"]
-[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="7_uwcnt"]
+[ext_resource type="PackedScene" uid="uid://do7wfpobvc8dq" path="res://scenes/components/timer_activator.tscn" id="7_21yv7"]
 
 [node name="DefaultTestLevel" type="Node2D"]
 script = ExtResource("1_qm5qm")
@@ -28,5 +28,4 @@ position = Vector2(577, 1216)
 [node name="HiddenSpikes" parent="." instance=ExtResource("6_imj8e")]
 position = Vector2(1600, 1216)
 
-[node name="ProximityActivator" parent="HiddenSpikes" instance=ExtResource("7_uwcnt")]
-telegraph_duration = 1.0
+[node name="TimerActivator" parent="HiddenSpikes" instance=ExtResource("7_21yv7")]
