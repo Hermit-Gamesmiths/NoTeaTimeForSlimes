@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsh1awg0wgqpt"]
 
-[ext_resource type="Script" path="res://screens/levels/test_levels/level.gd" id="1_000un"]
+[ext_resource type="Script" path="res://screens/level.gd" id="1_000un"]
 [ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="2_ktw6o"]
 [ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="3_hqakr"]
 [ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_aaj1u"]

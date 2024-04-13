@@ -27,6 +27,7 @@ func level_complete() -> void:
 	level_index = level_index + 1
 	if level_index >= len(level_list.levels):
 		level_index = 0
+		print("Fin")
 		current_level_scene = ""
 		TransitionManager.transition_to(end_scene)
 	else:

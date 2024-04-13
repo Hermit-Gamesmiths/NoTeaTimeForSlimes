@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwaf0r1ydb085"]
+[gd_scene load_steps=6 format=3 uid="uid://cwaf0r1ydb085"]
 
 [ext_resource type="TileSet" uid="uid://c8v4sw3txrunf" path="res://tiles/default_tiles.tres" id="1_cqu7a"]
+[ext_resource type="Script" path="res://screens/level.gd" id="1_qm5qm"]
 [ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="2_vkuep"]
 [ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_1kuxs"]
 [ext_resource type="PackedScene" uid="uid://bpdyh51bynks2" path="res://scenes/props/heavy_edible.tscn" id="4_hkcwd"]
 
 [node name="DefaultTestLevel" type="Node2D"]
+script = ExtResource("1_qm5qm")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_cqu7a")
