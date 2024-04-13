@@ -10,9 +10,6 @@ extends CharacterBody2D
 @onready var jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak ** 2)) * -1
 @onready var fall_gravity = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_descend)) * -1
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -33,8 +30,10 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
 func jump() -> void:
 	velocity.y = jump_velocity
+
 
 func get_gravity() -> Vector2:
 	return Vector2(0, jump_gravity if velocity.y < 0 else fall_gravity)
