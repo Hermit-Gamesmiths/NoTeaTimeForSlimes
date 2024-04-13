@@ -223,6 +223,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache")]
+collision_layer = 16
+collision_mask = 33
 script = ExtResource("1_072ya")
 hitbox = NodePath("hitbox")
 model = NodePath("Model")
