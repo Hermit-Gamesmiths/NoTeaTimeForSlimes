@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpdyh51bynks2"]
+
+[ext_resource type="Texture2D" uid="uid://0yfilf2doghq" path="res://scenes/props/prop_assets/rock.png" id="1_8n1f8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3viw"]
+size = Vector2(120, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne68p"]
+size = Vector2(120, 120)
+
+[node name="HeavyEdible" type="CharacterBody2D"]
+
+[node name="Edible" type="Area2D" parent="."]
+
+[node name="Rock" type="Sprite2D" parent="Edible"]
+texture = ExtResource("1_8n1f8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Edible"]
+shape = SubResource("RectangleShape2D_b3viw")
+debug_color = Color(0.368627, 0.615686, 0, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ne68p")

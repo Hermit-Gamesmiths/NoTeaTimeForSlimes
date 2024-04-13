@@ -13,6 +13,8 @@ extends CharacterBody2D
 
 @export var hitbox:Hitbox
 
+@onready var model:Node2D = $Model
+
 func _ready() -> void:
 	hitbox.on_hit.connect(die)
 
@@ -44,3 +46,8 @@ func jump() -> void:
 
 func get_gravity() -> Vector2:
 	return Vector2(0, jump_gravity if velocity.y < 0 else fall_gravity)
+
+# Eating Stuff
+
+func swallow():
+	pass
