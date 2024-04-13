@@ -7,5 +7,6 @@ func _ready() -> void:
 	detector.body_entered.connect(player_entered)
 	pass # Replace with function body.
 
-func player_entered() -> void:
+func player_entered(_body) -> void:
+	print("player in door")
 	Events.level_finished.emit()
