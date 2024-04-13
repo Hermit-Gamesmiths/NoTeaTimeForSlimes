@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://blqm0qtkbgga5"]
+
+[ext_resource type="PackedScene" path="res://ui/SceneTransitionButton.tscn" id="1_og3um"]
+[ext_resource type="PackedScene" uid="uid://cr0e6i18bdmgq" path="res://ui/QuitButton.tscn" id="2_0a4ep"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="SceneTransitionButton" parent="." instance=ExtResource("1_og3um")]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 272.0
+offset_right = 711.0
+offset_bottom = 303.0
+text = "Start Game"
+scene_to_load = "res://screens/levels/test_levels/default_test_level.tscn"
+
+[node name="QuitButton" parent="." instance=ExtResource("2_0a4ep")]
+layout_mode = 1
+offset_left = 576.0
+offset_top = 357.0
+offset_right = 690.0
+offset_bottom = 435.0

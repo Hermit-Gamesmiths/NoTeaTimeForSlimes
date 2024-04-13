@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr0e6i18bdmgq"]
+
+[ext_resource type="Script" path="res://ui/QuitButton.gd" id="1_mme3l"]
+
+[node name="QuitButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2376.0
+offset_bottom = -1344.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 51
+text = "Quit"
+script = ExtResource("1_mme3l")

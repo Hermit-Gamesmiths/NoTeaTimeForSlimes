@@ -18,3 +18,4 @@ config/icon="res://icon.svg"
 
 Game="*res://global/game.tscn"
 Events="*res://global/events.gd"
+TransitionManager="*res://global/TransitionManager.tscn"
