@@ -1,8 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://71o8tn14lams"]
+[gd_scene load_steps=7 format=3 uid="uid://71o8tn14lams"]
 
 [ext_resource type="TileSet" uid="uid://bylsrk0gtegdv" path="res://tiles/default_tiles.tres" id="1_elke5"]
 [ext_resource type="TileSet" uid="uid://dob8kj72qhmp5" path="res://tiles/bg_scenery_tiles.tres" id="1_hfejb"]
 [ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="2_voexk"]
+[ext_resource type="Texture2D" uid="uid://bhd31ubycr8dg" path="res://sprites/characters/wiz.png" id="3_glnp4"]
+
+[sub_resource type="Animation" id="Animation_2innp"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abt40"]
+_data = {
+"idle": SubResource("Animation_2innp")
+}
 
 [node name="BaseLevel" type="Node2D"]
 
@@ -23,7 +46,19 @@ format = 2
 layer_0/tile_data = PackedInt32Array(851979, 524288, 2, 851980, 65536, 2, 917515, 65536, 2, 917516, 0, 2, 786445, 65536, 2, 720911, 589824, 2, 786446, 458752, 2, 851982, 0, 2, 786447, 262144, 2, 589840, 131072, 2, 655376, 0, 2, 720912, 131072, 2, 851984, 131072, 2, 851983, 0, 2, 851985, 0, 2, 786449, 327680, 2, 786450, 327680, 2, 851986, 0, 2, 655379, 131072, 2, 786448, 262144, 2, 720915, 65536, 2, 786451, 262144, 2, 786452, 65536, 2, 851987, 0, 2, 851988, 262144, 2, 851989, 458752, 2, 917524, 0, 2, 917525, 131072, 2, 851990, 589824, 2, 851991, 65536, 2, 917526, 0, 2, 917527, 0, 2, 65570, 65536, 1, 131106, 0, 1, 196642, 196608, 1, 262178, 196608, 1, 327714, 0, 1, 393250, 262144, 1, 458786, 196608, 1, 524322, 0, 1, 589858, 65536, 1, 655394, 196608, 1, 720930, 262144, 1, 786466, 196608, 1, 852002, 196608, 1, -131042, 0, 1, -65506, 262144, 1, 30, 262144, 1, 65566, 131072, 1, 131102, 65536, 1, 196638, 0, 1, 262174, 196608, 1, 327710, 131072, 1, 393246, 131072, 1, 458782, 262144, 1, 524318, 131072, 1, 589854, 262144, 1, 655390, 262144, 1, 720926, 65536, 1, 786462, 262144, 1, 851998, 131072, 1, 917534, 262144, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_voexk")]
-position = Vector2(384, 617)
+position = Vector2(515, 767)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(277, 781)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_glnp4")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_abt40")
+}
+autoplay = "idle"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_elke5")
