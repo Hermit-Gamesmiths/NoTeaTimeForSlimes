@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_mmt3u")
-jump_height_tiles = 2.1
+jump_height_tiles = 2.15
 jump_time_to_peak = 0.5
 jump_time_to_descend = 0.4
