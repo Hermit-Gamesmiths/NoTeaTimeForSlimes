@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://bpi7jy48rc0e0"]
+[gd_scene load_steps=37 format=3 uid="uid://bpi7jy48rc0e0"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_072ya"]
 [ext_resource type="Texture2D" uid="uid://bc33o3ph4b6am" path="res://sprites/characters/player_background_layer.png" id="2_b7wxg"]
 [ext_resource type="Texture2D" uid="uid://d0igl7x22ecsk" path="res://sprites/characters/player.png" id="2_xchj6"]
 [ext_resource type="Resource" uid="uid://dpyf2ugxtod78" path="res://resources/jumps/default_jump.tres" id="2_y8npj"]
 [ext_resource type="Script" path="res://scenes/player/hitbox.gd" id="3_4gvt4"]
+[ext_resource type="Script" path="res://scenes/player/player_camera.gd" id="6_47wlg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xboy"]
 size = Vector2(110, 85)
@@ -393,3 +394,4 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("6_47wlg")
