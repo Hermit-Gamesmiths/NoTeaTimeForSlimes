@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 			print("got listener")
 			collider.get_meta(ContactActivator.COLLISION_LISTENER).on_collision()
 
-	print(state_machine.get_current_node())
+	# print(state_machine.get_current_node())
 
 func current_jump() -> Jump:
 	if stomache.get_child_count() > 0:

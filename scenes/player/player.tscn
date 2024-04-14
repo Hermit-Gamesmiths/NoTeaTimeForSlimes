@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://bpi7jy48rc0e0"]
+[gd_scene load_steps=39 format=3 uid="uid://bpi7jy48rc0e0"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_072ya"]
 [ext_resource type="Texture2D" uid="uid://bc33o3ph4b6am" path="res://sprites/characters/player_background_layer.png" id="2_b7wxg"]
 [ext_resource type="Texture2D" uid="uid://d0igl7x22ecsk" path="res://sprites/characters/player.png" id="2_xchj6"]
 [ext_resource type="Resource" uid="uid://dpyf2ugxtod78" path="res://resources/jumps/default_jump.tres" id="2_y8npj"]
 [ext_resource type="Script" path="res://scenes/player/hitbox.gd" id="3_4gvt4"]
+[ext_resource type="Script" path="res://scenes/player/player_camera.gd" id="6_wefia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xboy"]
 size = Vector2(110, 85)
@@ -283,7 +284,16 @@ advance_mode = 2
 advance_mode = 2
 advance_expression = "abs(velocity.x) < 0.1"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_by5ua"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f4aao"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_slkgl"]
+states/End/position = Vector2(961, 99.8125)
 states/Start/position = Vector2(132, 100)
 states/eat/node = SubResource("AnimationNodeAnimation_e5msr")
 states/eat/position = Vector2(365.5, 264.062)
@@ -299,8 +309,8 @@ states/land/node = SubResource("AnimationNodeAnimation_b538j")
 states/land/position = Vector2(542, -97.5)
 states/walk/node = SubResource("AnimationNodeAnimation_2r0jh")
 states/walk/position = Vector2(453.5, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_4f584"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_a7h3w"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_abhvv"), "fall", "land", SubResource("AnimationNodeStateMachineTransition_e76w0"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ekv7w"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_r5jol"), "idle", "eat", SubResource("AnimationNodeStateMachineTransition_3sjxm"), "walk", "eat", SubResource("AnimationNodeStateMachineTransition_2x3tu"), "land", "idle", SubResource("AnimationNodeStateMachineTransition_fvksl"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2c4by")]
-graph_offset = Vector2(-620, -180)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_4f584"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_a7h3w"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_abhvv"), "fall", "land", SubResource("AnimationNodeStateMachineTransition_e76w0"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ekv7w"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_r5jol"), "idle", "eat", SubResource("AnimationNodeStateMachineTransition_3sjxm"), "walk", "eat", SubResource("AnimationNodeStateMachineTransition_2x3tu"), "land", "idle", SubResource("AnimationNodeStateMachineTransition_fvksl"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2c4by"), "eat", "idle", SubResource("AnimationNodeStateMachineTransition_by5ua"), "hurt", "End", SubResource("AnimationNodeStateMachineTransition_f4aao")]
+graph_offset = Vector2(-564, -160)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache", "spit_location", "front_ray", "back_ray", "animation")]
 collision_layer = 16
@@ -393,3 +403,4 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("6_wefia")
