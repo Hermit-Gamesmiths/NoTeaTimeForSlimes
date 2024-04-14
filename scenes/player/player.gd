@@ -37,8 +37,10 @@ var facing: int = 1
 var time_since_floor:float = 0
 var is_jump: bool = false
 
+
 func _ready() -> void:
 	hitbox.on_hit.connect(die)
+
 
 func _physics_process(delta: float) -> void:
 	if is_dead: return
@@ -86,7 +88,6 @@ func _physics_process(delta: float) -> void:
 			print("got listener")
 			collider.get_meta(ContactActivator.COLLISION_LISTENER).on_collision()
 
-	# print(state_machine.get_current_node())
 
 func current_jump() -> Jump:
 	if stomache.get_child_count() > 0:
