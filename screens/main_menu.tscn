@@ -1,24 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://blqm0qtkbgga5"]
+[gd_scene load_steps=4 format=3 uid="uid://blqm0qtkbgga5"]
 
 [ext_resource type="PackedScene" path="res://ui/SceneTransitionButton.tscn" id="1_og3um"]
 [ext_resource type="PackedScene" uid="uid://cr0e6i18bdmgq" path="res://ui/QuitButton.tscn" id="2_0a4ep"]
+[ext_resource type="FontFile" uid="uid://bjp62rplctdf0" path="res://ui/vinque rg.otf" id="2_gef6t"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(2800, 2000)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -356.0
+offset_right = 2697.0
+offset_bottom = 1644.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.140894, 0.130883, 0.127546, 1)
+
 [node name="SceneTransitionButton" parent="." instance=ExtResource("1_og3um")]
 layout_mode = 0
-offset_left = 552.0
-offset_top = 272.0
-offset_right = 711.0
-offset_bottom = 303.0
+offset_left = 1145.0
+offset_top = 728.0
+offset_right = 1445.0
+offset_bottom = 828.0
+theme_override_fonts/font = ExtResource("2_gef6t")
+theme_override_font_sizes/font_size = 36
 text = "Start Game"
 scene_to_load = "res://screens/levels/test_levels/default_test_level.tscn"
 
 [node name="QuitButton" parent="." instance=ExtResource("2_0a4ep")]
 layout_mode = 1
-offset_left = 576.0
-offset_top = 357.0
-offset_right = 690.0
-offset_bottom = 435.0
+offset_left = 1229.0
+offset_top = 879.0
+offset_right = 1343.0
+offset_bottom = 957.0
+theme_override_fonts/font = ExtResource("2_gef6t")
+theme_override_font_sizes/font_size = 38
