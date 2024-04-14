@@ -40,7 +40,7 @@ position = Vector2(2624, 1216)
 position = Vector2(2752, 1216)
 
 [node name="StaticSpike8" parent="." index="11" instance=ExtResource("2_ac53n")]
-position = Vector2(2880, 1216)
+position = Vector2(4800, 1088)
 
 [node name="StaticSpike15" parent="." index="12" instance=ExtResource("2_ac53n")]
 position = Vector2(4288, 1216)
