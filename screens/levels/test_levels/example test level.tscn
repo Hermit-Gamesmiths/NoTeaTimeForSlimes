@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_3el67"]
 [ext_resource type="PackedScene" uid="uid://6nkop7jeeef4" path="res://scenes/props/heavy_edible.tscn" id="5_cg1a2"]
 [ext_resource type="PackedScene" uid="uid://hiq6iaxb4qm6" path="res://scenes/props/base_props/base_falling_block.tscn" id="6_c7x47"]
-[ext_resource type="PackedScene" path="res://scenes/props/falling_platform.tscn" id="8_mf5ch"]
+[ext_resource type="PackedScene" uid="uid://daxx147lqg3xd" path="res://scenes/props/falling_platform.tscn" id="8_mf5ch"]
 [ext_resource type="PackedScene" uid="uid://bbrncbyfup508" path="res://scenes/props/example_props/phasing_falling_block.tscn" id="8_yqbnx"]
 [ext_resource type="PackedScene" uid="uid://cv826n24fjllm" path="res://scenes/props/example_props/crushing_trap.tscn" id="9_7wxdi"]
 [ext_resource type="PackedScene" uid="uid://da6ob0p0b2wih" path="res://scenes/props/base_props/static_spike.tscn" id="10_s8n2x"]
