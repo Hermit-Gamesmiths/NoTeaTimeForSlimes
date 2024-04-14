@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bpi7jy48rc0e0"]
+[gd_scene load_steps=38 format=3 uid="uid://bpi7jy48rc0e0"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_072ya"]
 [ext_resource type="Texture2D" uid="uid://bc33o3ph4b6am" path="res://sprites/characters/player_background_layer.png" id="2_b7wxg"]
@@ -284,6 +284,10 @@ advance_mode = 2
 advance_mode = 2
 advance_expression = "abs(velocity.x) < 0.1"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o8c3x"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_slkgl"]
 states/Start/position = Vector2(132, 100)
 states/eat/node = SubResource("AnimationNodeAnimation_e5msr")
@@ -300,8 +304,8 @@ states/land/node = SubResource("AnimationNodeAnimation_b538j")
 states/land/position = Vector2(542, -97.5)
 states/walk/node = SubResource("AnimationNodeAnimation_2r0jh")
 states/walk/position = Vector2(453.5, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_4f584"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_a7h3w"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_abhvv"), "fall", "land", SubResource("AnimationNodeStateMachineTransition_e76w0"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ekv7w"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_r5jol"), "idle", "eat", SubResource("AnimationNodeStateMachineTransition_3sjxm"), "walk", "eat", SubResource("AnimationNodeStateMachineTransition_2x3tu"), "land", "idle", SubResource("AnimationNodeStateMachineTransition_fvksl"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2c4by")]
-graph_offset = Vector2(-620, -180)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_4f584"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_a7h3w"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_abhvv"), "fall", "land", SubResource("AnimationNodeStateMachineTransition_e76w0"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ekv7w"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_r5jol"), "idle", "eat", SubResource("AnimationNodeStateMachineTransition_3sjxm"), "walk", "eat", SubResource("AnimationNodeStateMachineTransition_2x3tu"), "land", "idle", SubResource("AnimationNodeStateMachineTransition_fvksl"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2c4by"), "eat", "idle", SubResource("AnimationNodeStateMachineTransition_o8c3x")]
+graph_offset = Vector2(-404, -142)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache", "spit_location", "front_ray", "back_ray", "animation")]
 collision_layer = 16

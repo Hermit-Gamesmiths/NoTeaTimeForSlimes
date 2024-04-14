@@ -11,11 +11,13 @@ func _ready() -> void:
 
 func pack(target) -> void:
 	# TODO: send true and animate flowing into the player/shrinking using a tween.
-	self.reparent(target, false)
+	self.reparent(target, true)
 	parent.get_parent().remove_child(parent)
+	global_rotation = 0
 
 
 func unpack(world: Node, location: Vector2) -> void:
 	world.add_child(parent)
 	parent.global_position = location
-	self.reparent(parent, false)
+	self.reparent(parent, true)
+	global_rotation = 0

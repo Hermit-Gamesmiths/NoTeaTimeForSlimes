@@ -97,18 +97,29 @@ func get_gravity() -> Vector2:
 # Eating Stuff
 
 func swallow():
-	print("swallowing")
 	state = State.Eating
+	state_machine.travel("eat")
 	var edibles = swallow_checker.get_overlapping_areas()
 	if len(edibles) == 0:
 		return
+
 	var edible = edibles[0]
 	edible.pack(stomache)
+
+	var color = stomache.modulate
+	stomache.modulate = Color.WHITE
+	await get_tree().create_timer(.25).timeout
+	var anim = create_tween()
+	var duration = .1
+
+	anim.tween_property(edible, "position", Vector2.ZERO, duration)
+	anim.parallel().tween_property(edible, "scale", Vector2.ONE, duration)
+	anim.parallel().tween_property(stomache, "modulate", color, duration)
 
 
 func spit():
 	state = State.Eating
-	var edible = stomache.get_child(0)
+	var edible = stomache.get_child(0) as Node2D
 	if front_ray.is_colliding():
 		var front_distance = abs(front_ray.get_collision_point().x - front_ray.global_position.x)
 		if back_ray.is_colliding():
@@ -126,3 +137,8 @@ func spit():
 		# TODO: tween backward then spit.
 
 	edible.unpack(get_parent(), spit_location.global_position)
+
+	var anim = create_tween()
+	var duration = .1
+	anim.tween_property(edible, "position", Vector2.ZERO, duration)
+	anim.parallel().tween_property(edible, "global_scale", Vector2.ONE, duration)
