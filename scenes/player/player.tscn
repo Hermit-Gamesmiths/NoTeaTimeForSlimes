@@ -227,7 +227,7 @@ _data = {
 "walk": SubResource("Animation_t8yt0")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache", "spit_location", "front_ray", "back_ray")]
 collision_layer = 16
 collision_mask = 33
 platform_on_leave = 2
@@ -237,6 +237,9 @@ hitbox = NodePath("hitbox")
 model = NodePath("Model")
 swallow_checker = NodePath("Model/SwallowChecker")
 stomache = NodePath("Model/Stomache")
+spit_location = NodePath("Model/SpitLocation")
+front_ray = NodePath("Model/Rays/FrontRay")
+back_ray = NodePath("Model/Rays/BackRay")
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 16
@@ -249,6 +252,19 @@ shape = SubResource("RectangleShape2D_2xboy")
 debug_color = Color(0.960784, 0, 0.505882, 0.419608)
 
 [node name="Model" type="Node2D" parent="."]
+
+[node name="Rays" type="Node2D" parent="Model"]
+
+[node name="FrontRay" type="RayCast2D" parent="Model/Rays"]
+position = Vector2(55, 0)
+target_position = Vector2(128, 0)
+collision_mask = 33
+
+[node name="BackRay" type="RayCast2D" parent="Model/Rays"]
+position = Vector2(-55, 0)
+rotation = 3.14159
+target_position = Vector2(128, 0)
+collision_mask = 33
 
 [node name="SpriteBGLayer" type="Sprite2D" parent="Model"]
 position = Vector2(0, -3)
@@ -272,6 +288,9 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Model/SwallowChecker"]
 shape = SubResource("CircleShape2D_u300o")
+
+[node name="SpitLocation" type="Node2D" parent="Model"]
+position = Vector2(124, 0)
 
 [node name="Collider_box" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.5)

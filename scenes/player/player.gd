@@ -9,6 +9,10 @@ extends CharacterBody2D
 @export var model: Node2D
 @export var swallow_checker: Area2D
 @export var stomache: Node2D
+@export var spit_location: Node2D
+
+@export var front_ray:RayCast2D
+@export var back_ray:RayCast2D
 
 # 1 = right, -1 = left
 var facing: int = 1
@@ -82,4 +86,20 @@ func swallow():
 
 func spit():
 	var edible = stomache.get_child(0)
-	edible.unpack(get_parent(), self.position + Vector2(Const.TILE_SIZE * facing, 0))
+	if front_ray.is_colliding():
+		var front_distance = abs(front_ray.get_collision_point().x - front_ray.global_position.x)
+		if back_ray.is_colliding():
+			var back_distance = abs(back_ray.get_collision_point().x - back_ray.global_position.x)
+
+			if front_distance + back_distance <= Const.TILE_SIZE:
+				var error_flash = create_tween()
+				error_flash.tween_property(self, "modulate", Color.ORANGE_RED, .3)
+				error_flash.chain().tween_property(self, "modulate", Color.WHITE, .3)
+				return
+			# Abort!
+
+		var distance = 128 - front_distance
+		move_and_collide(Vector2(distance * -facing, 0))
+		# tween backward then spit.
+
+	edible.unpack(get_parent(), spit_location.global_position)

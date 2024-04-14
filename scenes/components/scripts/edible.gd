@@ -17,5 +17,5 @@ func pack(target) -> void:
 
 func unpack(world: Node, location: Vector2) -> void:
 	world.add_child(parent)
-	parent.position = location
+	parent.global_position = location
 	self.reparent(parent, false)
