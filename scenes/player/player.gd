@@ -27,6 +27,7 @@ enum State {
 @onready var state_machine := animation.get("parameters/playback") as AnimationNodeStateMachinePlayback
 
 var state: State = State.Idle
+var is_dead: bool = false
 
 # 1 = right, -1 = left
 var facing: int = 1
@@ -35,6 +36,7 @@ func _ready() -> void:
 	hitbox.on_hit.connect(die)
 
 func _physics_process(delta: float) -> void:
+	if is_dead: return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -83,6 +85,9 @@ func current_jump() -> Jump:
 
 
 func die():
+	is_dead = true
+	state_machine.start("hurt")
+	await animation.animation_finished
 	Events.player_died.emit()
 
 

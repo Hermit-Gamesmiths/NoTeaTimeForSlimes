@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsh1awg0wgqpt"]
+[gd_scene load_steps=10 format=3 uid="uid://bsh1awg0wgqpt"]
 
 [ext_resource type="Script" path="res://screens/level.gd" id="1_000un"]
 [ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="2_ktw6o"]
 [ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="3_hqakr"]
 [ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_aaj1u"]
 [ext_resource type="PackedScene" uid="uid://6nkop7jeeef4" path="res://scenes/props/heavy_edible.tscn" id="5_bmbm5"]
+[ext_resource type="PackedScene" uid="uid://da6ob0p0b2wih" path="res://scenes/props/base_props/static_spike.tscn" id="6_cc5p6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bgw11"]
 texture = ExtResource("2_ktw6o")
@@ -49,3 +50,6 @@ position = Vector2(196, 1200)
 
 [node name="HeavyEdible" parent="." instance=ExtResource("5_bmbm5")]
 position = Vector2(1088, 1216)
+
+[node name="StaticSpike" parent="." instance=ExtResource("6_cc5p6")]
+position = Vector2(576, 1216)
