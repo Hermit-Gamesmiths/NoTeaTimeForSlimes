@@ -32,17 +32,26 @@ var is_dead: bool = false
 # 1 = right, -1 = left
 var facing: int = 1
 
+@export var coyote_time = .1
+var time_since_floor:float = 0
+var is_jump: bool = false
+
 func _ready() -> void:
 	hitbox.on_hit.connect(die)
 
 func _physics_process(delta: float) -> void:
 	if is_dead: return
+
 	# Add the gravity.
-	if not is_on_floor():
+	if is_on_floor():
+		time_since_floor = 0
+		is_jump = false
+	else:
+		time_since_floor += delta
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!is_jump and time_since_floor < coyote_time)):
 		jump()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -92,6 +101,7 @@ func die():
 
 
 func jump() -> void:
+	is_jump = true
 	state = State.Jumping
 	velocity.y = current_jump().jump_velocity()
 
