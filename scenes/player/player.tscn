@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bpi7jy48rc0e0"]
+[gd_scene load_steps=40 format=3 uid="uid://bpi7jy48rc0e0"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_072ya"]
 [ext_resource type="Texture2D" uid="uid://bc33o3ph4b6am" path="res://sprites/characters/player_background_layer.png" id="2_b7wxg"]
@@ -309,7 +309,10 @@ graph_offset = Vector2(-404, -142)
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_i587q"]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache", "spit_location", "front_ray", "back_ray", "animation")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvq6g"]
+size = Vector2(52, 80)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache", "spit_location", "front_ray", "back_ray", "crush_box", "animation")]
 collision_layer = 16
 collision_mask = 33
 platform_on_leave = 2
@@ -323,6 +326,7 @@ stomache = NodePath("Model/Stomache")
 spit_location = NodePath("Model/SpitLocation")
 front_ray = NodePath("Model/Rays/FrontRay")
 back_ray = NodePath("Model/Rays/BackRay")
+crush_box = NodePath("CrushBox")
 animation = NodePath("AnimationTree")
 
 [node name="hitbox" type="Area2D" parent="."]
@@ -410,3 +414,12 @@ shape = SubResource("SeparationRayShape2D_i587q")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-45, 34)
 shape = SubResource("SeparationRayShape2D_i587q")
+
+[node name="CrushBox" type="Area2D" parent="."]
+position = Vector2(0, 14)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrushBox"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_qvq6g")
+debug_color = Color(0.968627, 0, 0.470588, 0.419608)

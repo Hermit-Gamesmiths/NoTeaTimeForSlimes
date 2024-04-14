@@ -21,6 +21,7 @@ enum State {
 
 @export var front_ray:RayCast2D
 @export var back_ray:RayCast2D
+@export var crush_box: Area2D
 
 @export var animation:AnimationTree
 
@@ -41,6 +42,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_dead: return
+	if crush_box.has_overlapping_bodies():
+		die()
 
 	# Add the gravity.
 	if is_on_floor():
