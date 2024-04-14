@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi2su3v4t86kd"]
+[gd_scene load_steps=15 format=3 uid="uid://bi2su3v4t86kd"]
 
 [ext_resource type="Script" path="res://screens/level.gd" id="1_k78yu"]
 [ext_resource type="TileSet" uid="uid://c8v4sw3txrunf" path="res://tiles/default_tiles.tres" id="2_tuj48"]
@@ -10,6 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://bbrncbyfup508" path="res://scenes/props/example_props/phasing_falling_block.tscn" id="8_yqbnx"]
 [ext_resource type="PackedScene" uid="uid://cv826n24fjllm" path="res://scenes/props/example_props/crushing_trap.tscn" id="9_7wxdi"]
 [ext_resource type="PackedScene" uid="uid://da6ob0p0b2wih" path="res://scenes/props/base_props/static_spike.tscn" id="10_s8n2x"]
+[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="11_i7wwk"]
+[ext_resource type="PackedScene" uid="uid://cdg78ixm1xjq4" path="res://scenes/props/hidden_spikes.tscn" id="11_xuy57"]
+[ext_resource type="PackedScene" uid="uid://do7wfpobvc8dq" path="res://scenes/components/timer_activator.tscn" id="13_30qbp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ik517"]
+radius = 128.0
 
 [node name="DefaultTestLevel" type="Node2D"]
 script = ExtResource("1_k78yu")
@@ -45,3 +51,50 @@ position = Vector2(1472, 704)
 [node name="StaticSpike" parent="CrushingTrap2" instance=ExtResource("10_s8n2x")]
 position = Vector2(0, 128)
 rotation = -3.14159
+
+[node name="HiddenSpikes" parent="." instance=ExtResource("11_xuy57")]
+position = Vector2(1344, 1216)
+
+[node name="ProximityActivator" parent="HiddenSpikes" instance=ExtResource("11_i7wwk")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ik517")
+
+[node name="HiddenSpikes2" parent="." instance=ExtResource("11_xuy57")]
+position = Vector2(1216, 1216)
+
+[node name="ProximityActivator" parent="HiddenSpikes2" instance=ExtResource("11_i7wwk")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes2/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ik517")
+
+[node name="HiddenSpikes3" parent="." instance=ExtResource("11_xuy57")]
+position = Vector2(1088, 1216)
+
+[node name="ProximityActivator" parent="HiddenSpikes3" instance=ExtResource("11_i7wwk")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes3/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ik517")
+
+[node name="HiddenSpikes4" parent="." instance=ExtResource("11_xuy57")]
+position = Vector2(960, 1216)
+
+[node name="ProximityActivator" parent="HiddenSpikes4" instance=ExtResource("11_i7wwk")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes4/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ik517")
+
+[node name="HiddenSpikes5" parent="." instance=ExtResource("11_xuy57")]
+position = Vector2(1984, 1216)
+
+[node name="TimerActivator" parent="HiddenSpikes5" instance=ExtResource("13_30qbp")]
+
+[node name="HiddenSpikes6" parent="." instance=ExtResource("11_xuy57")]
+position = Vector2(2240, 1216)
+
+[node name="TimerActivator" parent="HiddenSpikes6" instance=ExtResource("13_30qbp")]
+
+[editable path="HiddenSpikes/ProximityActivator"]
+[editable path="HiddenSpikes2/ProximityActivator"]
+[editable path="HiddenSpikes3/ProximityActivator"]
+[editable path="HiddenSpikes4/ProximityActivator"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbx24ip3bwt1m"]
 
-[ext_resource type="Script" path="res://scenes/props/level_end_door.gd" id="1_tdm86"]
+[ext_resource type="Script" path="res://scenes/props/scripts/level_end_door.gd" id="1_tdm86"]
 [ext_resource type="Texture2D" uid="uid://c2dv8k1pj80g5" path="res://scenes/props/prop_assets/ugly_open_door.png" id="2_dmgg1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1ccf"]
