@@ -97,6 +97,9 @@ func current_jump() -> Jump:
 	return default_jump
 
 
+func hurt():
+	die()
+
 func die():
 	is_dead = true
 	state_machine.start("hurt")

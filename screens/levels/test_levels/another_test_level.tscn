@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsh1awg0wgqpt"]
+[gd_scene load_steps=14 format=3 uid="uid://bsh1awg0wgqpt"]
 
 [ext_resource type="Script" path="res://screens/level.gd" id="1_000un"]
 [ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="2_ktw6o"]
 [ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="3_hqakr"]
 [ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_aaj1u"]
 [ext_resource type="PackedScene" uid="uid://6nkop7jeeef4" path="res://scenes/props/heavy_edible.tscn" id="5_bmbm5"]
-[ext_resource type="PackedScene" uid="uid://hiq6iaxb4qm6" path="res://scenes/props/base_props/base_falling_block.tscn" id="6_gmoo4"]
-[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="7_wkogd"]
+[ext_resource type="PackedScene" uid="uid://cth7s51ryj0vi" path="res://scenes/props/base_props/base_shooty_block.tscn" id="6_52yie"]
+[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="7_15ome"]
+[ext_resource type="PackedScene" uid="uid://21um6ed7kjxe" path="res://scenes/props/example_props/timed_shooter.tscn" id="8_m6n3s"]
+[ext_resource type="PackedScene" uid="uid://fot8rbjx42vs" path="res://scenes/props/example_props/sightline_shooter_block.tscn" id="9_dgiff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bgw11"]
 texture = ExtResource("2_ktw6o")
@@ -37,8 +39,8 @@ physics_layer_1/collision_mask = 16
 sources/0 = SubResource("TileSetAtlasSource_bgw11")
 sources/1 = SubResource("TileSetScenesCollectionSource_suyss")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcguo"]
-size = Vector2(20, 906)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frnx0"]
+size = Vector2(819, 20)
 
 [node name="AnotherTestLevel" type="Node2D"]
 script = ExtResource("1_000un")
@@ -56,14 +58,20 @@ coyote_time = 0.15
 [node name="HeavyEdible" parent="." instance=ExtResource("5_bmbm5")]
 position = Vector2(1088, 1216)
 
-[node name="BaseFallingBlock" parent="." instance=ExtResource("6_gmoo4")]
-position = Vector2(192, 448)
+[node name="ShootyBlock" parent="." instance=ExtResource("6_52yie")]
+position = Vector2(704, 1216)
 
-[node name="ProximityActivator" parent="BaseFallingBlock/FallingComponent" index="1" instance=ExtResource("7_wkogd")]
+[node name="ProximityActivator" parent="ShootyBlock/ProjectileShooterComponent" index="1" instance=ExtResource("7_15ome")]
 
-[node name="CollisionShape2D" parent="BaseFallingBlock/FallingComponent/ProximityActivator" index="0"]
-position = Vector2(0, 443)
-shape = SubResource("RectangleShape2D_wcguo")
+[node name="CollisionShape2D" parent="ShootyBlock/ProjectileShooterComponent/ProximityActivator" index="0"]
+position = Vector2(-399.5, 0)
+shape = SubResource("RectangleShape2D_frnx0")
 
-[editable path="BaseFallingBlock"]
-[editable path="BaseFallingBlock/FallingComponent/ProximityActivator"]
+[node name="ShootyBlock2" parent="." instance=ExtResource("8_m6n3s")]
+position = Vector2(832, 960)
+
+[node name="ShootyBlock3" parent="." instance=ExtResource("9_dgiff")]
+position = Vector2(832, 832)
+
+[editable path="ShootyBlock"]
+[editable path="ShootyBlock/ProjectileShooterComponent/ProximityActivator"]
