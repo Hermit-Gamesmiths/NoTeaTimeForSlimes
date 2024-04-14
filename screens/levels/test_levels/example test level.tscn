@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi2su3v4t86kd"]
+
+[ext_resource type="Script" path="res://screens/level.gd" id="1_k78yu"]
+[ext_resource type="TileSet" uid="uid://c8v4sw3txrunf" path="res://tiles/default_tiles.tres" id="2_tuj48"]
+[ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="3_w6o8a"]
+[ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_3el67"]
+[ext_resource type="PackedScene" uid="uid://bpdyh51bynks2" path="res://scenes/props/heavy_edible.tscn" id="5_cg1a2"]
+[ext_resource type="PackedScene" uid="uid://hiq6iaxb4qm6" path="res://scenes/props/base_props/base_falling_block.tscn" id="6_c7x47"]
+[ext_resource type="PackedScene" uid="uid://b0ftdiycda1no" path="res://scenes/props/falling_platform.tscn" id="8_mf5ch"]
+[ext_resource type="PackedScene" uid="uid://bbrncbyfup508" path="res://scenes/props/example_props/phasing_falling_block.tscn" id="8_yqbnx"]
+
+[node name="DefaultTestLevel" type="Node2D"]
+script = ExtResource("1_k78yu")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_tuj48")
+format = 2
+layer_0/tile_data = PackedInt32Array(655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 262144, 0, 0, 196608, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_w6o8a")]
+position = Vector2(960, 448)
+
+[node name="LevelEndDoor" parent="." instance=ExtResource("4_3el67")]
+position = Vector2(2112, 1216)
+
+[node name="HeavyEdible" parent="." instance=ExtResource("5_cg1a2")]
+position = Vector2(1472, 448)
+
+[node name="BaseFallingBlock" parent="." instance=ExtResource("6_c7x47")]
+position = Vector2(704, 832)
+
+[node name="FallingPlatform" parent="." instance=ExtResource("8_mf5ch")]
+position = Vector2(1728, 576)
+
+[node name="BaseFallingBlock2" parent="." instance=ExtResource("8_yqbnx")]
+position = Vector2(320, 832)

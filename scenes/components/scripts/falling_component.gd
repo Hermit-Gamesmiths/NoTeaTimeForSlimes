@@ -6,10 +6,13 @@ extends Node
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	var parent: PhysicsBody2D = get_parent()
+	var parent: CharacterBody2D = get_parent()
 	if is_active:
-		parent.move_and_collide(Vector2(0, falling_speed) * delta)
+		parent.velocity = Vector2(0, falling_speed)
+		parent.move_and_slide()
+		# parent.move_and_collide(Vector2(0, falling_speed) * delta)
 	pass
 
 func activate() -> void:
+	print("activating fall")
 	is_active = true

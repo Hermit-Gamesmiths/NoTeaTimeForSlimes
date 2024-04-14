@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://hiq6iaxb4qm6"]
+
+[ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="1_3v0mp"]
+[ext_resource type="PackedScene" uid="uid://bdp16s8h4ndp0" path="res://scenes/components/contact_activator.tscn" id="2_wahol"]
+[ext_resource type="Texture2D" uid="uid://0yfilf2doghq" path="res://scenes/props/prop_assets/rock.png" id="3_aa5rk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puar5"]
+size = Vector2(383, 639)
+
+[node name="BaseFallingBlock" type="CharacterBody2D"]
+collision_mask = 9
+
+[node name="FallingComponent" parent="." instance=ExtResource("1_3v0mp")]
+
+[node name="ContactActivator" parent="FallingComponent" node_paths=PackedStringArray("body") instance=ExtResource("2_wahol")]
+body = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_puar5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, -5)
+texture = ExtResource("3_aa5rk")

@@ -52,6 +52,7 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider() as Node
 		if collider.has_meta(ContactActivator.COLLISION_LISTENER):
+			print("got listener")
 			collider.get_meta(ContactActivator.COLLISION_LISTENER).on_collision()
 
 
