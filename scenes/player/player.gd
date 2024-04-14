@@ -100,6 +100,6 @@ func spit():
 
 		var distance = 128 - front_distance
 		move_and_collide(Vector2(distance * -facing, 0))
-		# tween backward then spit.
+		# TODO: tween backward then spit.
 
 	edible.unpack(get_parent(), spit_location.global_position)

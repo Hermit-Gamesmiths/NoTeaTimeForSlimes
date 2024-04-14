@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwaf0r1ydb085"]
+[gd_scene load_steps=11 format=3 uid="uid://cwaf0r1ydb085"]
 
 [ext_resource type="TileSet" uid="uid://c8v4sw3txrunf" path="res://tiles/default_tiles.tres" id="1_cqu7a"]
 [ext_resource type="Script" path="res://screens/level.gd" id="1_qm5qm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpdyh51bynks2" path="res://scenes/props/heavy_edible.tscn" id="4_hkcwd"]
 [ext_resource type="PackedScene" uid="uid://cdg78ixm1xjq4" path="res://scenes/props/hidden_spikes.tscn" id="6_imj8e"]
 [ext_resource type="PackedScene" uid="uid://b0ftdiycda1no" path="res://scenes/props/falling_platform.tscn" id="7_cxwbi"]
+[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="7_esvuf"]
 [ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="8_y2ywt"]
 [ext_resource type="PackedScene" uid="uid://bdp16s8h4ndp0" path="res://scenes/components/contact_activator.tscn" id="9_iv1cb"]
 
@@ -29,6 +30,8 @@ position = Vector2(577, 1216)
 
 [node name="HiddenSpikes" parent="." instance=ExtResource("6_imj8e")]
 position = Vector2(1600, 1216)
+
+[node name="ProximityActivator" parent="HiddenSpikes" instance=ExtResource("7_esvuf")]
 
 [node name="FallingPlatform" parent="." instance=ExtResource("7_cxwbi")]
 position = Vector2(1088, 576)
