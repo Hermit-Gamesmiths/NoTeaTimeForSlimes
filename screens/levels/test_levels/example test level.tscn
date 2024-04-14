@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bi2su3v4t86kd"]
+[gd_scene load_steps=11 format=3 uid="uid://bi2su3v4t86kd"]
 
 [ext_resource type="Script" path="res://screens/level.gd" id="1_k78yu"]
 [ext_resource type="TileSet" uid="uid://c8v4sw3txrunf" path="res://tiles/default_tiles.tres" id="2_tuj48"]
@@ -6,17 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_3el67"]
 [ext_resource type="PackedScene" uid="uid://bpdyh51bynks2" path="res://scenes/props/heavy_edible.tscn" id="5_cg1a2"]
 [ext_resource type="PackedScene" uid="uid://hiq6iaxb4qm6" path="res://scenes/props/base_props/base_falling_block.tscn" id="6_c7x47"]
-[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="7_dkfgu"]
-[ext_resource type="Texture2D" uid="uid://0yfilf2doghq" path="res://scenes/props/prop_assets/rock.png" id="8_epmym"]
 [ext_resource type="PackedScene" uid="uid://b0ftdiycda1no" path="res://scenes/props/falling_platform.tscn" id="8_mf5ch"]
 [ext_resource type="PackedScene" uid="uid://bbrncbyfup508" path="res://scenes/props/example_props/phasing_falling_block.tscn" id="8_yqbnx"]
-[ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="9_nbys2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwuo3"]
-size = Vector2(127, 127)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4677"]
-size = Vector2(200, 720)
+[ext_resource type="PackedScene" uid="uid://cv826n24fjllm" path="res://scenes/props/example_props/crushing_trap.tscn" id="9_7wxdi"]
+[ext_resource type="PackedScene" uid="uid://da6ob0p0b2wih" path="res://scenes/props/base_props/static_spike.tscn" id="10_s8n2x"]
 
 [node name="DefaultTestLevel" type="Node2D"]
 script = ExtResource("1_k78yu")
@@ -41,29 +34,14 @@ position = Vector2(704, 832)
 [node name="FallingPlatform" parent="." instance=ExtResource("8_mf5ch")]
 position = Vector2(1728, 576)
 
-[node name="BaseFallingBlock2" parent="." instance=ExtResource("8_yqbnx")]
+[node name="PhasingFallingBlock" parent="." instance=ExtResource("8_yqbnx")]
 position = Vector2(320, 832)
 
-[node name="CrushingTrap" type="CharacterBody2D" parent="."]
-position = Vector2(1600, 704)
+[node name="CrushingTrap" parent="." instance=ExtResource("9_7wxdi")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CrushingTrap"]
-shape = SubResource("RectangleShape2D_lwuo3")
+[node name="CrushingTrap2" parent="." instance=ExtResource("9_7wxdi")]
+position = Vector2(1472, 704)
 
-[node name="Sprite2D" type="Sprite2D" parent="CrushingTrap"]
-texture = ExtResource("8_epmym")
-
-[node name="FallingComponent" parent="CrushingTrap" instance=ExtResource("9_nbys2")]
-
-[node name="ProximityActivator2" parent="CrushingTrap/FallingComponent" instance=ExtResource("7_dkfgu")]
-position = Vector2(99, 269)
-
-[node name="ProximityActivator" parent="CrushingTrap/FallingComponent" instance=ExtResource("7_dkfgu")]
-telegraph_duration = 0.0
-
-[node name="CollisionShape2D" parent="CrushingTrap/FallingComponent/ProximityActivator" index="0"]
-position = Vector2(0, 260)
-shape = SubResource("RectangleShape2D_u4677")
-
-[editable path="CrushingTrap/FallingComponent/ProximityActivator2"]
-[editable path="CrushingTrap/FallingComponent/ProximityActivator"]
+[node name="StaticSpike" parent="CrushingTrap2" instance=ExtResource("10_s8n2x")]
+position = Vector2(0, 128)
+rotation = -3.14159

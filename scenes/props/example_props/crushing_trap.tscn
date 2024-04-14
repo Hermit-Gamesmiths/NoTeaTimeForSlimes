@@ -1,31 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://wopo4f6oyosm"]
+[gd_scene load_steps=6 format=3 uid="uid://cv826n24fjllm"]
 
-[ext_resource type="Texture2D" uid="uid://0yfilf2doghq" path="res://scenes/props/prop_assets/rock.png" id="1_6nwgv"]
-[ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="2_6h3rv"]
-[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="3_c4xm4"]
+[ext_resource type="Texture2D" uid="uid://0yfilf2doghq" path="res://scenes/props/prop_assets/rock.png" id="1_b6eki"]
+[ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="2_0h6rs"]
+[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="3_1mfs7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwuo3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6pxk"]
 size = Vector2(127, 127)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4677"]
-size = Vector2(200, 720)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqe0o"]
+size = Vector2(180, 650)
 
 [node name="CrushingTrap" type="CharacterBody2D"]
 position = Vector2(1600, 704)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lwuo3")
+shape = SubResource("RectangleShape2D_u6pxk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6nwgv")
+texture = ExtResource("1_b6eki")
 
-[node name="FallingComponent" parent="." instance=ExtResource("2_6h3rv")]
+[node name="FallingComponent" parent="." instance=ExtResource("2_0h6rs")]
 
-[node name="ProximityActivator" parent="FallingComponent" instance=ExtResource("3_c4xm4")]
-telegraph_duration = 0.0
+[node name="ProximityActivator" parent="FallingComponent" instance=ExtResource("3_1mfs7")]
 
 [node name="CollisionShape2D" parent="FallingComponent/ProximityActivator" index="0"]
-position = Vector2(0, 260)
-shape = SubResource("RectangleShape2D_u4677")
+position = Vector2(0, 315)
+shape = SubResource("RectangleShape2D_uqe0o")
 
 [editable path="FallingComponent/ProximityActivator"]
