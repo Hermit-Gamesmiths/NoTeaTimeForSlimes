@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://baaoqn45jviin"]
+[gd_scene load_steps=2 format=3 uid="uid://baaoqn45jviin"]
 
 [ext_resource type="Script" path="res://scenes/components/scripts/proximity_activator.gd" id="1_c05sl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixkfp"]
-size = Vector2(200, 200)
 
 [node name="ProximityActivator" type="Area2D"]
 collision_layer = 0
@@ -11,5 +8,4 @@ collision_mask = 16
 script = ExtResource("1_c05sl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ixkfp")
 debug_color = Color(0.811765, 0.701961, 0, 0.156863)
