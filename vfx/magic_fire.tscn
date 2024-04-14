@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl6twdxf4mimc"]
+
+[ext_resource type="Texture2D" uid="uid://bqxer7pu2te2w" path="res://vfx/smoke.png" id="1_271pa"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k3b4s"]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nw4ac"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(12, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, -80, 0)
+scale_min = 0.8
+scale_max = 1.2
+hue_variation_min = 0.08
+hue_variation_max = 0.26
+anim_speed_min = 0.9
+anim_speed_max = 1.9
+
+[node name="MagicFire" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_k3b4s")
+position = Vector2(-198.333, -36.6667)
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_nw4ac")
+texture = ExtResource("1_271pa")
+lifetime = 2.0

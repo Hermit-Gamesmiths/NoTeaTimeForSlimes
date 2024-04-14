@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpdyh51bynks2"]
+[gd_scene load_steps=6 format=3 uid="uid://6nkop7jeeef4"]
 
 [ext_resource type="PackedScene" uid="uid://mlwnevoxeu2j" path="res://scenes/components/edible_component.tscn" id="1_dpcko"]
 [ext_resource type="Resource" uid="uid://dadkngpdtgwav" path="res://resources/jumps/low_jump.tres" id="2_vg3w2"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="4_lsvfj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne68p"]
-size = Vector2(120, 120)
+size = Vector2(102, 120)
 
 [node name="HeavyEdible" type="CharacterBody2D"]
 

@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb7vatswpwrdt"]
+
+[ext_resource type="PackedScene" uid="uid://71o8tn14lams" path="res://screens/levels/base_level.tscn" id="1_kpal8"]
+[ext_resource type="PackedScene" uid="uid://6nkop7jeeef4" path="res://scenes/props/heavy_edible.tscn" id="2_3lk0u"]
+[ext_resource type="PackedScene" uid="uid://6p4ll2ybh51e" path="res://scenes/props/hidden_spikes.tscn" id="3_4fbh3"]
+[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="4_bmhwb"]
+[ext_resource type="PackedScene" uid="uid://do7wfpobvc8dq" path="res://scenes/components/timer_activator.tscn" id="5_plxgp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ei71n"]
+radius = 128.0
+
+[node name="BaseLevel" instance=ExtResource("1_kpal8")]
+
+[node name="HeavyEdible" parent="." index="3" instance=ExtResource("2_3lk0u")]
+position = Vector2(192, 1088)
+
+[node name="HiddenSpikes37" parent="." index="4" instance=ExtResource("3_4fbh3")]
+position = Vector2(1088, 1472)
+
+[node name="ProximityActivator" parent="HiddenSpikes37" index="4" instance=ExtResource("4_bmhwb")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes37/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ei71n")
+
+[node name="HiddenSpikes38" parent="." index="5" instance=ExtResource("3_4fbh3")]
+position = Vector2(1216, 1472)
+
+[node name="ProximityActivator" parent="HiddenSpikes38" index="4" instance=ExtResource("4_bmhwb")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes38/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ei71n")
+
+[node name="HiddenSpikes39" parent="." index="6" instance=ExtResource("3_4fbh3")]
+position = Vector2(1472, 1472)
+
+[node name="ProximityActivator" parent="HiddenSpikes39" index="4" instance=ExtResource("4_bmhwb")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes39/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ei71n")
+
+[node name="HiddenSpikes40" parent="." index="7" instance=ExtResource("3_4fbh3")]
+position = Vector2(1600, 1472)
+
+[node name="ProximityActivator" parent="HiddenSpikes40" index="4" instance=ExtResource("4_bmhwb")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes40/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ei71n")
+
+[node name="HiddenSpikes41" parent="." index="8" instance=ExtResource("3_4fbh3")]
+position = Vector2(1856, 1472)
+
+[node name="ProximityActivator" parent="HiddenSpikes41" index="4" instance=ExtResource("4_bmhwb")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes41/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ei71n")
+
+[node name="HiddenSpikes42" parent="." index="9" instance=ExtResource("3_4fbh3")]
+position = Vector2(1984, 1472)
+
+[node name="ProximityActivator" parent="HiddenSpikes42" index="4" instance=ExtResource("4_bmhwb")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes42/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ei71n")
+
+[node name="HiddenSpikes43" parent="." index="10" instance=ExtResource("3_4fbh3")]
+position = Vector2(1600, 832)
+
+[node name="ProximityActivator" parent="HiddenSpikes43" index="4" instance=ExtResource("4_bmhwb")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes43/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ei71n")
+
+[node name="HiddenSpikes46" parent="." index="11" instance=ExtResource("3_4fbh3")]
+position = Vector2(1344, 832)
+
+[node name="ProximityActivator" parent="HiddenSpikes46" index="4" instance=ExtResource("4_bmhwb")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes46/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ei71n")
+
+[node name="HiddenSpikes44" parent="." index="12" instance=ExtResource("3_4fbh3")]
+position = Vector2(1600, 576)
+
+[node name="ProximityActivator" parent="HiddenSpikes44" index="4" instance=ExtResource("4_bmhwb")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes44/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ei71n")
+
+[node name="HiddenSpikes13" parent="." index="13" instance=ExtResource("3_4fbh3")]
+position = Vector2(2944, 2624)
+
+[node name="TimerActivator" parent="HiddenSpikes13" index="4" instance=ExtResource("5_plxgp")]
+
+[node name="HiddenSpikes12" parent="." index="14" instance=ExtResource("3_4fbh3")]
+position = Vector2(2112, 1472)
+
+[node name="TimerActivator" parent="HiddenSpikes12" index="4" instance=ExtResource("5_plxgp")]
+
+[node name="HiddenSpikes11" parent="." index="15" instance=ExtResource("3_4fbh3")]
+position = Vector2(1344, 576)
+
+[node name="TimerActivator" parent="HiddenSpikes11" index="4" instance=ExtResource("5_plxgp")]
+
+[node name="HiddenSpikes10" parent="." index="16" instance=ExtResource("3_4fbh3")]
+position = Vector2(1728, 832)
+
+[node name="TimerActivator" parent="HiddenSpikes10" index="4" instance=ExtResource("5_plxgp")]
+
+[node name="HiddenSpikes45" parent="." index="17" instance=ExtResource("3_4fbh3")]
+position = Vector2(1216, 576)
+
+[node name="ProximityActivator" parent="HiddenSpikes45" index="4" instance=ExtResource("4_bmhwb")]
+
+[node name="CollisionShape2D" parent="HiddenSpikes45/ProximityActivator" index="0"]
+shape = SubResource("CircleShape2D_ei71n")
+
+[node name="HeavyEdible2" parent="." index="18" instance=ExtResource("2_3lk0u")]
+position = Vector2(832, 1472)
+
+[node name="HeavyEdible3" parent="." index="19" instance=ExtResource("2_3lk0u")]
+position = Vector2(1600, 320)
+
+[node name="TileMap" parent="." index="20"]
+layer_0/tile_data = PackedInt32Array(589823, 393217, 1, 524288, 65537, 1, 524289, 1, 3, 524290, 65537, 3, 524291, 1, 3, 524292, 1, 3, 524293, 393217, 3, 524294, 393217, 3, 524295, 1, 2, 524297, 131073, 4, 524298, 524289, 2, 524299, 393217, 2, 655359, 524289, 1, 589824, 65537, 0, 589825, 196609, 0, 589826, 262145, 1, 589827, 1, 1, 589828, 1, 0, 589829, 1, 1, 589830, 1, 1, 589831, 65537, 1, 589833, 262145, 1, 589834, 1, 1, 589835, 1, 0, 720895, 589825, 1, 655360, 327681, 0, 655361, 327681, 1, 655362, 327681, 0, 655363, 327681, 1, 655364, 458753, 0, 655365, 393217, 0, 655366, 524289, 2, 655367, 196609, 4, 655369, 327681, 1, 655370, 327681, 0, 655371, 589825, 0, 786431, 131073, 1, 720896, 393217, 1, 720897, 458753, 0, 720898, 524289, 0, 720899, 393217, 1, 720900, 524289, 1, 720901, 131073, 0, 720902, 393217, 3, 720903, 262145, 3, 720905, 65537, 3, 720906, 131073, 3, 720907, 262145, 3, 851967, 262145, 0, 786432, 327681, 1, 786433, 458753, 0, 786434, 458753, 0, 786435, 589825, 0, 786436, 589825, 0, 786437, 262145, 1, 786438, 65537, 1, 786439, 65537, 1, 786440, 196609, 1, 786441, 131073, 1, 786442, 196609, 0, 786443, 131073, 1, 917503, 196609, 1, 851968, 458753, 0, 851969, 393217, 1, 851970, 393217, 0, 851971, 589825, 0, 851972, 524289, 1, 851973, 327681, 0, 851974, 458753, 0, 851975, 327681, 1, 851976, 458753, 0, 851977, 458753, 0, 851978, 524289, 0, 851979, 524289, 0, 917504, 458753, 2, 983039, 327681, 2, 917505, 393217, 2, 917506, 524289, 2, 917507, 1, 2, 917508, 327681, 4, 917509, 131073, 2, 917510, 262145, 2, 917511, 196609, 2, 917512, 1, 2, 917513, 524289, 2, 917514, 589825, 2, 917515, 327681, 2, 131069, 262145, 1, 131070, 262145, 1, 131071, 131073, 0, 65536, 131073, 0, 196605, 196609, 1, 196606, 524289, 1, 196607, 393217, 0, 131072, 196609, 1, 262141, 131073, 1, 262142, 458753, 1, 262143, 524289, 1, 196608, 1, 0, 327677, 262145, 1, 327678, 524289, 1, 327679, 327681, 0, 262144, 131073, 0, 393213, 262145, 1, 393214, 589825, 1, 393215, 589825, 1, 327680, 262145, 0, 458749, 1, 0, 458750, 327681, 1, 458751, 458753, 0, 393216, 65537, 0, 524285, 196609, 1, 524286, 589825, 1, 524287, 524289, 0, 458752, 65537, 1, 589821, 65537, 0, 589822, 589825, 1, 655357, 131073, 1, 655358, 589825, 0, 65533, 458753, 3, 65534, 196609, 3, 720894, 262145, 2, 720893, 1, 2, 65535, 327681, 3, 0, 327681, 3, 524296, 1, 3, 720904, 196609, 2, 589832, 131073, 1, 655368, 524289, 0, 589836, 262145, 1, 589837, 1, 1, 589838, 131073, 1, 589839, 262145, 1, 589843, 262145, 3, 589844, 1, 0, 589846, 131073, 1, 589847, 65537, 1, 655372, 524289, 1, 655373, 524289, 0, 655374, 589825, 0, 655375, 1, 1, 655377, 524289, 3, 655379, 262145, 0, 655380, 131073, 0, 655382, 589825, 0, 655383, 131073, 1, 720908, 1, 3, 720909, 524289, 2, 720910, 589825, 2, 720911, 524289, 2, 720912, 393217, 3, 720913, 1, 1, 720914, 65537, 1, 720915, 196609, 0, 720916, 458753, 0, 720918, 524289, 1, 720919, 131073, 1, 786444, 196609, 0, 786445, 131073, 1, 786446, 131073, 1, 786447, 131073, 1, 786448, 262145, 1, 786449, 1, 1, 786450, 327681, 0, 786451, 589825, 0, 786452, 524289, 0, 786454, 589825, 1, 786455, 196609, 1, 851980, 393217, 1, 851981, 589825, 0, 851982, 327681, 1, 851983, 327681, 0, 851984, 524289, 1, 851985, 327681, 1, 851986, 327681, 0, 851987, 393217, 1, 851988, 458753, 1, 851990, 589825, 1, 851991, 131073, 0, 524300, 65537, 4, 917516, 196609, 2, 524301, 65537, 2, 917517, 589825, 2, 524302, 131073, 4, 917518, 589825, 2, 524303, 131073, 3, 917519, 458753, 2, 917520, 1, 2, 917521, 393217, 2, 917522, 196609, 2, 917523, 327681, 4, 917524, 65537, 2, 917526, 1, 2, 917527, 1, 2, 458762, 1, 1, 458763, 131073, 1, 393226, 196609, 4, 393227, 589825, 2, 458764, 262145, 0, 393228, 65537, 2, 327690, 262145, 0, 327691, 262145, 0, 327692, 1, 0, 262154, 589825, 3, 262155, 65537, 2, 262156, 1, 4, 196618, 1, 1, 196619, 131073, 1, 196620, 131073, 0, 131082, 131073, 4, 131083, 1, 3, 131084, 458753, 3, -65523, 1, 0, 13, 131073, 1, 65549, 262145, 1, 131085, 262145, 0, 196621, 1, 1, -131059, 131073, 3, 262157, 65537, 2, 8, 65537, 0, 65544, 65537, 1, 131080, 65537, 0, -65528, 1, 4, 327689, 262145, 1, 393225, 262145, 2, 262153, 196609, 3, 458765, 131073, 1, 393229, 1, 3, 196622, 196609, 1, 262158, 1, 0, 327694, 131073, 0, 393230, 1, 1, 458766, 65537, 1, 131086, 393217, 3, 393224, 524289, 0, 458760, 196609, 0, 327688, 131073, 1, 393223, 65537, 1, 458759, 262145, 1, 327687, 1, 0, 262151, 131073, 0, 262152, 131073, 0, 196616, 131073, 1, 7, 131073, 1, 65543, 196609, 0, 131079, 1, 0, 196615, 131073, 0, -65529, 524289, 3, 655378, 589825, 3, 720917, 393217, 1, 786453, 524289, 0, 851989, 458753, 0, 655381, 458753, 1, 917525, 458753, 2, 589845, 1, 1, 589849, 196609, 0, 655385, 65537, 1, 720921, 131073, 1, 786456, 65537, 4, 786457, 65537, 0, 524308, 589825, 3, 524309, 65537, 4, 524310, 196609, 0, 524311, 1, 0, 851992, 131073, 0, 524313, 131073, 1, 851993, 1, 0, 589850, 1, 0, 589851, 131073, 0, 589852, 131073, 1, 655386, 327681, 0, 655387, 327681, 1, 655388, 1, 0, 720922, 589825, 1, 720923, 458753, 1, 720924, 131073, 1, 786458, 589825, 0, 786459, 589825, 0, 786460, 65537, 0, 851994, 393217, 0, 851995, 327681, 0, 851996, 262145, 1, 917528, 1, 2, 917529, 1, 2, 524314, 262145, 1, 917530, 524289, 2, 524315, 458753, 3, 917531, 196609, 4, 524316, 65537, 3, 917532, 589825, 2, 458774, 65537, 3, 458775, 393217, 3, 458777, 1, 4, 458778, 196609, 3, 196632, 524289, 0, 262168, 458753, 1, 327704, 1, 0, 393240, 65537, 1, 131096, 393217, 1, 458776, 262145, 2, 24, 589825, 1, 25, 65537, 1, 65560, 589825, 1, 65561, 1, 0, 131097, 196609, 1, 196633, 131073, 0, -65512, 131073, 1, -65511, 1, 0, 262169, 327681, 4, -65513, 196609, 0, 23, 65537, 1, 65559, 196609, 0, 131095, 65537, 0, 196631, 1, 1, -131049, 589825, 3, -131048, 131073, 1, 262167, 393217, 2, -131047, 1, 0, -196584, 262145, 3, -196583, 1, 3)
+
+[editable path="HiddenSpikes37/ProximityActivator"]
+[editable path="HiddenSpikes38/ProximityActivator"]
+[editable path="HiddenSpikes39/ProximityActivator"]
+[editable path="HiddenSpikes40/ProximityActivator"]
+[editable path="HiddenSpikes41/ProximityActivator"]
+[editable path="HiddenSpikes42/ProximityActivator"]
+[editable path="HiddenSpikes43/ProximityActivator"]
+[editable path="HiddenSpikes46/ProximityActivator"]
+[editable path="HiddenSpikes44/ProximityActivator"]
+[editable path="HiddenSpikes45/ProximityActivator"]

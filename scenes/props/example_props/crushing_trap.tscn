@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv826n24fjllm"]
+[gd_scene load_steps=7 format=3 uid="uid://cv826n24fjllm"]
 
-[ext_resource type="Texture2D" uid="uid://0yfilf2doghq" path="res://scenes/props/prop_assets/rock.png" id="1_b6eki"]
+[ext_resource type="Texture2D" uid="uid://sp4tqbildyj2" path="res://sprites/props/fall_stone.png" id="1_n8jwt"]
+[ext_resource type="PackedScene" uid="uid://da6ob0p0b2wih" path="res://scenes/props/base_props/static_spike.tscn" id="1_rqujr"]
 [ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="2_0h6rs"]
 [ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="3_1mfs7"]
 
@@ -16,10 +17,15 @@ position = Vector2(1600, 704)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u6pxk")
 
+[node name="StaticSpike" parent="." instance=ExtResource("1_rqujr")]
+position = Vector2(0, 45)
+rotation = 3.14159
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_b6eki")
+texture = ExtResource("1_n8jwt")
 
 [node name="FallingComponent" parent="." instance=ExtResource("2_0h6rs")]
+falling_speed = 600
 
 [node name="ProximityActivator" parent="FallingComponent" instance=ExtResource("3_1mfs7")]
 

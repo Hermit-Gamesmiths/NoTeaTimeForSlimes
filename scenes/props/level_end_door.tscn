@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbx24ip3bwt1m"]
+[gd_scene load_steps=5 format=3 uid="uid://bbx24ip3bwt1m"]
 
 [ext_resource type="Script" path="res://scenes/props/scripts/level_end_door.gd" id="1_tdm86"]
-[ext_resource type="Texture2D" uid="uid://c2dv8k1pj80g5" path="res://scenes/props/prop_assets/ugly_open_door.png" id="2_dmgg1"]
+[ext_resource type="Texture2D" uid="uid://mvk73ryfrenv" path="res://sprites/props/door.png" id="2_e0x1a"]
+[ext_resource type="PackedScene" uid="uid://cl6twdxf4mimc" path="res://vfx/magic_fire.tscn" id="3_yesuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1ccf"]
 size = Vector2(64, 84)
@@ -10,9 +11,14 @@ size = Vector2(64, 84)
 script = ExtResource("1_tdm86")
 detector = NodePath("hitbox")
 
+[node name="MagicFire" parent="." instance=ExtResource("3_yesuw")]
+position = Vector2(-129, -12)
+
+[node name="MagicFire2" parent="." instance=ExtResource("3_yesuw")]
+position = Vector2(129, -15)
+
 [node name="UglyOpenDoor" type="Sprite2D" parent="."]
-position = Vector2(0, -10)
-texture = ExtResource("2_dmgg1")
+texture = ExtResource("2_e0x1a")
 
 [node name="hitbox" type="Area2D" parent="."]
 position = Vector2(0, -10)
