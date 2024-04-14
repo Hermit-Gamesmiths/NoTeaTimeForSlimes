@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpdyh51bynks2"]
+[gd_scene load_steps=6 format=3 uid="uid://6nkop7jeeef4"]
 
-[ext_resource type="Texture2D" uid="uid://0yfilf2doghq" path="res://scenes/props/prop_assets/rock.png" id="1_8n1f8"]
 [ext_resource type="PackedScene" uid="uid://mlwnevoxeu2j" path="res://scenes/components/edible_component.tscn" id="1_dpcko"]
 [ext_resource type="Resource" uid="uid://dadkngpdtgwav" path="res://resources/jumps/low_jump.tres" id="2_vg3w2"]
+[ext_resource type="Texture2D" uid="uid://bueqldrjy0c3r" path="res://sprites/props/stone.png" id="3_ecugc"]
 [ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="4_lsvfj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne68p"]
@@ -17,7 +17,8 @@ shape = SubResource("RectangleShape2D_ne68p")
 modified_jump = ExtResource("2_vg3w2")
 
 [node name="Rock" type="Sprite2D" parent="EdibleComponent"]
-texture = ExtResource("1_8n1f8")
+position = Vector2(0, 5)
+texture = ExtResource("3_ecugc")
 
 [node name="FallingComponent" parent="." instance=ExtResource("4_lsvfj")]
 is_active = true

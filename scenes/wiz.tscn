@@ -1,36 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgrfoafl16e8j"]
+[gd_scene load_steps=10 format=3 uid="uid://dgrfoafl16e8j"]
 
 [ext_resource type="Texture2D" uid="uid://bhd31ubycr8dg" path="res://sprites/characters/wiz.png" id="1_1e6ry"]
+[ext_resource type="Script" path="res://scenes/wiz.gd" id="1_lfc0i"]
 [ext_resource type="Texture2D" uid="uid://bqxer7pu2te2w" path="res://vfx/smoke.png" id="2_5vui6"]
-
-[sub_resource type="Animation" id="Animation_2innp"]
-resource_name = "idle"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GPUParticles2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-80, 33.3333)]
-}
 
 [sub_resource type="Animation" id="Animation_sjxae"]
 resource_name = "drink"
@@ -58,7 +30,36 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-22.5, -6.66667)]
+"values": [Vector2(-26.6667, -92.5)]
+}
+
+[sub_resource type="Animation" id="Animation_2innp"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GPUParticles2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-84.1667, -53.3333)]
 }
 
 [sub_resource type="Animation" id="Animation_1bpgl"]
@@ -75,6 +76,32 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7, 5, 7, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GPUParticles2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-79.1667, -48.3333)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_drink"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_abt40"]
@@ -105,23 +132,25 @@ anim_speed_min = 0.9
 anim_speed_max = 1.9
 
 [node name="Wiz" type="Node2D"]
-position = Vector2(277, 781)
 scale = Vector2(1.2, 1.2)
+script = ExtResource("1_lfc0i")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -84.1667)
 texture = ExtResource("1_1e6ry")
 hframes = 8
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_abt40")
 }
-autoplay = "idle"
+autoplay = "summon"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_k3b4s")
-position = Vector2(-80, 33.3333)
+position = Vector2(-79.1667, -48.3333)
 amount = 12
 process_material = SubResource("ParticleProcessMaterial_id7e5")
 texture = ExtResource("2_5vui6")

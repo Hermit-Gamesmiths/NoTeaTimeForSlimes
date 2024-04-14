@@ -47,3 +47,7 @@ stomache={
 2d_physics/layer_4="Edible"
 2d_physics/layer_5="Player"
 2d_physics/layer_6="Enemies"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.0784314, 0.0431373, 0.160784, 1)

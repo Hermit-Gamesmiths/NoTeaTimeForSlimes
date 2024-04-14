@@ -306,3 +306,5 @@ libraries = {
 "": SubResource("AnimationLibrary_qsd4x")
 }
 autoplay = "idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]

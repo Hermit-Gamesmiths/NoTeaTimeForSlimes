@@ -1,17 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://da6ob0p0b2wih"]
 
-[ext_resource type="Texture2D" uid="uid://dsat42evy0h1k" path="res://tiles/spikes.png" id="1_1ei5n"]
+[ext_resource type="Texture2D" uid="uid://o8dkod748y18" path="res://sprites/spikes.png" id="1_e0vit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syipo"]
-size = Vector2(127, 127)
+size = Vector2(94, 96)
 
 [node name="StaticSpike" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_syipo")
 debug_color = Color(0.992157, 0, 0.243137, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1ei5n")
+position = Vector2(4, 9)
+texture = ExtResource("1_e0vit")

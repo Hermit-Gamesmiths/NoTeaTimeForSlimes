@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://71o8tn14lams"]
+[gd_scene load_steps=5 format=3 uid="uid://71o8tn14lams"]
 
+[ext_resource type="Script" path="res://screens/level.gd" id="1_2l4cv"]
 [ext_resource type="TileSet" uid="uid://bylsrk0gtegdv" path="res://tiles/default_tiles.tres" id="1_elke5"]
 [ext_resource type="TileSet" uid="uid://dob8kj72qhmp5" path="res://tiles/bg_scenery_tiles.tres" id="1_hfejb"]
 [ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="2_voexk"]
 
 [node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_2l4cv")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 custom_minimum_size = Vector2(2600, 1500)
 offset_right = 2600.0
 offset_bottom = 1500.0
