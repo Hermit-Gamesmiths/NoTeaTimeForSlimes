@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bylsrk0gtegdv"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c8v4sw3txrunf"]
 
 [ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="1_xbipw"]
 [ext_resource type="Texture2D" uid="uid://ckq8d3gv7cck7" path="res://tiles/tiles_fg.png" id="2_r2c31"]

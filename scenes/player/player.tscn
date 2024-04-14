@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpi7jy48rc0e0"]
+[gd_scene load_steps=36 format=3 uid="uid://bpi7jy48rc0e0"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_072ya"]
 [ext_resource type="Texture2D" uid="uid://bc33o3ph4b6am" path="res://sprites/characters/player_background_layer.png" id="2_b7wxg"]
@@ -227,7 +227,82 @@ _data = {
 "walk": SubResource("Animation_t8yt0")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache", "spit_location", "front_ray", "back_ray")]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e5msr"]
+animation = &"eat"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_apcbg"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yyip0"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hfj7f"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p1dls"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b538j"]
+animation = &"land"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2r0jh"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4f584"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a7h3w"]
+advance_mode = 2
+advance_expression = "is_on_floor() == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_abhvv"]
+advance_mode = 2
+advance_expression = "velocity.y > 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e76w0"]
+advance_mode = 2
+advance_expression = "is_on_floor() == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ekv7w"]
+advance_mode = 2
+advance_expression = "abs(velocity.x) > 0.1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r5jol"]
+advance_mode = 2
+advance_expression = "is_on_floor() == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3sjxm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2x3tu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fvksl"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2c4by"]
+advance_mode = 2
+advance_expression = "abs(velocity.x) < 0.1"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_slkgl"]
+states/Start/position = Vector2(132, 100)
+states/eat/node = SubResource("AnimationNodeAnimation_e5msr")
+states/eat/position = Vector2(365.5, 264.062)
+states/fall/node = SubResource("AnimationNodeAnimation_apcbg")
+states/fall/position = Vector2(410, -98.5)
+states/hurt/node = SubResource("AnimationNodeAnimation_yyip0")
+states/hurt/position = Vector2(679, 100.219)
+states/idle/node = SubResource("AnimationNodeAnimation_hfj7f")
+states/idle/position = Vector2(293, 99.625)
+states/jump/node = SubResource("AnimationNodeAnimation_p1dls")
+states/jump/position = Vector2(279.5, -101)
+states/land/node = SubResource("AnimationNodeAnimation_b538j")
+states/land/position = Vector2(542, -97.5)
+states/walk/node = SubResource("AnimationNodeAnimation_2r0jh")
+states/walk/position = Vector2(453.5, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_4f584"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_a7h3w"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_abhvv"), "fall", "land", SubResource("AnimationNodeStateMachineTransition_e76w0"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ekv7w"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_r5jol"), "idle", "eat", SubResource("AnimationNodeStateMachineTransition_3sjxm"), "walk", "eat", SubResource("AnimationNodeStateMachineTransition_2x3tu"), "land", "idle", SubResource("AnimationNodeStateMachineTransition_fvksl"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2c4by")]
+graph_offset = Vector2(-620, -180)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache", "spit_location", "front_ray", "back_ray", "animation")]
 collision_layer = 16
 collision_mask = 33
 platform_on_leave = 2
@@ -240,6 +315,7 @@ stomache = NodePath("Model/Stomache")
 spit_location = NodePath("Model/SpitLocation")
 front_ray = NodePath("Model/Rays/FrontRay")
 back_ray = NodePath("Model/Rays/BackRay")
+animation = NodePath("AnimationTree")
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 16
@@ -270,6 +346,7 @@ collision_mask = 33
 position = Vector2(0, -3)
 texture = ExtResource("2_b7wxg")
 hframes = 9
+frame = 4
 
 [node name="Stomache" type="Node2D" parent="Model"]
 modulate = Color(0.443137, 1, 0.258824, 1)
@@ -280,6 +357,7 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(0, -3)
 texture = ExtResource("2_xchj6")
 hframes = 9
+frame = 4
 
 [node name="SwallowChecker" type="Area2D" parent="Model"]
 position = Vector2(83, 0)
@@ -301,10 +379,17 @@ position = Vector2(0, 24)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_k0c1t")
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qsd4x")
+}
+tree_root = SubResource("AnimationNodeStateMachine_slkgl")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qsd4x")
 }
-autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]

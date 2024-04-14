@@ -1,5 +1,13 @@
 extends CharacterBody2D
 
+enum State {
+	Idle,
+	Walking,
+	Jumping,
+	Eating,
+	Dying,
+}
+
 @export var speed = 350
 
 @export var default_jump: Jump
@@ -13,6 +21,12 @@ extends CharacterBody2D
 
 @export var front_ray:RayCast2D
 @export var back_ray:RayCast2D
+
+@export var animation:AnimationTree
+
+@onready var state_machine := animation.get("parameters/playback") as AnimationNodeStateMachinePlayback
+
+var state: State = State.Idle
 
 # 1 = right, -1 = left
 var facing: int = 1
@@ -35,7 +49,10 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		facing = sign(direction)
 		velocity.x = direction * speed
+		if (is_on_floor() && state != State.Eating):
+			animation.set("parameters/moving", true)
 	else:
+		animation.set("parameters/moving", false)
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	model.scale.x = facing
@@ -55,6 +72,7 @@ func _physics_process(delta: float) -> void:
 			print("got listener")
 			collider.get_meta(ContactActivator.COLLISION_LISTENER).on_collision()
 
+	print(state_machine.get_current_node())
 
 func current_jump() -> Jump:
 	if stomache.get_child_count() > 0:
@@ -63,11 +81,13 @@ func current_jump() -> Jump:
 			return jump_data
 	return default_jump
 
+
 func die():
 	Events.player_died.emit()
 
 
 func jump() -> void:
+	state = State.Jumping
 	velocity.y = current_jump().jump_velocity()
 
 
@@ -78,6 +98,7 @@ func get_gravity() -> Vector2:
 
 func swallow():
 	print("swallowing")
+	state = State.Eating
 	var edibles = swallow_checker.get_overlapping_areas()
 	if len(edibles) == 0:
 		return
@@ -86,6 +107,7 @@ func swallow():
 
 
 func spit():
+	state = State.Eating
 	var edible = stomache.get_child(0)
 	if front_ray.is_colliding():
 		var front_distance = abs(front_ray.get_collision_point().x - front_ray.global_position.x)
