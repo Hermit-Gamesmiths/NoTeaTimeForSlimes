@@ -137,7 +137,7 @@ falling_speed = 60
 body = NodePath("../..")
 
 [node name="RiceBall" type="CharacterBody2D" parent="." index="11"]
-position = Vector2(-295, -311)
+position = Vector2(-891, -176)
 
 [node name="EdibleComponent" parent="RiceBall" index="0" instance=ExtResource("7_sp4ga")]
 
