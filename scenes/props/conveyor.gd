@@ -43,3 +43,5 @@ func _process(_delta: float)->void:
 		else:
 			print("inactive")
 			$AnimationPlayer.play("inactive")
+	else:
+		scale.x = -direction

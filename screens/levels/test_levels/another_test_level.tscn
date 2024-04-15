@@ -50,17 +50,20 @@ script = ExtResource("1_000un")
 rotation = -0.000285027
 tile_set = SubResource("TileSet_hv2lo")
 format = 2
-layer_0/tile_data = PackedInt32Array(655360, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 589838, 1, 65536, 393222, 0, 0, 655365, 0, 0, 655366, 0, 0, 720895, 0, 0, 655359, 0, 0, 589823, 0, 0, 524287, 0, 0, 458751, 0, 0, 393215, 0, 0, 393223, 0, 0, 393220, 0, 0, 393219, 0, 0, 393218, 0, 0, 589834, 0, 0, 524298, 0, 0, 393224, 0, 0, 589828, 0, 0, 524292, 0, 0, 589829, 0, 0, 327679, 0, 0, 262143, 0, 0, 196607, 0, 0, 720899, 0, 0, 393216, 0, 0, 327680, 0, 0)
+layer_0/tile_data = PackedInt32Array(655360, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 589838, 1, 65536, 393222, 0, 0, 655365, 0, 0, 655366, 0, 0, 720895, 0, 0, 655359, 0, 0, 589823, 0, 0, 524287, 0, 0, 458751, 0, 0, 393215, 0, 0, 393223, 0, 0, 393220, 0, 0, 393219, 0, 0, 393218, 0, 0, 589834, 0, 0, 524298, 0, 0, 393224, 0, 0, 589828, 0, 0, 524292, 0, 0, 589829, 0, 0, 327679, 0, 0, 262143, 0, 0, 196607, 0, 0, 720899, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_hqakr")]
 position = Vector2(576, 704)
 coyote_time = 0.15
 
 [node name="HeavyEdible" parent="." instance=ExtResource("5_bmbm5")]
-position = Vector2(832, 320)
+position = Vector2(832, -192)
+
+[node name="HeavyEdible2" parent="." instance=ExtResource("5_bmbm5")]
+position = Vector2(832, -64)
 
 [node name="ShootyBlock2" parent="." instance=ExtResource("6_8oyro")]
-position = Vector2(64, 576)
+position = Vector2(1216, 1216)
 rotation = 1.57079
 
 [node name="SwitchActivator" type="Node" parent="ShootyBlock2"]
@@ -70,7 +73,7 @@ script = ExtResource("10_b8q0n")
 position = Vector2(960, 704)
 
 [node name="Wiz" parent="." instance=ExtResource("12_r5sdm")]
-position = Vector2(64, 1287)
+position = Vector2(64, 1216)
 
 [node name="ShootyBlock" parent="." instance=ExtResource("9_ixess")]
 position = Vector2(576, 1216)
@@ -84,14 +87,14 @@ script = ExtResource("10_b8q0n")
 
 [node name="ActivationGroup" parent="." instance=ExtResource("12_70qy1")]
 
-[node name="Conveyor" parent="ActivationGroup" instance=ExtResource("12_d7yce")]
-position = Vector2(255.999, -256.001)
-scale = Vector2(-1, 1)
-constant_linear_velocity = Vector2(300, 0)
-direction = 1
-
 [node name="Conveyor2" parent="ActivationGroup" instance=ExtResource("12_d7yce")]
 position = Vector2(383.999, -256.001)
+rotation = 3.14159
+scale = Vector2(1, -1)
+constant_linear_velocity = Vector2(-300, 0)
+
+[node name="Conveyor4" parent="ActivationGroup" instance=ExtResource("12_d7yce")]
+position = Vector2(255.999, -256.001)
 rotation = 3.14159
 scale = Vector2(1, -1)
 constant_linear_velocity = Vector2(-300, 0)

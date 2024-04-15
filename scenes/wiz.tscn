@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgrfoafl16e8j"]
+[gd_scene load_steps=22 format=3 uid="uid://dgrfoafl16e8j"]
 
 [ext_resource type="Texture2D" uid="uid://bhd31ubycr8dg" path="res://sprites/characters/wiz.png" id="1_1e6ry"]
 [ext_resource type="Script" path="res://scenes/wiz.gd" id="1_lfc0i"]
@@ -28,6 +28,58 @@ scale_max = 4.0
 color_ramp = SubResource("GradientTexture1D_y4733")
 anim_speed_min = 0.2
 anim_speed_max = 0.7
+
+[sub_resource type="Animation" id="Animation_efjap"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Smoke:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GPUParticles2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-84.1667, -10.8333)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_mn3o5"]
 resource_name = "burn"
@@ -68,6 +120,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../GPUParticles2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-84.1667, -15)]
+}
 
 [sub_resource type="Animation" id="Animation_sjxae"]
 resource_name = "drink"
@@ -95,7 +159,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-26.6667, -92.5)]
+"values": [Vector2(-26.6667, -45.8333)]
 }
 
 [sub_resource type="Animation" id="Animation_2innp"]
@@ -124,7 +188,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-84.1667, -53.3333)]
+"values": [Vector2(-84.1667, -15.8333)]
 }
 
 [sub_resource type="Animation" id="Animation_b61tf"]
@@ -236,7 +300,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-79.1667, -48.3333)]
+"values": [Vector2(-79.1667, -14.1667)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -251,46 +315,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"play_drink"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_efjap"]
-resource_name = "RESET"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Smoke:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GPUParticles2D:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../GPUParticles2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-84.1667, -53.3333)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_abt40"]
@@ -328,13 +352,18 @@ anim_speed_max = 1.9
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp41q"]
 size = Vector2(106.667, 147.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t6kf"]
+size = Vector2(50, 127.5)
+
 [node name="Wiz" type="CharacterBody2D"]
 scale = Vector2(1.2, 1.2)
+collision_layer = 16
+collision_mask = 19
 script = ExtResource("1_lfc0i")
 
 [node name="Smoke" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_wvwgs")
-position = Vector2(0, -106.667)
+position = Vector2(0, -63.3336)
 emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_pjngf")
@@ -342,10 +371,10 @@ texture = ExtResource("2_jo48l")
 lifetime = 3.0
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-3.33333, -91.6667)
+position = Vector2(-3.33333, -48.3333)
 texture = ExtResource("1_1e6ry")
 hframes = 25
-frame = 16
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
@@ -357,12 +386,22 @@ next/shot = &"shot_idle"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_k3b4s")
-position = Vector2(-84.1667, -53.3333)
+position = Vector2(-84.1667, -10.8333)
 amount = 12
 process_material = SubResource("ParticleProcessMaterial_id7e5")
 texture = ExtResource("2_5vui6")
 lifetime = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -63.75)
+position = Vector2(0, -20.4166)
 shape = SubResource("RectangleShape2D_tp41q")
+
+[node name="Crushbox" type="Area2D" parent="."]
+position = Vector2(0, 43.3334)
+collision_layer = 0
+collision_mask = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crushbox"]
+position = Vector2(0, -63.75)
+shape = SubResource("RectangleShape2D_1t6kf")
+debug_color = Color(0.964706, 0, 0.482353, 0.419608)

@@ -4,6 +4,7 @@ class_name Projectile
 enum DamageType {
 	Fire,
 	Sharp,
+	Crush,
 }
 
 ## This could break at any time if I don't set a reference rotation first....
