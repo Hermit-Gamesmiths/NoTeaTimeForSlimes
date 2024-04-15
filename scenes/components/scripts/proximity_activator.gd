@@ -17,17 +17,17 @@ func start_activation() -> void:
 	var trap = get_parent()
 
 	if trap.has_method("telegraph"):
-		trap.telegraph()
+		trap.telegraph(self)
 
 	await get_tree().create_timer(telegraph_duration).timeout
 
 	if trap.has_method("activate"):
-		trap.activate()
+		trap.activate(self)
 
 	await get_tree().create_timer(active_duration).timeout
 
 	if trap.has_method("deactivate"):
-		trap.deactivate()
+		trap.deactivate(self)
 
 	await get_tree().create_timer(cooldown).timeout
 

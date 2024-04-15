@@ -2,14 +2,16 @@ extends Node2D
 
 var injured: bool = false
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta: float) -> void:
+	if $Crushbox.has_overlapping_bodies():
+		hurt(Projectile.DamageType.Crush)
 	pass
 
+
+func crushed() -> void:
+	hurt(Projectile.DamageType.Crush)
 
 func play_idle() -> void:
 	$AnimationPlayer.play("idle")
@@ -36,6 +38,8 @@ func hurt(damage_type: Projectile.DamageType) -> void:
 func hurt_anim(damage_type: Projectile.DamageType) -> String:
 	match damage_type:
 		Projectile.DamageType.Fire: return "burn"
+		Projectile.DamageType.Sharp: return "shot"
+		Projectile.DamageType.Crush: return "smoosh"
 
 	assert(false, "Whoops, forgot to update this")
 	return "burn"

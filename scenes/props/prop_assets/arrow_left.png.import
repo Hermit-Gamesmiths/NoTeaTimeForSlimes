@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg1dqt6a0cswn"
-path="res://.godot/imported/spinner_left.png-1ab08a49b8e5bc310c0b479db758263f.ctex"
+uid="uid://c4str72mx3flx"
+path="res://.godot/imported/arrow_left.png-f6afc93260bd5356c01e69477473ddbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/spinner_left.png"
-dest_files=["res://.godot/imported/spinner_left.png-1ab08a49b8e5bc310c0b479db758263f.ctex"]
+source_file="res://scenes/props/prop_assets/arrow_left.png"
+dest_files=["res://.godot/imported/arrow_left.png-f6afc93260bd5356c01e69477473ddbb.ctex"]
 
 [params]
 

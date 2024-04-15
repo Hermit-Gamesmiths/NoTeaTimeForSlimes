@@ -18,4 +18,4 @@ func _exit_tree() -> void:
 
 func on_collision() -> void:
 	if target.has_method("activate"):
-		target.activate()
+		target.activate(self)

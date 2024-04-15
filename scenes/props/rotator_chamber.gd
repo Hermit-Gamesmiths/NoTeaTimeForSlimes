@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func activate() -> void:
+func activate(sender) -> void:
 	for thing in detector.get_overlapping_areas():
 		var target = thing.get_parent()
 		create_tween().tween_property(target, "global_rotation", target.global_rotation + PI / 2, .15)

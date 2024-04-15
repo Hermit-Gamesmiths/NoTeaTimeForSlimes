@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bydmrwcp80ak8"]
+
+[ext_resource type="Script" path="res://screens/levels/test_levels/activation_group.gd" id="1_amkbn"]
+
+[node name="ActivationGroup" type="Node2D"]
+position = Vector2(704, 832)
+rotation = 3.14159
+scale = Vector2(1, -1)
+script = ExtResource("1_amkbn")

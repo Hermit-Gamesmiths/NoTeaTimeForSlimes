@@ -12,13 +12,13 @@ func _process(delta: float) -> void:
 	pass
 
 
-func activate() -> void:
+func activate(sender) -> void:
 	animation.play("extend")
 
 
-func telegraph() -> void:
+func telegraph(_sender) -> void:
 	animation.play("expose")
 
 
-func deactivate() -> void:
+func deactivate(_sender) -> void:
 	animation.play("retract")

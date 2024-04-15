@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg1dqt6a0cswn"
-path="res://.godot/imported/spinner_left.png-1ab08a49b8e5bc310c0b479db758263f.ctex"
+uid="uid://dk33ljmmisd3h"
+path="res://.godot/imported/toggle_globe_on.png-0b6ed0fdb7b75719528ee337822ab092.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/spinner_left.png"
-dest_files=["res://.godot/imported/spinner_left.png-1ab08a49b8e5bc310c0b479db758263f.ctex"]
+source_file="res://scenes/props/prop_assets/toggle_globe_on.png"
+dest_files=["res://.godot/imported/toggle_globe_on.png-0b6ed0fdb7b75719528ee337822ab092.ctex"]
 
 [params]
 

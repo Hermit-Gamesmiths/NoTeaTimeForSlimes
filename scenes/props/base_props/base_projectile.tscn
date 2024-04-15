@@ -5,11 +5,12 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qf1m4"]
 
-[node name="BaseProjectile" type="CharacterBody2D"]
+[node name="BaseProjectile" type="Area2D"]
 collision_layer = 2
-collision_mask = 17
+collision_mask = 49
 script = ExtResource("1_nfm33")
 projectile_velocity = Vector2(-200, 0)
+damage_type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qf1m4")

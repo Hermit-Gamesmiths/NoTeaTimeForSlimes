@@ -13,5 +13,5 @@ func _physics_process(delta: float) -> void:
 		# parent.move_and_collide(Vector2(0, falling_speed) * delta)
 	pass
 
-func activate() -> void:
+func activate(sender) -> void:
 	is_active = true

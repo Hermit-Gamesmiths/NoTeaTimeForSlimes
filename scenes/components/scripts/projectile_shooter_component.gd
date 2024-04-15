@@ -26,14 +26,14 @@ func shoot() -> void:
 	projectile.global_position = global_position
 	pass # TODO: animation
 
-func activate() -> void:
+func activate(sender) -> void:
 	is_active = true
 	shoot()
 	pass
 
-func telegraph() -> void:
+func telegraph(_sender) -> void:
 	pass # TODO: animation
 
-func deactivate() -> void:
+func deactivate(_sender) -> void:
 	is_active = false
 	pass # TODO: animation
