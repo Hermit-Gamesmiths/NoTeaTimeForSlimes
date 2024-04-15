@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cl6twdxf4mimc" path="res://vfx/magic_fire.tscn" id="3_yesuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1ccf"]
-size = Vector2(64, 84)
+size = Vector2(64, 25)
 
 [node name="LevelEndDoor" type="Node2D" node_paths=PackedStringArray("detector")]
 script = ExtResource("1_tdm86")
@@ -26,5 +26,5 @@ collision_layer = 4
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, 32)
+position = Vector2(0, 61.5)
 shape = SubResource("RectangleShape2D_t1ccf")

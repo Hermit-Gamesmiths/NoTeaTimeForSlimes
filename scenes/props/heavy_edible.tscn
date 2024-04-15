@@ -11,9 +11,6 @@ height = 130.0
 
 [node name="HeavyEdible" type="CharacterBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_kasmj")
-
 [node name="EdibleComponent" parent="." instance=ExtResource("1_dpcko")]
 modified_jump = ExtResource("2_vg3w2")
 
@@ -23,3 +20,6 @@ texture = ExtResource("3_ecugc")
 
 [node name="FallingComponent" parent="." instance=ExtResource("4_lsvfj")]
 is_active = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kasmj")
