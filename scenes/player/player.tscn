@@ -336,7 +336,7 @@ size = Vector2(52, 80)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "model", "swallow_checker", "stomache", "spit_location", "front_ray", "back_ray", "crush_box", "animation")]
 collision_layer = 16
-collision_mask = 33
+collision_mask = 161
 platform_on_leave = 2
 script = ExtResource("1_072ya")
 speed = 570
@@ -368,13 +368,13 @@ debug_color = Color(0.960784, 0, 0.505882, 0.419608)
 [node name="FrontRay" type="RayCast2D" parent="Model/Rays"]
 position = Vector2(55, 0)
 target_position = Vector2(128, 0)
-collision_mask = 33
+collision_mask = 161
 
 [node name="BackRay" type="RayCast2D" parent="Model/Rays"]
 position = Vector2(-55, 0)
 rotation = 3.14159
 target_position = Vector2(128, 0)
-collision_mask = 33
+collision_mask = 161
 
 [node name="SpriteBGLayer" type="Sprite2D" parent="Model"]
 position = Vector2(0, -3)

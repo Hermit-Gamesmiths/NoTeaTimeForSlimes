@@ -48,6 +48,7 @@ stomache={
 2d_physics/layer_5="Player"
 2d_physics/layer_6="Enemies"
 2d_physics/layer_7="Rotatable"
+2d_physics/layer_8="Wizard"
 
 [rendering]
 
