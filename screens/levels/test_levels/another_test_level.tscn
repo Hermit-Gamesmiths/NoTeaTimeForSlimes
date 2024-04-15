@@ -72,6 +72,8 @@ script = ExtResource("10_b8q0n")
 
 [node name="RotatorChamber" parent="." instance=ExtResource("7_bugjm")]
 position = Vector2(960, 704)
+rotation_direction = null
+flipflop = null
 
 [node name="PressurePlate" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_6oegd")]
 position = Vector2(448, 704)
