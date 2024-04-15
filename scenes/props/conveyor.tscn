@@ -63,6 +63,7 @@ _data = {
 }
 
 [node name="Conveyor" type="StaticBody2D"]
+constant_linear_velocity = Vector2(-300, 0)
 script = ExtResource("1_whidh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -78,6 +79,6 @@ libraries = {
 "": SubResource("AnimationLibrary_5365s")
 }
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="ArrowSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.384314)
 texture = ExtResource("3_qa0ld")

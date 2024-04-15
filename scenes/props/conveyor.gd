@@ -34,7 +34,7 @@ func toggle(switch:bool):
 			is_active = switch
 
 func _process(_delta: float)->void:
-	scale.x = -current_direction
+	$ArrowSprite.scale.x = -current_direction
 	constant_linear_velocity = Vector2(speed * current_direction, 0) if is_active else Vector2.ZERO
 
 	if not Engine.is_editor_hint():
@@ -43,4 +43,4 @@ func _process(_delta: float)->void:
 		else:
 			$AnimationPlayer.play("inactive")
 	else:
-		scale.x = -direction
+		$ArrowSprite.scale.x = -direction
