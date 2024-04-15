@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bsh1awg0wgqpt"]
+[gd_scene load_steps=20 format=3 uid="uid://bsh1awg0wgqpt"]
 
 [ext_resource type="Script" path="res://screens/level.gd" id="1_000un"]
 [ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="2_ktw6o"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_aaj1u"]
 [ext_resource type="PackedScene" uid="uid://6nkop7jeeef4" path="res://scenes/props/heavy_edible.tscn" id="5_bmbm5"]
 [ext_resource type="PackedScene" uid="uid://ss5smpslw66d" path="res://scenes/components/projectile_shooter_component.tscn" id="6_1obql"]
+[ext_resource type="PackedScene" uid="uid://q1flkdqd4xrr" path="res://scenes/props/example_props/flamethrower.tscn" id="6_8oyro"]
 [ext_resource type="PackedScene" uid="uid://cyld64c7wpxww" path="res://scenes/props/rotator_chamber.tscn" id="7_bugjm"]
 [ext_resource type="Script" path="res://scenes/props/scripts/projectile.gd" id="7_k081x"]
 [ext_resource type="Texture2D" uid="uid://xsy24gyf324s" path="res://scenes/props/prop_assets/fireball.png" id="8_76s5s"]
@@ -65,8 +66,12 @@ coyote_time = 0.15
 [node name="HeavyEdible" parent="." instance=ExtResource("5_bmbm5")]
 position = Vector2(1088, 1216)
 
+[node name="ShootyBlock2" parent="." instance=ExtResource("6_8oyro")]
+position = Vector2(448, 1216)
+rotation = 1.57079
+
 [node name="ShootyBlock" type="CharacterBody2D" parent="."]
-position = Vector2(704, 1216)
+position = Vector2(448, 704)
 rotation = 1.57079
 collision_layer = 65
 

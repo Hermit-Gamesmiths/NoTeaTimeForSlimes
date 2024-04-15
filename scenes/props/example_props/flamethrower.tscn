@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://q1flkdqd4xrr"]
+[gd_scene load_steps=11 format=3 uid="uid://q1flkdqd4xrr"]
 
 [ext_resource type="Texture2D" uid="uid://v3yi08m7p0dt" path="res://sprites/props/spitter.png" id="1_barms"]
-[ext_resource type="PackedScene" path="res://scenes/components/projectile_shooter_component.tscn" id="2_qmklh"]
+[ext_resource type="PackedScene" uid="uid://ss5smpslw66d" path="res://scenes/components/projectile_shooter_component.tscn" id="2_qmklh"]
 [ext_resource type="Script" path="res://scenes/props/scripts/projectile.gd" id="3_rib5b"]
+[ext_resource type="PackedScene" uid="uid://mlwnevoxeu2j" path="res://scenes/components/edible_component.tscn" id="4_23dhp"]
 [ext_resource type="Texture2D" uid="uid://c2ifm1si7dj30" path="res://vfx/fire.png" id="4_xrvue"]
+[ext_resource type="PackedScene" uid="uid://d15pi8avmqwfl" path="res://scenes/components/rotatable_component.tscn" id="6_lkqhu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ued5"]
 size = Vector2(128, 128)
@@ -33,35 +35,46 @@ _data = {
 "burn": SubResource("Animation_yevql")
 }
 
-[node name="ShootyBlock" type="StaticBody2D"]
+[node name="ShootyBlock" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5ued5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_barms")
+[node name="RotationContainer" type="Node2D" parent="."]
 
-[node name="ProjectileShooterComponent" parent="." node_paths=PackedStringArray("projectile_prototype") instance=ExtResource("2_qmklh")]
+[node name="ProjectileShooterComponent" parent="RotationContainer" node_paths=PackedStringArray("projectile_prototype") instance=ExtResource("2_qmklh")]
 position = Vector2(-97, 12)
+one_shot = false
 projectile_prototype = NodePath("BaseProjectile")
 
-[node name="BaseProjectile" type="CharacterBody2D" parent="ProjectileShooterComponent"]
+[node name="BaseProjectile" type="CharacterBody2D" parent="RotationContainer/ProjectileShooterComponent"]
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("3_rib5b")
-projectile_velocity = Vector2(-700, 0)
+projectile_velocity = Vector2(-550, 0)
+lifetime = 0.5
+rand_deg = 7.0
 
-[node name="Sprite2D" type="Sprite2D" parent="ProjectileShooterComponent/BaseProjectile"]
+[node name="Sprite2D" type="Sprite2D" parent="RotationContainer/ProjectileShooterComponent/BaseProjectile"]
 position = Vector2(0, -18)
 texture = ExtResource("4_xrvue")
 hframes = 3
 frame = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileShooterComponent/BaseProjectile"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationContainer/ProjectileShooterComponent/BaseProjectile"]
 shape = SubResource("CircleShape2D_qf1m4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ProjectileShooterComponent/BaseProjectile"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RotationContainer/ProjectileShooterComponent/BaseProjectile"]
 libraries = {
 "": SubResource("AnimationLibrary_46rsm")
 }
 autoplay = "burn"
+
+[node name="EdibleComponent" parent="RotationContainer" node_paths=PackedStringArray("target") instance=ExtResource("4_23dhp")]
+target = NodePath("../..")
+
+[node name="Sprite2D" type="Sprite2D" parent="RotationContainer/EdibleComponent"]
+texture = ExtResource("1_barms")
+
+[node name="RotatableComponent" parent="RotationContainer" node_paths=PackedStringArray("snap_target") instance=ExtResource("6_lkqhu")]
+snap_target = NodePath("../..")
