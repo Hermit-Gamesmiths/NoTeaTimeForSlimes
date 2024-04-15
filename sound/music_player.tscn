@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxrru1io45n1k"]
+
+[ext_resource type="AudioStream" uid="uid://bhejf6mr3xfl6" path="res://sound/energy.ogg" id="1_cfkef"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_cfkef")
+autoplay = true

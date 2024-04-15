@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://dgrfoafl16e8j"]
+[gd_scene load_steps=24 format=3 uid="uid://dgrfoafl16e8j"]
 
 [ext_resource type="Texture2D" uid="uid://bhd31ubycr8dg" path="res://sprites/characters/wiz.png" id="1_1e6ry"]
 [ext_resource type="Script" path="res://scenes/wiz.gd" id="1_lfc0i"]
 [ext_resource type="Texture2D" uid="uid://bqxer7pu2te2w" path="res://vfx/smoke.png" id="2_5vui6"]
 [ext_resource type="Texture2D" uid="uid://dt573f3dpem6l" path="res://vfx/fire_smoke.png" id="2_jo48l"]
+[ext_resource type="AudioStream" uid="uid://bg6t08m3fo3jo" path="res://sound/piranha_cry.wav" id="5_qqbh5"]
+[ext_resource type="AudioStream" uid="uid://dqdxn78qiehki" path="res://sound/squish.wav" id="6_p686o"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wvwgs"]
 particles_animation = true
@@ -405,3 +407,9 @@ collision_mask = 35
 position = Vector2(0, -63.75)
 shape = SubResource("RectangleShape2D_1t6kf")
 debug_color = Color(0.964706, 0, 0.482353, 0.419608)
+
+[node name="DieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qqbh5")
+
+[node name="CrushSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p686o")

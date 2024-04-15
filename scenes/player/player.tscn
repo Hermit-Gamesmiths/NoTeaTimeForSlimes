@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bpi7jy48rc0e0"]
+[gd_scene load_steps=46 format=3 uid="uid://bpi7jy48rc0e0"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_072ya"]
 [ext_resource type="Texture2D" uid="uid://bc33o3ph4b6am" path="res://sprites/characters/player_background_layer.png" id="2_b7wxg"]
@@ -6,6 +6,10 @@
 [ext_resource type="Resource" uid="uid://dpyf2ugxtod78" path="res://resources/jumps/default_jump.tres" id="2_y8npj"]
 [ext_resource type="Script" path="res://scenes/player/hitbox.gd" id="3_4gvt4"]
 [ext_resource type="Script" path="res://scenes/player/player_camera.gd" id="6_47wlg"]
+[ext_resource type="AudioStream" uid="uid://v4lg05orows8" path="res://sound/jelly_cry.wav" id="8_8cj6s"]
+[ext_resource type="AudioStream" uid="uid://dqdxn78qiehki" path="res://sound/squish.wav" id="9_ykn5a"]
+[ext_resource type="AudioStream" uid="uid://d0jckq1bn5ocf" path="res://sound/stab2.wav" id="10_wqsdf"]
+[ext_resource type="AudioStream" uid="uid://cayeumy4x2ang" path="res://sound/stab3.wav" id="11_bws7l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xboy"]
 size = Vector2(110, 85)
@@ -452,3 +456,18 @@ collision_layer = 0
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_qvq6g")
 debug_color = Color(0.968627, 0, 0.470588, 0.419608)
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wqsdf")
+
+[node name="EatSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8cj6s")
+
+[node name="DieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ykn5a")
+
+[node name="SpitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wqsdf")
+
+[node name="JumpSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_bws7l")

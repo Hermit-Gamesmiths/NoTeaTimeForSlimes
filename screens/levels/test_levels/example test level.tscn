@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpts2aw3c47c4"]
+[gd_scene load_steps=19 format=3 uid="uid://cpts2aw3c47c4"]
 
 [ext_resource type="Script" path="res://screens/level.gd" id="1_k78yu"]
 [ext_resource type="TileSet" uid="uid://c8v4sw3txrunf" path="res://tiles/default_tiles.tres" id="2_tuj48"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" path="res://scenes/props/example_props/sightline_shooter_block.tscn" id="14_ycwmw"]
 [ext_resource type="PackedScene" uid="uid://b66i48om621gs" path="res://scenes/props/example_props/timed_shooter.tscn" id="15_v6map"]
 [ext_resource type="PackedScene" path="res://scenes/props/base_props/base_shooty_block.tscn" id="16_0nl1r"]
+[ext_resource type="PackedScene" uid="uid://dgrfoafl16e8j" path="res://scenes/wiz.tscn" id="17_nmeqe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik517"]
 radius = 128.0
@@ -35,7 +36,7 @@ position = Vector2(960, 448)
 position = Vector2(3648, 1216)
 
 [node name="HeavyEdible" parent="." instance=ExtResource("5_cg1a2")]
-position = Vector2(1472, 448)
+position = Vector2(1216, -512)
 
 [node name="BaseFallingBlock" parent="." instance=ExtResource("6_c7x47")]
 position = Vector2(704, 832)
@@ -115,6 +116,9 @@ position = Vector2(2752, 1088)
 position = Vector2(2880, 960)
 
 [node name="TimerActivator" parent="ShootyBlock3/ProjectileShooterComponent" index="1" instance=ExtResource("13_30qbp")]
+
+[node name="Wiz" parent="." instance=ExtResource("17_nmeqe")]
+position = Vector2(1216, 448)
 
 [editable path="HiddenSpikes/ProximityActivator"]
 [editable path="HiddenSpikes2/ProximityActivator"]

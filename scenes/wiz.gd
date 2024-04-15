@@ -11,6 +11,7 @@ func _physics_process(delta: float) -> void:
 
 
 func crushed() -> void:
+	
 	hurt(Projectile.DamageType.Crush)
 
 func play_idle() -> void:
@@ -37,9 +38,24 @@ func hurt(damage_type: Projectile.DamageType) -> void:
 
 func hurt_anim(damage_type: Projectile.DamageType) -> String:
 	match damage_type:
-		Projectile.DamageType.Fire: return "burn"
-		Projectile.DamageType.Sharp: return "shot"
-		Projectile.DamageType.Crush: return "smoosh"
+		Projectile.DamageType.Fire: 
+			var sound_player = $DieSound
+			sound_player.pitch_scale = randf_range(0.9, 1.1)
+			sound_player.play(0.0)
+			return "burn"
+		Projectile.DamageType.Sharp:
+			var sound_player = $DieSound
+			sound_player.pitch_scale = randf_range(0.9, 1.1)
+			sound_player.play(0.0)
+			return "shot"
+		Projectile.DamageType.Crush:
+			var sound_playerr = $CrushSound
+			sound_playerr.pitch_scale = randf_range(0.9, 1.1)
+			sound_playerr.play(0.0) 
+			var sound_player = $DieSound
+			sound_player.pitch_scale = randf_range(0.9, 1.1)
+			sound_player.play(0.0)
+			return "smoosh"
 
 	assert(false, "Whoops, forgot to update this")
 	return "burn"

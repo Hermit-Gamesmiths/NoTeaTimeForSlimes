@@ -98,11 +98,17 @@ func die():
 	if is_dead: return # STOP, he's already dead :sob:
 	is_dead = true
 	state_machine.start("hurt")
+	var sound_player = $DieSound
+	sound_player.pitch_scale = randf_range(0.9, 1.1)
+	sound_player.play(0.0)
 	await animation.animation_finished
 	Events.player_died.emit()
 
 
 func jump() -> void:
+	var sound_player = $JumpSound
+	sound_player.pitch_scale = randf_range(0.9, 1.1)
+	sound_player.play(0.0)
 	is_jump = true
 	velocity.y = current_jump().jump_velocity()
 
@@ -114,6 +120,11 @@ func get_gravity() -> Vector2:
 
 func swallow():
 	print("swallowing")
+	
+	var sound_player = $EatSound
+	sound_player.pitch_scale = randf_range(0.9, 1.1)
+	sound_player.play(0.0)
+	
 	is_eating = true
 	state_machine.travel("eat")
 	var edibles = swallow_checker.get_overlapping_areas()
@@ -140,6 +151,9 @@ func swallow():
 
 func spit():
 	print("spitting")
+	var sound_player = $SpitSound
+	sound_player.pitch_scale = randf_range(0.9, 1.1)
+	sound_player.play(0.0)
 	is_spitting = true
 	var edible = stomache.get_child(0) as Node2D
 	if front_ray.is_colliding():

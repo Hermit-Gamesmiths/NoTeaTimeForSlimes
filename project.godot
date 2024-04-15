@@ -21,6 +21,7 @@ Game="*res://global/game.tscn"
 Events="*res://global/events.gd"
 TransitionManager="*res://global/TransitionManager.tscn"
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+MusicPlayer="*res://sound/music_player.tscn"
 
 [display]
 
