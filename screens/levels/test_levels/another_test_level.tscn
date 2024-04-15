@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://21um6ed7kjxe" path="res://scenes/props/example_props/timed_shooter.tscn" id="9_ixess"]
 [ext_resource type="Script" path="res://scenes/components/switch_activator.gd" id="10_b8q0n"]
 [ext_resource type="PackedScene" uid="uid://d1xkpeqqprif3" path="res://scenes/props/toggle_switch.tscn" id="10_l766n"]
+[ext_resource type="PackedScene" uid="uid://bydmrwcp80ak8" path="res://scenes/props/activation_group.tscn" id="12_70qy1"]
 [ext_resource type="PackedScene" uid="uid://da3exybwaoatx" path="res://scenes/props/conveyor.tscn" id="12_d7yce"]
 [ext_resource type="PackedScene" uid="uid://dgrfoafl16e8j" path="res://scenes/wiz.tscn" id="12_r5sdm"]
-[ext_resource type="Script" path="res://screens/levels/test_levels/activation_group.gd" id="12_sann8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bgw11"]
 texture = ExtResource("2_ktw6o")
@@ -77,31 +77,27 @@ position = Vector2(576, 1216)
 
 [node name="ToggleSwitch" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_l766n")]
 position = Vector2(320, 1216)
-target = NodePath("../ActivationGroup/SwitchActivator")
+target = NodePath("../SwitchActivator")
 
-[node name="ActivationGroup" type="Node2D" parent="."]
-position = Vector2(704, 832)
-rotation = 3.14159
-scale = Vector2(1, -1)
-script = ExtResource("12_sann8")
-
-[node name="SwitchActivator" type="Node" parent="ActivationGroup"]
+[node name="SwitchActivator" type="Node" parent="."]
 script = ExtResource("10_b8q0n")
 
+[node name="ActivationGroup" parent="." instance=ExtResource("12_70qy1")]
+
 [node name="Conveyor" parent="ActivationGroup" instance=ExtResource("12_d7yce")]
-position = Vector2(256, -256)
+position = Vector2(255.999, -256.001)
 scale = Vector2(-1, 1)
 constant_linear_velocity = Vector2(300, 0)
 direction = 1
 
 [node name="Conveyor2" parent="ActivationGroup" instance=ExtResource("12_d7yce")]
-position = Vector2(384, -256)
+position = Vector2(383.999, -256.001)
 rotation = 3.14159
 scale = Vector2(1, -1)
 constant_linear_velocity = Vector2(-300, 0)
 
 [node name="Conveyor3" parent="ActivationGroup" instance=ExtResource("12_d7yce")]
-position = Vector2(512, -256)
+position = Vector2(511.999, -256.001)
 rotation = 3.14159
 scale = Vector2(1, -1)
 constant_linear_velocity = Vector2(-300, 0)
