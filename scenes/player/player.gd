@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!is_jump and time_since_floor < coyote_time)):
 		jump()
 
-	if Input.is_action_just_pressed("stomache") && !is_eating && !is_spitting:
+	if Input.is_action_just_pressed("stomache") && !is_eating && !is_spitting && is_on_floor():
 		if stomache.get_child_count() > 0:
 			spit()
 		else:
