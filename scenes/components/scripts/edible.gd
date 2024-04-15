@@ -17,7 +17,14 @@ func pack(target) -> void:
 
 
 func unpack(world: Node, location: Vector2) -> void:
-	world.add_child(parent)
+	# HACK: This is a workaround to an INSANE issue with the previous position of the object
+	for child:CollisionShape2D in parent.find_children("*", "CollisionShape2D"):
+		child.disabled = true
 	parent.global_position = location
+	world.add_child(parent)
 	self.reparent(parent, true)
+	await get_tree().physics_frame
+	for child:CollisionShape2D in parent.find_children("*", "CollisionShape2D"):
+		child.disabled = false
+
 	global_rotation = 0
