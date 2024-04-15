@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://6cdqpvxjdat5"]
+[gd_scene load_steps=9 format=3 uid="uid://q1flkdqd4xrr"]
 
-[ext_resource type="Texture2D" uid="uid://c0ocm8u5rhuij" path="res://scenes/props/prop_assets/shooty-head.png" id="1_hla1g"]
-[ext_resource type="PackedScene" uid="uid://ss5smpslw66d" path="res://scenes/components/projectile_shooter_component.tscn" id="2_qmklh"]
+[ext_resource type="Texture2D" uid="uid://v3yi08m7p0dt" path="res://sprites/props/spitter.png" id="1_barms"]
+[ext_resource type="PackedScene" path="res://scenes/components/projectile_shooter_component.tscn" id="2_qmklh"]
 [ext_resource type="Script" path="res://scenes/props/scripts/projectile.gd" id="3_rib5b"]
-[ext_resource type="Texture2D" uid="uid://xsy24gyf324s" path="res://scenes/props/prop_assets/fireball.png" id="4_cw1nk"]
+[ext_resource type="Texture2D" uid="uid://c2ifm1si7dj30" path="res://vfx/fire.png" id="4_xrvue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ued5"]
 size = Vector2(128, 128)
@@ -11,16 +11,38 @@ size = Vector2(128, 128)
 [sub_resource type="CircleShape2D" id="CircleShape2D_qf1m4"]
 radius = 27.0
 
+[sub_resource type="Animation" id="Animation_yevql"]
+resource_name = "burn"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_46rsm"]
+_data = {
+"burn": SubResource("Animation_yevql")
+}
+
 [node name="ShootyBlock" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5ued5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_hla1g")
+texture = ExtResource("1_barms")
 
 [node name="ProjectileShooterComponent" parent="." node_paths=PackedStringArray("projectile_prototype") instance=ExtResource("2_qmklh")]
-position = Vector2(-106, 12)
+position = Vector2(-97, 12)
 projectile_prototype = NodePath("BaseProjectile")
 
 [node name="BaseProjectile" type="CharacterBody2D" parent="ProjectileShooterComponent"]
@@ -28,11 +50,18 @@ collision_layer = 2
 collision_mask = 17
 script = ExtResource("3_rib5b")
 projectile_velocity = Vector2(-700, 0)
-lifetime = 1.0
-rand_deg = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="ProjectileShooterComponent/BaseProjectile"]
-texture = ExtResource("4_cw1nk")
+position = Vector2(0, -18)
+texture = ExtResource("4_xrvue")
+hframes = 3
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileShooterComponent/BaseProjectile"]
 shape = SubResource("CircleShape2D_qf1m4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ProjectileShooterComponent/BaseProjectile"]
+libraries = {
+"": SubResource("AnimationLibrary_46rsm")
+}
+autoplay = "burn"
