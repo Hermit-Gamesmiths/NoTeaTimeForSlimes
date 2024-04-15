@@ -8,6 +8,8 @@ var target_rotation: float = 0
 @export var target: Node2D
 @export var modified_jump: Jump
 
+var original_scale
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if !target:
@@ -17,6 +19,7 @@ func _ready() -> void:
 
 func pack(destination:Node2D) -> void:
 	# TODO: send true and animate flowing into the player/shrinking using a tween.
+	original_scale = target.global_scale
 	target_rotation = target.global_rotation
 	self.reparent(destination, true)
 	target.get_parent().remove_child(target)

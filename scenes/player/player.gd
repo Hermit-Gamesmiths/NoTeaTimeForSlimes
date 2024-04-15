@@ -155,7 +155,7 @@ func spit():
 	sound_player.pitch_scale = randf_range(0.9, 1.1)
 	sound_player.play(0.0)
 	is_spitting = true
-	var edible = stomache.get_child(0) as Node2D
+	var edible = stomache.get_child(0) as Edible
 	if front_ray.is_colliding():
 		var front_distance = abs(front_ray.get_collision_point().x - front_ray.global_position.x)
 		print(front_ray.get_collider(), front_distance)
@@ -179,7 +179,7 @@ func spit():
 	var anim = create_tween()
 	var duration = .1
 	anim.tween_property(edible, "position", Vector2.ZERO, duration)
-	anim.parallel().tween_property(edible, "global_scale", Vector2.ONE, duration)
+	anim.parallel().tween_property(edible, "global_scale", edible.original_scale, duration)
 
 	await anim.finished
 	is_spitting = false
