@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="11_i7wwk"]
 [ext_resource type="PackedScene" uid="uid://6p4ll2ybh51e" path="res://scenes/props/hidden_spikes.tscn" id="11_xuy57"]
 [ext_resource type="PackedScene" uid="uid://do7wfpobvc8dq" path="res://scenes/components/timer_activator.tscn" id="13_30qbp"]
-[ext_resource type="PackedScene" path="res://scenes/props/example_props/sightline_shooter_block.tscn" id="14_ycwmw"]
-[ext_resource type="PackedScene" path="res://scenes/props/example_props/timed_shooter.tscn" id="15_v6map"]
-[ext_resource type="PackedScene" path="res://scenes/props/base_props/base_shooty_block.tscn" id="16_0nl1r"]
+[ext_resource type="PackedScene" uid="uid://fot8rbjx42vs" path="res://scenes/props/example_props/sightline_shooter_block.tscn" id="14_ycwmw"]
+[ext_resource type="PackedScene" uid="uid://21um6ed7kjxe" path="res://scenes/props/example_props/timed_shooter.tscn" id="15_v6map"]
+[ext_resource type="PackedScene" uid="uid://cth7s51ryj0vi" path="res://scenes/props/base_props/base_shooty_block.tscn" id="16_0nl1r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik517"]
 radius = 128.0
