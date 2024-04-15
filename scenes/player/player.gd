@@ -32,7 +32,6 @@ var is_eating: bool = false
 var is_spitting: bool = false
 
 
-
 func _ready() -> void:
 	hitbox.on_hit.connect(die)
 
@@ -93,6 +92,7 @@ func current_jump() -> Jump:
 
 func hurt():
 	die()
+
 
 func die():
 	is_dead = true
