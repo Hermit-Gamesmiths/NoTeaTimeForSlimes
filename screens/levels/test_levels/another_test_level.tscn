@@ -61,7 +61,7 @@ position = Vector2(704, 704)
 position = Vector2(64, 576)
 rotation = 1.57079
 
-[node name="SwitchActivator" type="Node" parent="ShootyBlock2/RotationContainer/ProjectileShooterComponent" index="1"]
+[node name="SwitchActivator" type="Node" parent="ShootyBlock2"]
 script = ExtResource("10_b8q0n")
 
 [node name="RotatorChamber" parent="." instance=ExtResource("7_bugjm")]
@@ -75,7 +75,6 @@ position = Vector2(576, 1216)
 
 [node name="ToggleSwitch" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_l766n")]
 position = Vector2(320, 1216)
-target = NodePath("../ShootyBlock2/RotationContainer/ProjectileShooterComponent/SwitchActivator")
+target = NodePath("../ShootyBlock2/SwitchActivator")
 
-[editable path="ShootyBlock2"]
 [editable path="ShootyBlock"]

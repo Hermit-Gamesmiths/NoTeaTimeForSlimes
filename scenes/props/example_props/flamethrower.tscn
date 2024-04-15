@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://q1flkdqd4xrr"]
+[gd_scene load_steps=14 format=3 uid="uid://q1flkdqd4xrr"]
 
 [ext_resource type="Texture2D" uid="uid://v3yi08m7p0dt" path="res://sprites/props/spitter.png" id="1_barms"]
-[ext_resource type="PackedScene" path="res://scenes/components/projectile_shooter_component.tscn" id="2_qmklh"]
+[ext_resource type="Script" path="res://scenes/props/example_props/activator_proxy.gd" id="1_xia74"]
+[ext_resource type="PackedScene" uid="uid://ss5smpslw66d" path="res://scenes/components/projectile_shooter_component.tscn" id="2_qmklh"]
 [ext_resource type="Script" path="res://scenes/props/scripts/projectile.gd" id="3_rib5b"]
 [ext_resource type="PackedScene" uid="uid://mlwnevoxeu2j" path="res://scenes/components/edible_component.tscn" id="4_23dhp"]
 [ext_resource type="Texture2D" uid="uid://c2ifm1si7dj30" path="res://vfx/fire.png" id="4_xrvue"]
@@ -37,7 +38,9 @@ _data = {
 "burn": SubResource("Animation_yevql")
 }
 
-[node name="ShootyBlock" type="CharacterBody2D"]
+[node name="ShootyBlock" type="CharacterBody2D" node_paths=PackedStringArray("target")]
+script = ExtResource("1_xia74")
+target = NodePath("RotationContainer/ProjectileShooterComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5ued5")
