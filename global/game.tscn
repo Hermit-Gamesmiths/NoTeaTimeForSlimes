@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs2q5udhxgvul"]
 
 [ext_resource type="Script" path="res://global/game.gd" id="1_wipiu"]
-[ext_resource type="Resource" uid="uid://ca7j7md0lqrv4" path="res://resources/dev_levels.tres" id="2_wx4wo"]
+[ext_resource type="Resource" uid="uid://cxwnne7lgrtd" path="res://resources/level_order.tres" id="2_6pgqp"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wipiu")
-level_list = ExtResource("2_wx4wo")
+level_list = ExtResource("2_6pgqp")
 end_scene = "res://screens/end_screen.tscn"

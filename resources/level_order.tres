@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LevelCollection" load_steps=5 format=3 uid="uid://cxwnne7lgrtd"]
+
+[ext_resource type="Script" path="res://resources/scripts/level_collection.gd" id="1_e0c5n"]
+[ext_resource type="Script" path="res://resources/scripts/level_definition.gd" id="1_w4v5w"]
+
+[sub_resource type="Resource" id="Resource_hu5re"]
+script = ExtResource("1_w4v5w")
+path = "res://screens/levels/final_levels/intro.tscn"
+
+[sub_resource type="Resource" id="Resource_csbmb"]
+script = ExtResource("1_w4v5w")
+path = "res://screens/levels/final_levels/foyer.tscn"
+
+[resource]
+script = ExtResource("1_e0c5n")
+levels = Array[ExtResource("1_w4v5w")]([SubResource("Resource_hu5re"), SubResource("Resource_csbmb")])

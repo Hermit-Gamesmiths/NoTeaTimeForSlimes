@@ -38,7 +38,7 @@ _data = {
 "burn": SubResource("Animation_yevql")
 }
 
-[node name="ShootyBlock" type="CharacterBody2D" node_paths=PackedStringArray("target")]
+[node name="Flamethrower" type="CharacterBody2D" node_paths=PackedStringArray("target")]
 script = ExtResource("1_xia74")
 target = NodePath("RotationContainer/ProjectileShooterComponent")
 

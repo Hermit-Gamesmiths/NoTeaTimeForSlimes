@@ -144,6 +144,7 @@ func spit():
 	var edible = stomache.get_child(0) as Node2D
 	if front_ray.is_colliding():
 		var front_distance = abs(front_ray.get_collision_point().x - front_ray.global_position.x)
+		print(front_ray.get_collider(), front_distance)
 		if back_ray.is_colliding():
 			var back_distance = abs(back_ray.get_collision_point().x - back_ray.global_position.x)
 

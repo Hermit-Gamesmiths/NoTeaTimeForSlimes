@@ -109,7 +109,7 @@ position = Vector2(5696, 832)
 rotation = 3.14159
 
 [node name="Wiz" parent="." index="30" instance=ExtResource("3_bvyvn")]
-position = Vector2(313, 1140)
+position = Vector2(320, 1088)
 
 [node name="HeavyEdible" parent="." index="31" instance=ExtResource("4_av8uh")]
 position = Vector2(3200, 576)
