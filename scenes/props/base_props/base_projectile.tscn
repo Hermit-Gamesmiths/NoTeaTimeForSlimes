@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://datf5rrw017yb"]
 
 [ext_resource type="Script" path="res://scenes/props/scripts/projectile.gd" id="1_nfm33"]
-[ext_resource type="Texture2D" uid="uid://bwjjf8fd1tah4" path="res://scenes/props/prop_assets/arrow.png" id="2_4t88l"]
+[ext_resource type="Texture2D" uid="uid://i12b6cyyi4vn" path="res://sprites/props/dart.png" id="2_b1cfg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qf1m4"]
 
@@ -16,4 +16,4 @@ damage_type = 1
 shape = SubResource("CircleShape2D_qf1m4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4t88l")
+texture = ExtResource("2_b1cfg")
