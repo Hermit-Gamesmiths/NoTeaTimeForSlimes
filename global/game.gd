@@ -35,3 +35,7 @@ func level_complete() -> void:
 		TransitionManager.transition_to(end_scene)
 	else:
 		TransitionManager.transition_to(level_list.levels[level_index].path)
+
+
+func start():
+	TransitionManager.transition_to(level_list.levels[level_index].path)

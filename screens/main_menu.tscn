@@ -31,7 +31,7 @@ offset_bottom = 828.0
 theme_override_fonts/font = ExtResource("2_gef6t")
 theme_override_font_sizes/font_size = 36
 text = "Start Game"
-scene_to_load = "res://screens/levels/test_levels/default_test_level.tscn"
+scene_to_load = "res://screens/start.tscn"
 
 [node name="QuitButton" parent="." instance=ExtResource("2_0a4ep")]
 layout_mode = 1
