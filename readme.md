@@ -45,3 +45,10 @@ This is a super janky trigger system I threw together. It's not the best XD. Act
         - `ProjectileShooterComponent` (Positioned at the projectile spawn point, Has a "prototype" export that has to be set)
             - Whatever projectile this will shoot (Must be a `Projectile` node, Must be set as the "Projectile Prototype" in the `ProjectileShooterComponent`)
             - Any Activator node (See Falling Blocks)
+
+### Rotatable Stuff
+
+- Pretty(ish) similar to other components, Rotating devices will rotate the component's parent.
+- There's a secondary function to this one 'cause I'm rushing, where rotating devices will center the "Snap Target" export.
+- One thing that you should think about with RotationComponents is that you _really_ don't want to rotate physics objects for stuff like blocks (it'll mess with the player collision if you're touching the block.)
+    - To solve this you can attach the rotation component to a Node2D container that just has the bits you want to spin inside.
