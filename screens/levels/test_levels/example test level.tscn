@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpts2aw3c47c4"]
+[gd_scene load_steps=18 format=3 uid="uid://cpts2aw3c47c4"]
 
 [ext_resource type="Script" path="res://screens/level.gd" id="1_k78yu"]
 [ext_resource type="TileSet" uid="uid://c8v4sw3txrunf" path="res://tiles/default_tiles.tres" id="2_tuj48"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="11_i7wwk"]
 [ext_resource type="PackedScene" uid="uid://6p4ll2ybh51e" path="res://scenes/props/hidden_spikes.tscn" id="11_xuy57"]
 [ext_resource type="PackedScene" uid="uid://do7wfpobvc8dq" path="res://scenes/components/timer_activator.tscn" id="13_30qbp"]
+[ext_resource type="PackedScene" uid="uid://fot8rbjx42vs" path="res://scenes/props/example_props/sightline_shooter_block.tscn" id="14_ycwmw"]
+[ext_resource type="PackedScene" uid="uid://21um6ed7kjxe" path="res://scenes/props/example_props/timed_shooter.tscn" id="15_v6map"]
+[ext_resource type="PackedScene" uid="uid://cth7s51ryj0vi" path="res://scenes/props/base_props/base_shooty_block.tscn" id="16_0nl1r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik517"]
 radius = 128.0
@@ -29,7 +32,7 @@ layer_0/tile_data = PackedInt32Array(655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 6
 position = Vector2(960, 448)
 
 [node name="LevelEndDoor" parent="." instance=ExtResource("4_3el67")]
-position = Vector2(2112, 1216)
+position = Vector2(3648, 1216)
 
 [node name="HeavyEdible" parent="." instance=ExtResource("5_cg1a2")]
 position = Vector2(1472, 448)
@@ -93,17 +96,29 @@ position = Vector2(960, 1216)
 shape = SubResource("CircleShape2D_ik517")
 
 [node name="HiddenSpikes5" parent="." instance=ExtResource("11_xuy57")]
-position = Vector2(1984, 1216)
+position = Vector2(3520, 1216)
 
 [node name="TimerActivator" parent="HiddenSpikes5" instance=ExtResource("13_30qbp")]
 
 [node name="HiddenSpikes6" parent="." instance=ExtResource("11_xuy57")]
-position = Vector2(2240, 1216)
+position = Vector2(3776, 1216)
 
 [node name="TimerActivator" parent="HiddenSpikes6" instance=ExtResource("13_30qbp")]
+
+[node name="ShootyBlock" parent="." instance=ExtResource("14_ycwmw")]
+position = Vector2(2624, 1216)
+
+[node name="ShootyBlock2" parent="." instance=ExtResource("15_v6map")]
+position = Vector2(2752, 1088)
+
+[node name="ShootyBlock3" parent="." instance=ExtResource("16_0nl1r")]
+position = Vector2(2880, 960)
+
+[node name="TimerActivator" parent="ShootyBlock3/ProjectileShooterComponent" index="1" instance=ExtResource("13_30qbp")]
 
 [editable path="HiddenSpikes/ProximityActivator"]
 [editable path="HiddenSpikes2/ProximityActivator"]
 [editable path="HiddenSpikes3/ProximityActivator"]
 [editable path="HiddenSpikes4/ProximityActivator"]
 [editable path="HiddenSpikes7/ProximityActivator"]
+[editable path="ShootyBlock3"]

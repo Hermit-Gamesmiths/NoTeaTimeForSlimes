@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cth7s51ryj0vi"]
+
+[ext_resource type="Texture2D" uid="uid://c0ocm8u5rhuij" path="res://scenes/props/prop_assets/shooty-head.png" id="1_xpww8"]
+[ext_resource type="PackedScene" uid="uid://ss5smpslw66d" path="res://scenes/components/projectile_shooter_component.tscn" id="2_vxq5g"]
+[ext_resource type="PackedScene" uid="uid://datf5rrw017yb" path="res://scenes/props/base_props/base_projectile.tscn" id="3_1k3qa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ued5"]
+size = Vector2(128, 128)
+
+[node name="ShootyBlock" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5ued5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xpww8")
+
+[node name="ProjectileShooterComponent" parent="." node_paths=PackedStringArray("projectile_prototype") instance=ExtResource("2_vxq5g")]
+position = Vector2(-87, 14)
+projectile_prototype = NodePath("BaseProjectile")
+
+[node name="BaseProjectile" parent="ProjectileShooterComponent" instance=ExtResource("3_1k3qa")]
+projectile_velocity = Vector2(-700, 0)

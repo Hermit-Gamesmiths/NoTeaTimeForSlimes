@@ -9,7 +9,6 @@ func _ready() -> void:
 	self.body_entered.connect(hit_by)
 
 
-func hit_by(something) -> void:
-	print("hit by: ", something)
+func hit_by(_something) -> void:
 	on_hit.emit()
 	pass

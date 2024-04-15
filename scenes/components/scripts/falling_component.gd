@@ -14,5 +14,4 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func activate() -> void:
-	print("activating fall")
 	is_active = true

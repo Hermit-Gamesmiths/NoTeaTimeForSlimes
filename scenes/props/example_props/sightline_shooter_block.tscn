@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://fot8rbjx42vs"]
+
+[ext_resource type="PackedScene" uid="uid://cth7s51ryj0vi" path="res://scenes/props/base_props/base_shooty_block.tscn" id="1_icaun"]
+[ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="2_0calk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lebm"]
+size = Vector2(1337.5, 128)
+
+[node name="ShootyBlock" instance=ExtResource("1_icaun")]
+
+[node name="ProximityActivator" parent="ProjectileShooterComponent" index="1" instance=ExtResource("2_0calk")]
+
+[node name="CollisionShape2D" parent="ProjectileShooterComponent/ProximityActivator" index="0"]
+position = Vector2(-588.25, -14)
+shape = SubResource("RectangleShape2D_2lebm")
+
+[editable path="ProjectileShooterComponent/ProximityActivator"]

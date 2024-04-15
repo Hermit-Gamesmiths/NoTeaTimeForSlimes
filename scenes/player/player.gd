@@ -1,13 +1,5 @@
 extends CharacterBody2D
 
-enum State {
-	Idle,
-	Walking,
-	Jumping,
-	Eating,
-	Dying,
-}
-
 @export var speed = 350
 
 @export var default_jump: Jump
@@ -27,7 +19,6 @@ enum State {
 
 @onready var state_machine := animation.get("parameters/playback") as AnimationNodeStateMachinePlayback
 
-var state: State = State.Idle
 var is_dead: bool = false
 
 # 1 = right, -1 = left
@@ -37,8 +28,13 @@ var facing: int = 1
 var time_since_floor:float = 0
 var is_jump: bool = false
 
+var is_eating: bool = false
+var is_spitting: bool = false
+
+
 func _ready() -> void:
 	hitbox.on_hit.connect(die)
+
 
 func _physics_process(delta: float) -> void:
 	if is_dead: return
@@ -57,25 +53,25 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!is_jump and time_since_floor < coyote_time)):
 		jump()
 
+	if Input.is_action_just_pressed("stomache") && !is_eating && !is_spitting && is_on_floor():
+		if stomache.get_child_count() > 0:
+			spit()
+		else:
+			swallow()
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		facing = sign(direction)
 		velocity.x = direction * speed
-		if (is_on_floor() && state != State.Eating):
+		if (is_on_floor() && !is_eating):
 			animation.set("parameters/moving", true)
 	else:
 		animation.set("parameters/moving", false)
-		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.x = 0
 
 	model.scale.x = facing
-
-	if Input.is_action_just_pressed("stomache"):
-		if stomache.get_child_count() > 0:
-			spit()
-		else:
-			swallow()
 
 	move_and_slide()
 
@@ -83,10 +79,8 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider() as Node
 		if collider.has_meta(ContactActivator.COLLISION_LISTENER):
-			print("got listener")
 			collider.get_meta(ContactActivator.COLLISION_LISTENER).on_collision()
 
-	# print(state_machine.get_current_node())
 
 func current_jump() -> Jump:
 	if stomache.get_child_count() > 0:
@@ -94,6 +88,10 @@ func current_jump() -> Jump:
 		if jump_data != null:
 			return jump_data
 	return default_jump
+
+
+func hurt():
+	die()
 
 
 func die():
@@ -105,7 +103,6 @@ func die():
 
 func jump() -> void:
 	is_jump = true
-	state = State.Jumping
 	velocity.y = current_jump().jump_velocity()
 
 
@@ -115,28 +112,34 @@ func get_gravity() -> Vector2:
 # Eating Stuff
 
 func swallow():
-	state = State.Eating
+	print("swallowing")
+	is_eating = true
 	state_machine.travel("eat")
 	var edibles = swallow_checker.get_overlapping_areas()
 	if len(edibles) == 0:
+		is_eating = false
 		return
 
 	var edible = edibles[0]
-	edible.pack(stomache)
-
 	var color = stomache.modulate
 	stomache.modulate = Color.WHITE
-	await get_tree().create_timer(.25).timeout
+
+	await get_tree().create_timer(.25).timeout # Just to allow for the animation to start
+	await get_tree().physics_frame
+	edible.pack(stomache)
 	var anim = create_tween()
 	var duration = .1
 
 	anim.tween_property(edible, "position", Vector2.ZERO, duration)
 	anim.parallel().tween_property(edible, "scale", Vector2.ONE, duration)
 	anim.parallel().tween_property(stomache, "modulate", color, duration)
+	await anim.finished
+	is_eating = false
 
 
 func spit():
-	state = State.Eating
+	print("spitting")
+	is_spitting = true
 	var edible = stomache.get_child(0) as Node2D
 	if front_ray.is_colliding():
 		var front_distance = abs(front_ray.get_collision_point().x - front_ray.global_position.x)
@@ -147,6 +150,7 @@ func spit():
 				var error_flash = create_tween()
 				error_flash.tween_property(self, "modulate", Color.ORANGE_RED, .3)
 				error_flash.chain().tween_property(self, "modulate", Color.WHITE, .3)
+				is_spitting = false
 				return
 			# Abort!
 
@@ -160,3 +164,6 @@ func spit():
 	var duration = .1
 	anim.tween_property(edible, "position", Vector2.ZERO, duration)
 	anim.parallel().tween_property(edible, "global_scale", Vector2.ONE, duration)
+
+	await anim.finished
+	is_spitting = false

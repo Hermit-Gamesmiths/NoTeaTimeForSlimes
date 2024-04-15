@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://21um6ed7kjxe"]
+
+[ext_resource type="PackedScene" uid="uid://cth7s51ryj0vi" path="res://scenes/props/base_props/base_shooty_block.tscn" id="1_kd1qc"]
+[ext_resource type="PackedScene" uid="uid://do7wfpobvc8dq" path="res://scenes/components/timer_activator.tscn" id="2_ihn3n"]
+[ext_resource type="Texture2D" uid="uid://gcoibnld8vxp" path="res://sprites/time-icon.png" id="3_bj7j4"]
+[ext_resource type="Script" path="res://editor_sprite.gd" id="4_u0j6d"]
+
+[node name="ShootyBlock" instance=ExtResource("1_kd1qc")]
+
+[node name="TimerActivator" parent="ProjectileShooterComponent" index="1" instance=ExtResource("2_ihn3n")]
+
+[node name="Sprite2D" type="Sprite2D" parent="ProjectileShooterComponent" index="2"]
+modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(87, -14)
+texture = ExtResource("3_bj7j4")
+script = ExtResource("4_u0j6d")
