@@ -14,7 +14,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_e352a"]
 radius = 64.0
 
-[node name="BaseLevel" instance=ExtResource("1_3dr5a")]
+[node name="BaseLevel2" instance=ExtResource("1_3dr5a")]
 
 [node name="LevelEndDoor" parent="." index="2" instance=ExtResource("8_slrt5")]
 position = Vector2(5312, 960)
