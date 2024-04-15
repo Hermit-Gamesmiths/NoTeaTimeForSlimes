@@ -1,18 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsh1awg0wgqpt"]
+[gd_scene load_steps=13 format=3 uid="uid://bsh1awg0wgqpt"]
 
 [ext_resource type="Script" path="res://screens/level.gd" id="1_000un"]
 [ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="2_ktw6o"]
 [ext_resource type="PackedScene" uid="uid://bpi7jy48rc0e0" path="res://scenes/player/player.tscn" id="3_hqakr"]
 [ext_resource type="PackedScene" uid="uid://bbx24ip3bwt1m" path="res://scenes/props/level_end_door.tscn" id="4_aaj1u"]
 [ext_resource type="PackedScene" uid="uid://6nkop7jeeef4" path="res://scenes/props/heavy_edible.tscn" id="5_bmbm5"]
-[ext_resource type="PackedScene" uid="uid://ss5smpslw66d" path="res://scenes/components/projectile_shooter_component.tscn" id="6_1obql"]
 [ext_resource type="PackedScene" uid="uid://q1flkdqd4xrr" path="res://scenes/props/example_props/flamethrower.tscn" id="6_8oyro"]
 [ext_resource type="PackedScene" uid="uid://cyld64c7wpxww" path="res://scenes/props/rotator_chamber.tscn" id="7_bugjm"]
-[ext_resource type="Script" path="res://scenes/props/scripts/projectile.gd" id="7_k081x"]
-[ext_resource type="Texture2D" uid="uid://xsy24gyf324s" path="res://scenes/props/prop_assets/fireball.png" id="8_76s5s"]
-[ext_resource type="PackedScene" uid="uid://d15pi8avmqwfl" path="res://scenes/components/rotatable_component.tscn" id="9_jvdgs"]
-[ext_resource type="PackedScene" uid="uid://mlwnevoxeu2j" path="res://scenes/components/edible_component.tscn" id="9_ps2ah"]
-[ext_resource type="Texture2D" uid="uid://c0ocm8u5rhuij" path="res://scenes/props/prop_assets/shooty-head.png" id="10_im51r"]
+[ext_resource type="PackedScene" uid="uid://21um6ed7kjxe" path="res://scenes/props/example_props/timed_shooter.tscn" id="9_ixess"]
 [ext_resource type="PackedScene" uid="uid://dgrfoafl16e8j" path="res://scenes/wiz.tscn" id="12_r5sdm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bgw11"]
@@ -44,12 +39,6 @@ physics_layer_1/collision_mask = 16
 sources/0 = SubResource("TileSetAtlasSource_bgw11")
 sources/1 = SubResource("TileSetScenesCollectionSource_suyss")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ued5"]
-size = Vector2(128, 128)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qf1m4"]
-radius = 27.0
-
 [node name="AnotherTestLevel" type="Node2D"]
 script = ExtResource("1_000un")
 
@@ -57,61 +46,24 @@ script = ExtResource("1_000un")
 rotation = -0.000285027
 tile_set = SubResource("TileSet_hv2lo")
 format = 2
-layer_0/tile_data = PackedInt32Array(655360, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 589838, 1, 65536, 393222, 0, 0, 327686, 0, 0, 262150, 0, 0, 655365, 0, 0, 655366, 0, 0, 720895, 0, 0, 655359, 0, 0, 589823, 0, 0, 524287, 0, 0, 458751, 0, 0, 393215, 0, 0)
+layer_0/tile_data = PackedInt32Array(655360, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 589838, 1, 65536, 393222, 0, 0, 655365, 0, 0, 655366, 0, 0, 720895, 0, 0, 655359, 0, 0, 589823, 0, 0, 524287, 0, 0, 458751, 0, 0, 393215, 0, 0, 393223, 0, 0, 393221, 0, 0, 393220, 0, 0, 393219, 0, 0, 393218, 0, 0, 589834, 0, 0, 524298, 0, 0, 393224, 0, 0, 589828, 0, 0, 524292, 0, 0, 589829, 0, 0, 327679, 0, 0, 262143, 0, 0, 196607, 0, 0, 720899, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_hqakr")]
-position = Vector2(196, 1200)
+position = Vector2(448, 1216)
 coyote_time = 0.15
 
 [node name="HeavyEdible" parent="." instance=ExtResource("5_bmbm5")]
-position = Vector2(1088, 1216)
+position = Vector2(704, 704)
 
 [node name="ShootyBlock2" parent="." instance=ExtResource("6_8oyro")]
-position = Vector2(448, 1216)
-rotation = 1.57079
-
-[node name="ShootyBlock" type="CharacterBody2D" parent="."]
 position = Vector2(448, 704)
 rotation = 1.57079
-collision_layer = 65
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootyBlock"]
-shape = SubResource("RectangleShape2D_5ued5")
-
-[node name="Rotation" type="Node2D" parent="ShootyBlock"]
-
-[node name="RotatableComponent" parent="ShootyBlock/Rotation" node_paths=PackedStringArray("snap_target") instance=ExtResource("9_jvdgs")]
-snap_target = NodePath("../..")
-
-[node name="ProjectileShooterComponent" parent="ShootyBlock/Rotation" node_paths=PackedStringArray("projectile_prototype") instance=ExtResource("6_1obql")]
-position = Vector2(-106, 12)
-one_shot = false
-projectile_prototype = NodePath("BaseProjectile")
-
-[node name="BaseProjectile" type="CharacterBody2D" parent="ShootyBlock/Rotation/ProjectileShooterComponent"]
-collision_layer = 2
-collision_mask = 17
-script = ExtResource("7_k081x")
-projectile_velocity = Vector2(-700, 0)
-lifetime = 0.5
-rand_deg = 5.0
-
-[node name="Sprite2D" type="Sprite2D" parent="ShootyBlock/Rotation/ProjectileShooterComponent/BaseProjectile"]
-texture = ExtResource("8_76s5s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootyBlock/Rotation/ProjectileShooterComponent/BaseProjectile"]
-shape = SubResource("CircleShape2D_qf1m4")
-
-[node name="EdibleComponent" parent="ShootyBlock/Rotation" node_paths=PackedStringArray("target") instance=ExtResource("9_ps2ah")]
-target = NodePath("../..")
-
-[node name="Sprite2D" type="Sprite2D" parent="ShootyBlock/Rotation/EdibleComponent"]
-texture = ExtResource("10_im51r")
 
 [node name="RotatorChamber" parent="." instance=ExtResource("7_bugjm")]
-position = Vector2(704, 1216)
+position = Vector2(960, 704)
 
 [node name="Wiz" parent="." instance=ExtResource("12_r5sdm")]
 position = Vector2(64, 1287)
 
-[editable path="ShootyBlock/Rotation/EdibleComponent"]
+[node name="ShootyBlock" parent="." instance=ExtResource("9_ixess")]
+position = Vector2(576, 1216)

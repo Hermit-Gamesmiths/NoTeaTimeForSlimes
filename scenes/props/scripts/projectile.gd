@@ -1,8 +1,9 @@
-extends CharacterBody2D
+extends Area2D
 class_name Projectile
 
 enum DamageType {
-	Fire
+	Fire,
+	Sharp,
 }
 
 ## This could break at any time if I don't set a reference rotation first....
@@ -23,12 +24,12 @@ func _physics_process(delta: float) -> void:
 	time_alive += delta
 	if lifetime != -1 && time_alive > lifetime:
 		queue_free()
-	var collision = move_and_collide(projectile_velocity * delta)
 
-	if collision != null:
-		var collider = collision.get_collider()
-		if collider.has_method("hurt"):
-			collider.hurt(damage_type)
+	position = position + projectile_velocity * delta
+
+	for body in get_overlapping_bodies():
+		if body.has_method("hurt"):
+			body.hurt(damage_type)
 		call_deferred('queue_free') # Deferred so the player has time to get hit.
 		# TODO: Add animation for projectile hitting wall/player
 

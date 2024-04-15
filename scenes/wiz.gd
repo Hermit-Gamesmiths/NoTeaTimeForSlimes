@@ -36,6 +36,7 @@ func hurt(damage_type: Projectile.DamageType) -> void:
 func hurt_anim(damage_type: Projectile.DamageType) -> String:
 	match damage_type:
 		Projectile.DamageType.Fire: return "burn"
+		Projectile.DamageType.Sharp: return "shot"
 
 	assert(false, "Whoops, forgot to update this")
 	return "burn"
