@@ -90,7 +90,7 @@ func current_jump() -> Jump:
 	return default_jump
 
 
-func hurt():
+func hurt(_damage_type: Projectile.DamageType):
 	die()
 
 

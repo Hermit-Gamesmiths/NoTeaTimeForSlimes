@@ -1,11 +1,17 @@
 extends CharacterBody2D
 class_name Projectile
 
+enum DamageType {
+	Fire
+}
+
 ## This could break at any time if I don't set a reference rotation first....
 @export var projectile_velocity: Vector2
 @export var lifetime:float = -1
 
 @export var rand_deg: float = 0
+
+@export var damage_type: DamageType = DamageType.Fire
 
 var time_alive:float = 0
 
@@ -22,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	if collision != null:
 		var collider = collision.get_collider()
 		if collider.has_method("hurt"):
-			collider.hurt()
+			collider.hurt(damage_type)
 		call_deferred('queue_free') # Deferred so the player has time to get hit.
 		# TODO: Add animation for projectile hitting wall/player
 
