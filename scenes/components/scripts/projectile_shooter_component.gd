@@ -20,7 +20,9 @@ func shoot() -> void:
 	time_since_shot = 0
 	var projectile = projectile_prototype.duplicate() as Projectile
 	Game.current_level.add_child(projectile)
-	projectile.projectile_velocity.x *= sign(scale.x)
+	projectile.projectile_velocity *= Vector2(sign(scale.x), sign(scale.y))
+	print(global_rotation)
+	projectile.rotate_to(global_rotation)
 	projectile.scale.x = sign(scale.x)
 	projectile.global_position = global_position
 	pass # TODO: animation

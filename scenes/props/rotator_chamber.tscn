@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyld64c7wpxww"]
+
+[ext_resource type="Script" path="res://scenes/props/rotator_chamber.gd" id="1_eox1j"]
+[ext_resource type="Texture2D" uid="uid://dobhyt7sxa0k2" path="res://scenes/props/prop_assets/box.png" id="1_teiea"]
+[ext_resource type="Texture2D" uid="uid://d3h4f0xthe3sp" path="res://scenes/props/prop_assets/rotatey-arrows.png" id="2_gtj1p"]
+[ext_resource type="PackedScene" uid="uid://do7wfpobvc8dq" path="res://scenes/components/timer_activator.tscn" id="4_vsytl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bwcde"]
+radius = 51.0098
+
+[node name="RotatorChamber" type="Node2D" node_paths=PackedStringArray("detector")]
+script = ExtResource("1_eox1j")
+detector = NodePath("Detector")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_teiea")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_gtj1p")
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+shape = SubResource("CircleShape2D_bwcde")
+
+[node name="TimerActivator" parent="." instance=ExtResource("4_vsytl")]

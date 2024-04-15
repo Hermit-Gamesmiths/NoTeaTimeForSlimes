@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Projectile
 
+## This could break at any time if I don't set a reference rotation first....
 @export var projectile_velocity: Vector2
 @export var lifetime:float = -1
 
@@ -24,3 +25,7 @@ func _physics_process(delta: float) -> void:
 			collider.hurt()
 		call_deferred('queue_free') # Deferred so the player has time to get hit.
 		# TODO: Add animation for projectile hitting wall/player
+
+func rotate_to(rot: float):
+	global_rotation = rot
+	projectile_velocity = projectile_velocity.rotated(rot)
