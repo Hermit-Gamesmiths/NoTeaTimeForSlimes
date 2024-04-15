@@ -599,6 +599,46 @@ use_texture_padding = false
 3:5/0/metadata/_better_terrain = {
 "type": 2
 }
+4:7/0 = 0
+4:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:7/0/physics_layer_0/angular_velocity = 0.0
+4:7/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+4:7/0/physics_layer_1/angular_velocity = 0.0
+4:7/0/metadata/_better_terrain = {
+"type": 3
+}
+3:7/0 = 0
+3:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:7/0/physics_layer_0/angular_velocity = 0.0
+3:7/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+3:7/0/physics_layer_1/angular_velocity = 0.0
+3:7/0/metadata/_better_terrain = {
+"type": 3
+}
+2:7/0 = 0
+2:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:7/0/physics_layer_0/angular_velocity = 0.0
+2:7/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+2:7/0/physics_layer_1/angular_velocity = 0.0
+2:7/0/metadata/_better_terrain = {
+"type": 3
+}
+1:7/0 = 0
+1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:7/0/physics_layer_0/angular_velocity = 0.0
+1:7/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:7/0/physics_layer_1/angular_velocity = 0.0
+1:7/0/metadata/_better_terrain = {
+"type": 3
+}
+0:7/0 = 0
+0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:7/0/physics_layer_0/angular_velocity = 0.0
+0:7/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:7/0/physics_layer_1/angular_velocity = 0.0
+0:7/0/metadata/_better_terrain = {
+"type": 3
+}
 
 [resource]
 tile_size = Vector2i(128, 128)
@@ -617,6 +657,8 @@ metadata/_better_terrain = {
 }], ["New terrain", Color(0.693529, 0.675748, 0.347722, 1), 0, [], {
 "path": ""
 }], ["death", Color(0.300398, 0.487414, 0.892017, 1), 0, [], {
+"path": ""
+}], ["hidden tunnel bricks", Color(0.711268, 0.149739, 0.639251, 1), 0, [], {
 "path": ""
 }]],
 "version": "0.2"
