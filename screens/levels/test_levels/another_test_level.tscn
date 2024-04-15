@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bsh1awg0wgqpt"]
+[gd_scene load_steps=19 format=3 uid="uid://bsh1awg0wgqpt"]
 
 [ext_resource type="Script" path="res://screens/level.gd" id="1_000un"]
 [ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="2_ktw6o"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cyld64c7wpxww" path="res://scenes/props/rotator_chamber.tscn" id="7_bugjm"]
 [ext_resource type="Script" path="res://scenes/props/scripts/projectile.gd" id="7_k081x"]
 [ext_resource type="Texture2D" uid="uid://xsy24gyf324s" path="res://scenes/props/prop_assets/fireball.png" id="8_76s5s"]
+[ext_resource type="PackedScene" uid="uid://d15pi8avmqwfl" path="res://scenes/components/rotatable_component.tscn" id="9_jvdgs"]
 [ext_resource type="PackedScene" uid="uid://mlwnevoxeu2j" path="res://scenes/components/edible_component.tscn" id="9_ps2ah"]
 [ext_resource type="Texture2D" uid="uid://c0ocm8u5rhuij" path="res://scenes/props/prop_assets/shooty-head.png" id="10_im51r"]
 [ext_resource type="PackedScene" uid="uid://dgrfoafl16e8j" path="res://scenes/wiz.tscn" id="12_r5sdm"]
@@ -72,12 +73,17 @@ collision_layer = 65
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShootyBlock"]
 shape = SubResource("RectangleShape2D_5ued5")
 
-[node name="ProjectileShooterComponent" parent="ShootyBlock" node_paths=PackedStringArray("projectile_prototype") instance=ExtResource("6_1obql")]
+[node name="Rotation" type="Node2D" parent="ShootyBlock"]
+
+[node name="RotatableComponent" parent="ShootyBlock/Rotation" node_paths=PackedStringArray("snap_target") instance=ExtResource("9_jvdgs")]
+snap_target = NodePath("../..")
+
+[node name="ProjectileShooterComponent" parent="ShootyBlock/Rotation" node_paths=PackedStringArray("projectile_prototype") instance=ExtResource("6_1obql")]
 position = Vector2(-106, 12)
 one_shot = false
 projectile_prototype = NodePath("BaseProjectile")
 
-[node name="BaseProjectile" type="CharacterBody2D" parent="ShootyBlock/ProjectileShooterComponent"]
+[node name="BaseProjectile" type="CharacterBody2D" parent="ShootyBlock/Rotation/ProjectileShooterComponent"]
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("7_k081x")
@@ -85,15 +91,16 @@ projectile_velocity = Vector2(-700, 0)
 lifetime = 0.5
 rand_deg = 5.0
 
-[node name="Sprite2D" type="Sprite2D" parent="ShootyBlock/ProjectileShooterComponent/BaseProjectile"]
+[node name="Sprite2D" type="Sprite2D" parent="ShootyBlock/Rotation/ProjectileShooterComponent/BaseProjectile"]
 texture = ExtResource("8_76s5s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootyBlock/ProjectileShooterComponent/BaseProjectile"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootyBlock/Rotation/ProjectileShooterComponent/BaseProjectile"]
 shape = SubResource("CircleShape2D_qf1m4")
 
-[node name="EdibleComponent" parent="ShootyBlock" instance=ExtResource("9_ps2ah")]
+[node name="EdibleComponent" parent="ShootyBlock/Rotation" node_paths=PackedStringArray("target") instance=ExtResource("9_ps2ah")]
+target = NodePath("../..")
 
-[node name="Sprite2D" type="Sprite2D" parent="ShootyBlock/EdibleComponent"]
+[node name="Sprite2D" type="Sprite2D" parent="ShootyBlock/Rotation/EdibleComponent"]
 texture = ExtResource("10_im51r")
 
 [node name="RotatorChamber" parent="." instance=ExtResource("7_bugjm")]
@@ -102,4 +109,4 @@ position = Vector2(704, 1216)
 [node name="Wiz" parent="." instance=ExtResource("12_r5sdm")]
 position = Vector2(64, 1287)
 
-[editable path="ShootyBlock/EdibleComponent"]
+[editable path="ShootyBlock/Rotation/EdibleComponent"]
