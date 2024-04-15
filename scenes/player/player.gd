@@ -95,6 +95,7 @@ func hurt():
 
 
 func die():
+	if is_dead: return # STOP, he's already dead :sob:
 	is_dead = true
 	state_machine.start("hurt")
 	await animation.animation_finished
