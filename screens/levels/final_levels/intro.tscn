@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://q1flkdqd4xrr" path="res://scenes/props/example_props/flamethrower.tscn" id="7_gngrw"]
 [ext_resource type="PackedScene" uid="uid://baaoqn45jviin" path="res://scenes/components/proximity_activator.tscn" id="8_5tjph"]
 [ext_resource type="Script" path="res://scenes/components/switch_activator.gd" id="8_56j47"]
-[ext_resource type="PackedScene" uid="uid://cyp4l32qctp16" path="res://scenes/props/pressure_plate.tscn" id="9_l76np"]
+[ext_resource type="PackedScene" path="res://scenes/props/pressure_plate.tscn" id="9_l76np"]
 
-[node name="BaseLevel" instance=ExtResource("1_j2ve2")]
+[node name="BaseLevel2" instance=ExtResource("1_j2ve2")]
 
 [node name="ShootyBlock_ProjectileShooterComponent#ProximityActivator" parent="." index="1" instance=ExtResource("8_5tjph")]
 telegraph_duration = 0.2
