@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvcjwl5ij1g48"
-path="res://.godot/imported/comic_panels1-sheet.png-06791febc9a7edbf6e1e42473e0519c4.ctex"
+uid="uid://bqr13e82oxo75"
+path="res://.godot/imported/dart_trap.png-4a2307d53ade4eb8e29bf2d0170af0f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/comic_panels1-sheet.png"
-dest_files=["res://.godot/imported/comic_panels1-sheet.png-06791febc9a7edbf6e1e42473e0519c4.ctex"]
+source_file="res://sprites/props/dart_trap.png"
+dest_files=["res://.godot/imported/dart_trap.png-4a2307d53ade4eb8e29bf2d0170af0f2.ctex"]
 
 [params]
 
