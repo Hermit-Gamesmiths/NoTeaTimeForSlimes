@@ -13,5 +13,5 @@ func _ready():
 	Events.level_started.emit(self)
 
 func get_level_bounds() -> Rect2i:
-	var used_rect = map.get_used_rect()
-	return Rect2i(used_rect.position, used_rect.size * Const.TILE_SIZE)
+	var used_rect = map.get_used_rect() 
+	return Rect2i(used_rect.position * Const.TILE_SIZE, used_rect.size * Const.TILE_SIZE)
