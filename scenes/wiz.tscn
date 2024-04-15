@@ -1,8 +1,33 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgrfoafl16e8j"]
+[gd_scene load_steps=19 format=3 uid="uid://dgrfoafl16e8j"]
 
 [ext_resource type="Texture2D" uid="uid://bhd31ubycr8dg" path="res://sprites/characters/wiz.png" id="1_1e6ry"]
 [ext_resource type="Script" path="res://scenes/wiz.gd" id="1_lfc0i"]
 [ext_resource type="Texture2D" uid="uid://bqxer7pu2te2w" path="res://vfx/smoke.png" id="2_5vui6"]
+[ext_resource type="Texture2D" uid="uid://dt573f3dpem6l" path="res://vfx/fire_smoke.png" id="2_jo48l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wvwgs"]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_k8s04"]
+offsets = PackedFloat32Array(0, 0.307692, 0.739454, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.17, 0.17, 0.17, 1, 0.71, 0.71, 0.71, 1, 0.709804, 0.709804, 0.709804, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y4733"]
+gradient = SubResource("Gradient_k8s04")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pjngf"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 40, 1)
+direction = Vector3(0, -1, 0)
+gravity = Vector3(-18, -50, 0)
+scale_max = 4.0
+color_ramp = SubResource("GradientTexture1D_y4733")
+anim_speed_min = 0.2
+anim_speed_max = 0.7
 
 [sub_resource type="Animation" id="Animation_sjxae"]
 resource_name = "drink"
@@ -72,10 +97,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 6, 7, 5, 7, 6, 7]
+"values": [4, 5, 4, 5, 4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -104,10 +129,102 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_mn3o5"]
+resource_name = "burn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11, 12, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Smoke:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wr8jj"]
+resource_name = "smoosh"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_b61tf"]
+resource_name = "shot"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22]
+}
+
+[sub_resource type="Animation" id="Animation_bcmeh"]
+resource_name = "shot_idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [23, 24]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_abt40"]
 _data = {
+"burn": SubResource("Animation_mn3o5"),
 "drink": SubResource("Animation_sjxae"),
 "idle": SubResource("Animation_2innp"),
+"shot": SubResource("Animation_b61tf"),
+"shot_idle": SubResource("Animation_bcmeh"),
+"smoosh": SubResource("Animation_wr8jj"),
 "summon": SubResource("Animation_1bpgl")
 }
 
@@ -135,11 +252,19 @@ anim_speed_max = 1.9
 scale = Vector2(1.2, 1.2)
 script = ExtResource("1_lfc0i")
 
+[node name="Smoke" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_wvwgs")
+position = Vector2(0, -106.667)
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_pjngf")
+texture = ExtResource("2_jo48l")
+lifetime = 3.0
+
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-0.833333, -92.5)
+position = Vector2(-3.33333, -91.6667)
 texture = ExtResource("1_1e6ry")
-hframes = 8
-frame = 4
+hframes = 25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
@@ -150,7 +275,7 @@ autoplay = "summon"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_k3b4s")
-position = Vector2(-79.1667, -48.3333)
+position = Vector2(-84.1667, -53.3333)
 amount = 12
 process_material = SubResource("ParticleProcessMaterial_id7e5")
 texture = ExtResource("2_5vui6")
