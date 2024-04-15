@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://q1flkdqd4xrr"]
 
 [ext_resource type="Texture2D" uid="uid://v3yi08m7p0dt" path="res://sprites/props/spitter.png" id="1_barms"]
-[ext_resource type="PackedScene" uid="uid://ss5smpslw66d" path="res://scenes/components/projectile_shooter_component.tscn" id="2_qmklh"]
+[ext_resource type="PackedScene" path="res://scenes/components/projectile_shooter_component.tscn" id="2_qmklh"]
 [ext_resource type="Script" path="res://scenes/props/scripts/projectile.gd" id="3_rib5b"]
 [ext_resource type="PackedScene" uid="uid://mlwnevoxeu2j" path="res://scenes/components/edible_component.tscn" id="4_23dhp"]
 [ext_resource type="Texture2D" uid="uid://c2ifm1si7dj30" path="res://vfx/fire.png" id="4_xrvue"]
