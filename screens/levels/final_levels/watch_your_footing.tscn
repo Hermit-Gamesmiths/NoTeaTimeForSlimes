@@ -22,7 +22,7 @@ position = Vector2(8448, 1088)
 position = Vector2(640, 1088)
 
 [node name="Wiz" parent="." index="4" instance=ExtResource("3_v0req")]
-position = Vector2(320, 1152)
+position = Vector2(320, 1088)
 
 [node name="FallingPlatform" parent="." index="5" instance=ExtResource("2_edjn2")]
 position = Vector2(1344, 1216)

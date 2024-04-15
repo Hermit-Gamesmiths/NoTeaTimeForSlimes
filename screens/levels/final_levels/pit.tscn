@@ -140,7 +140,7 @@ position = Vector2(576, 1216)
 position = Vector2(2368, 1472)
 
 [node name="Wiz" parent="." index="24" instance=ExtResource("7_ryu4u")]
-position = Vector2(64, 1152)
+position = Vector2(64, 1088)
 
 [node name="CrushingTrap8" parent="." index="25" instance=ExtResource("8_b40p4")]
 position = Vector2(3776, 640)

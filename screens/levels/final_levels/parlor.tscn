@@ -99,7 +99,7 @@ position = Vector2(1216, 512)
 position = Vector2(1472, 448)
 
 [node name="Wiz" parent="." index="18" instance=ExtResource("5_bicok")]
-position = Vector2(256, 1152)
+position = Vector2(192, 1088)
 
 [node name="StaticSpike" parent="." index="19" instance=ExtResource("6_c3po4")]
 position = Vector2(2752, 1088)

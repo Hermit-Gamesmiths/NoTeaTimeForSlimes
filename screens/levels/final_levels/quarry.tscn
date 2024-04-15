@@ -159,7 +159,7 @@ shape = SubResource("CircleShape2D_121lo")
 position = Vector2(512, 1216)
 
 [node name="Wiz" parent="." index="20" instance=ExtResource("3_g0v4c")]
-position = Vector2(192, 1280)
+position = Vector2(192, 1216)
 
 [node name="FallingStatue4" type="CharacterBody2D" parent="." index="21"]
 position = Vector2(4864, 2176)
