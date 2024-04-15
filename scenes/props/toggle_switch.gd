@@ -33,8 +33,8 @@ func send_update():
 
 	if target:
 		if mode == Mode.EveryHit:
-			target.activate()
+			target.activate(self)
 		elif is_active:
-			target.activate()
+			target.activate(self)
 		else:
-			target.deactivate()
+			target.deactivate(self)

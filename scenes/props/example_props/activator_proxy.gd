@@ -2,17 +2,17 @@ extends Node
 
 @export var target: Node
 
-func activate():
+func activate(sender):
 	if target:
 		if target.has_method("activate"):
-			target.activate()
+			target.activate(self)
 
-func deactivate():
+func deactivate(_sender):
 	if target:
 		if target.has_method("deactivate"):
-			target.deactivate()
+			target.deactivate(self)
 
-func telegraph():
+func telegraph(_sender):
 	if target:
 		if target.has_method("telegraph"):
-			target.telegraph()
+			target.telegraph(self)

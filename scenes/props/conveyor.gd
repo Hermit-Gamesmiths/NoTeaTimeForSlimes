@@ -17,12 +17,12 @@ enum Direction {
 @export var direction: Direction = Direction.Left
 @onready var current_direction: int = direction
 
-func activate():
+func activate(sender):
 	print("toggle conveyor")
 	toggle(true)
 
 
-func deactivate():
+func deactivate(_sender):
 	toggle(false)
 
 

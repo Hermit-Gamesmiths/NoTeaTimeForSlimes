@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bsh1awg0wgqpt"]
+[gd_scene load_steps=17 format=3 uid="uid://bsh1awg0wgqpt"]
 
 [ext_resource type="Script" path="res://screens/level.gd" id="1_000un"]
 [ext_resource type="Texture2D" uid="uid://b60q81ihj37s8" path="res://tiles/programmer-art-tiles.png" id="2_ktw6o"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d1xkpeqqprif3" path="res://scenes/props/toggle_switch.tscn" id="10_l766n"]
 [ext_resource type="PackedScene" uid="uid://da3exybwaoatx" path="res://scenes/props/conveyor.tscn" id="12_d7yce"]
 [ext_resource type="PackedScene" uid="uid://dgrfoafl16e8j" path="res://scenes/wiz.tscn" id="12_r5sdm"]
+[ext_resource type="Script" path="res://screens/levels/test_levels/activation_group.gd" id="12_sann8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bgw11"]
 texture = ExtResource("2_ktw6o")
@@ -56,7 +57,7 @@ position = Vector2(576, 704)
 coyote_time = 0.15
 
 [node name="HeavyEdible" parent="." instance=ExtResource("5_bmbm5")]
-position = Vector2(448, 320)
+position = Vector2(832, 320)
 
 [node name="ShootyBlock2" parent="." instance=ExtResource("6_8oyro")]
 position = Vector2(64, 576)
@@ -76,24 +77,33 @@ position = Vector2(576, 1216)
 
 [node name="ToggleSwitch" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_l766n")]
 position = Vector2(320, 1216)
-target = NodePath("../Conveyor/SwitchActivator")
+target = NodePath("../ActivationGroup/SwitchActivator")
 
-[node name="Conveyor" parent="." instance=ExtResource("12_d7yce")]
+[node name="ActivationGroup" type="Node2D" parent="."]
 position = Vector2(704, 832)
-scale = Vector2(-1, 1)
-constant_linear_velocity = Vector2(300, 0)
-activator_mode = 0
-direction = 1
+rotation = 3.14159
+scale = Vector2(1, -1)
+script = ExtResource("12_sann8")
 
-[node name="SwitchActivator" type="Node" parent="Conveyor"]
+[node name="SwitchActivator" type="Node" parent="ActivationGroup"]
 script = ExtResource("10_b8q0n")
 
-[node name="Conveyor2" parent="." instance=ExtResource("12_d7yce")]
-position = Vector2(320, 576)
+[node name="Conveyor" parent="ActivationGroup" instance=ExtResource("12_d7yce")]
+position = Vector2(256, -256)
+scale = Vector2(-1, 1)
+constant_linear_velocity = Vector2(300, 0)
+direction = 1
+
+[node name="Conveyor2" parent="ActivationGroup" instance=ExtResource("12_d7yce")]
+position = Vector2(384, -256)
+rotation = 3.14159
+scale = Vector2(1, -1)
 constant_linear_velocity = Vector2(-300, 0)
 
-[node name="Conveyor3" parent="." instance=ExtResource("12_d7yce")]
-position = Vector2(192, 576)
+[node name="Conveyor3" parent="ActivationGroup" instance=ExtResource("12_d7yce")]
+position = Vector2(512, -256)
+rotation = 3.14159
+scale = Vector2(1, -1)
 constant_linear_velocity = Vector2(-300, 0)
 
 [editable path="ShootyBlock"]
