@@ -1,8 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://blqm0qtkbgga5"]
+[gd_scene load_steps=8 format=3 uid="uid://blqm0qtkbgga5"]
 
 [ext_resource type="PackedScene" path="res://ui/SceneTransitionButton.tscn" id="1_og3um"]
 [ext_resource type="PackedScene" uid="uid://cr0e6i18bdmgq" path="res://ui/QuitButton.tscn" id="2_0a4ep"]
 [ext_resource type="FontFile" uid="uid://bjp62rplctdf0" path="res://ui/vinque rg.otf" id="2_gef6t"]
+[ext_resource type="PackedScene" uid="uid://yfivpkj87sip" path="res://vfx/slime_particles.tscn" id="4_r3k0i"]
+[ext_resource type="Texture2D" uid="uid://mwti4af32m1l" path="res://sprites/logo.png" id="5_33gx3"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vg7rk"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1400, 1, 1)
+direction = Vector3(0, 20, 0)
+spread = 0.0
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.5
+scale_max = 0.9
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6d401"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,19 +43,35 @@ color = Color(0.140894, 0.130883, 0.127546, 1)
 [node name="SceneTransitionButton" parent="." instance=ExtResource("1_og3um")]
 layout_mode = 0
 offset_left = 1145.0
-offset_top = 728.0
+offset_top = 896.0
 offset_right = 1445.0
-offset_bottom = 828.0
+offset_bottom = 996.0
 theme_override_fonts/font = ExtResource("2_gef6t")
 theme_override_font_sizes/font_size = 36
 text = "Start Game"
-scene_to_load = "res://screens/start.tscn"
+scene_to_load = "res://screens/comic.tscn"
 
 [node name="QuitButton" parent="." instance=ExtResource("2_0a4ep")]
 layout_mode = 1
 offset_left = 1229.0
-offset_top = 879.0
+offset_top = 1047.0
 offset_right = 1343.0
-offset_bottom = 957.0
+offset_bottom = 1125.0
 theme_override_fonts/font = ExtResource("2_gef6t")
 theme_override_font_sizes/font_size = 38
+
+[node name="SlimeParticles" parent="." instance=ExtResource("4_r3k0i")]
+position = Vector2(1262, -31)
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_vg7rk")
+lifetime = 8.0
+
+[node name="Logo" type="Sprite2D" parent="."]
+modulate = Color(0.392157, 0.392157, 0.509804, 0.741176)
+material = SubResource("CanvasItemMaterial_6d401")
+position = Vector2(1277, 455)
+texture = ExtResource("5_33gx3")
+
+[node name="Logo2" type="Sprite2D" parent="."]
+position = Vector2(1280, 448)
+texture = ExtResource("5_33gx3")

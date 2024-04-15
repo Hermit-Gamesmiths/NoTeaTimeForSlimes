@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://rk0xcyg8hdgi"]
+
+[ext_resource type="Texture2D" uid="uid://dikx66uawulsn" path="res://ui/Goodend.png" id="1_jllxp"]
+[ext_resource type="PackedScene" path="res://ui/SceneTransitionButton.tscn" id="2_qyi0v"]
+[ext_resource type="FontFile" uid="uid://bjp62rplctdf0" path="res://ui/vinque rg.otf" id="3_8lcga"]
+
+[node name="Comic" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(2800, 2000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -356.0
+offset_right = 2697.0
+offset_bottom = 1644.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.140894, 0.130883, 0.127546, 1)
+
+[node name="Badend" type="Sprite2D" parent="."]
+position = Vector2(971, 754)
+texture = ExtResource("1_jllxp")
+
+[node name="SceneTransitionButton" parent="." instance=ExtResource("2_qyi0v")]
+offset_left = 1997.0
+offset_top = 1296.0
+offset_right = 2297.0
+offset_bottom = 1396.0
+theme_override_fonts/font = ExtResource("3_8lcga")
+theme_override_font_sizes/font_size = 36
+text = "Menu
+"
+scene_to_load = "res://screens/main_menu.tscn"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1948.0
+offset_top = 1145.0
+offset_right = 2405.0
+offset_bottom = 1266.0
+theme_override_fonts/font = ExtResource("3_8lcga")
+theme_override_font_sizes/font_size = 100
+text = "The End"

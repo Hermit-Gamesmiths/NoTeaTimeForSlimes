@@ -1,6 +1,119 @@
-[gd_scene load_steps=2 format=3 uid="uid://dl80mwr3gynji"]
+[gd_scene load_steps=12 format=3 uid="uid://dl80mwr3gynji"]
 
-[ext_resource type="Texture2D" uid="uid://dlmkwwpcb02ls" path="res://ui/comic.png" id="1_tvh5o"]
+[ext_resource type="Texture2D" uid="uid://bt8xxk65gqxm3" path="res://ui/1.png" id="1_050lx"]
+[ext_resource type="Texture2D" uid="uid://b14l3uau1d8te" path="res://ui/2.png" id="2_5b4mh"]
+[ext_resource type="Texture2D" uid="uid://bmnx2q80ooimf" path="res://ui/3.png" id="3_8xiv8"]
+[ext_resource type="Texture2D" uid="uid://bi6unt6fad1wv" path="res://ui/4.png" id="4_wp2ww"]
+[ext_resource type="Texture2D" uid="uid://dbvrsf31p7uhq" path="res://ui/5.png" id="5_svqp5"]
+[ext_resource type="Texture2D" uid="uid://c01m36s2c7s" path="res://ui/6.png" id="6_gas0e"]
+[ext_resource type="Texture2D" uid="uid://do6t15nxbx72c" path="res://ui/7.png" id="7_d4ndq"]
+[ext_resource type="PackedScene" path="res://ui/SceneTransitionButton.tscn" id="8_qcxnm"]
+[ext_resource type="FontFile" uid="uid://bjp62rplctdf0" path="res://ui/vinque rg.otf" id="9_7ehlh"]
+
+[sub_resource type="Animation" id="Animation_ua3pu"]
+resource_name = "play_comic"
+length = 18.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(9.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("6:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(11.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("7:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(15.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SceneTransitionButton:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(17.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_48857"]
+_data = {
+"play_comic": SubResource("Animation_ua3pu")
+}
 
 [node name="Comic" type="Node2D"]
 
@@ -17,6 +130,54 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.140894, 0.130883, 0.127546, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1281, 723)
-texture = ExtResource("1_tvh5o")
+[node name="1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(378, 383)
+texture = ExtResource("1_050lx")
+
+[node name="2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(946, 314)
+texture = ExtResource("2_5b4mh")
+
+[node name="3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1423, 294)
+texture = ExtResource("3_8xiv8")
+
+[node name="4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1995, 416)
+texture = ExtResource("4_wp2ww")
+
+[node name="5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(620, 994)
+texture = ExtResource("5_svqp5")
+
+[node name="6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1352, 998)
+texture = ExtResource("6_gas0e")
+
+[node name="7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1521, 701)
+texture = ExtResource("7_d4ndq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_48857")
+}
+autoplay = "play_comic"
+
+[node name="SceneTransitionButton" parent="." instance=ExtResource("8_qcxnm")]
+visible = false
+offset_left = 2176.0
+offset_top = 1271.0
+offset_right = 2476.0
+offset_bottom = 1371.0
+theme_override_fonts/font = ExtResource("9_7ehlh")
+theme_override_font_sizes/font_size = 36
+text = "Play"
+scene_to_load = "res://screens/levels/final_levels/intro.tscn"
