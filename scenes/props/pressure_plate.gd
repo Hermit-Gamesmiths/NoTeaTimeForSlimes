@@ -8,8 +8,6 @@ extends Node2D
 
 var is_active: bool = false
 
-func _ready():
-	depressed()
 
 func _physics_process(_delta):
 	if detector.has_overlapping_bodies() && !is_active:

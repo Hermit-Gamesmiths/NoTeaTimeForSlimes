@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://r0wqj630ctkc"]
+[gd_scene load_steps=3 format=3 uid="uid://dixqaadgks2aq"]
 
-[ext_resource type="PackedScene" path="res://ui/SceneTransitionButton.tscn" id="1_ehips"]
-[ext_resource type="PackedScene" uid="uid://cr0e6i18bdmgq" path="res://ui/QuitButton.tscn" id="2_8fhgp"]
+[ext_resource type="PackedScene" path="res://ui/SceneTransitionButton.tscn" id="1_r8hc5"]
+[ext_resource type="PackedScene" uid="uid://cr0e6i18bdmgq" path="res://ui/QuitButton.tscn" id="2_vedr5"]
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="Label" type="Label" parent="."]
+modulate = Color(0.243137, 1, 0.109804, 1)
 layout_mode = 0
 offset_left = 554.0
 offset_top = 148.0
@@ -17,7 +18,7 @@ rotation = 0.325492
 theme_override_font_sizes/font_size = 431
 text = "THE END"
 
-[node name="SceneTransitionButton" parent="Label" instance=ExtResource("1_ehips")]
+[node name="SceneTransitionButton" parent="Label" instance=ExtResource("1_r8hc5")]
 layout_mode = 0
 offset_left = 1321.43
 offset_top = 59.5665
@@ -27,7 +28,7 @@ theme_override_font_sizes/font_size = 51
 text = "Restart"
 scene_to_load = "res://screens/start.tscn"
 
-[node name="QuitButton" parent="Label" instance=ExtResource("2_8fhgp")]
+[node name="QuitButton" parent="Label" instance=ExtResource("2_vedr5")]
 layout_mode = 1
 offset_left = 1575.69
 offset_top = 62.4099
