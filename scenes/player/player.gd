@@ -40,7 +40,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_dead: return
 	if crush_box.has_overlapping_bodies():
-		print(crush_box.get_overlapping_bodies())
 		die()
 
 	# Add the gravity.
@@ -64,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction && !is_eating && !is_spitting:
+	if direction:
 		facing = sign(direction)
 		velocity.x = direction * speed
 		if (is_on_floor() && !is_eating):
@@ -160,7 +159,6 @@ func spit():
 		# TODO: tween backward then spit.
 
 	edible.unpack(get_parent(), spit_location.global_position)
-	# print(edible)
 
 	var anim = create_tween()
 	var duration = .1
