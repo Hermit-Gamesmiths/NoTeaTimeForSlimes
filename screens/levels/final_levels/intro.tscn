@@ -119,7 +119,7 @@ position = Vector2(3136, 576)
 [node name="HiddenEdible" parent="." index="32" instance=ExtResource("4_av8uh")]
 position = Vector2(3136, -960)
 
-[node name="FallingComponent" parent="HiddenEdible" index="2"]
+[node name="FallingComponent" parent="HiddenEdible" index="1"]
 is_active = false
 
 [node name="SwitchActivator" type="Node" parent="HiddenEdible/FallingComponent" index="0"]

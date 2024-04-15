@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://yc4mceyn7wii"]
+
+[ext_resource type="Texture2D" uid="uid://bqr13e82oxo75" path="res://sprites/props/dart_trap.png" id="1_0px8a"]
+[ext_resource type="PackedScene" uid="uid://ss5smpslw66d" path="res://scenes/components/projectile_shooter_component.tscn" id="2_t80c7"]
+[ext_resource type="PackedScene" uid="uid://datf5rrw017yb" path="res://scenes/props/base_props/base_projectile.tscn" id="3_gmtxq"]
+[ext_resource type="PackedScene" uid="uid://do7wfpobvc8dq" path="res://scenes/components/timer_activator.tscn" id="4_n4rdn"]
+[ext_resource type="Texture2D" uid="uid://gcoibnld8vxp" path="res://sprites/time-icon.png" id="5_j8s6m"]
+[ext_resource type="Script" path="res://editor_sprite.gd" id="6_i6l8i"]
+[ext_resource type="PackedScene" uid="uid://mlwnevoxeu2j" path="res://scenes/components/edible_component.tscn" id="7_j1owa"]
+[ext_resource type="PackedScene" uid="uid://d15pi8avmqwfl" path="res://scenes/components/rotatable_component.tscn" id="8_onva0"]
+[ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="9_r8k6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ued5"]
+size = Vector2(128, 128)
+
+[node name="EdibleShootyBlock" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5ued5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0px8a")
+
+[node name="RotationContainer" type="Node2D" parent="."]
+
+[node name="ProjectileShooterComponent" parent="RotationContainer" node_paths=PackedStringArray("projectile_prototype") instance=ExtResource("2_t80c7")]
+position = Vector2(-87, 14)
+projectile_prototype = NodePath("BaseProjectile")
+
+[node name="BaseProjectile" parent="RotationContainer/ProjectileShooterComponent" instance=ExtResource("3_gmtxq")]
+projectile_velocity = Vector2(-700, 0)
+
+[node name="TimerActivator" parent="RotationContainer/ProjectileShooterComponent" instance=ExtResource("4_n4rdn")]
+
+[node name="Sprite2D" type="Sprite2D" parent="RotationContainer/ProjectileShooterComponent"]
+modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(87, -14)
+texture = ExtResource("5_j8s6m")
+script = ExtResource("6_i6l8i")
+
+[node name="EdibleComponent" parent="RotationContainer" node_paths=PackedStringArray("target") instance=ExtResource("7_j1owa")]
+target = NodePath("../..")
+
+[node name="RotatableComponent" parent="RotationContainer" node_paths=PackedStringArray("snap_target") instance=ExtResource("8_onva0")]
+snap_target = NodePath("../..")
+
+[node name="FallingComponent" parent="." instance=ExtResource("9_r8k6j")]
+is_active = true
