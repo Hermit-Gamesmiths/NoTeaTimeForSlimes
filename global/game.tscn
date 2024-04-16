@@ -6,4 +6,5 @@
 [node name="Game" type="Node"]
 script = ExtResource("1_wipiu")
 level_list = ExtResource("2_6pgqp")
-end_scene = "res://screens/end_screen.tscn"
+end_scene = "res://screens/comic_bad_end.tscn"
+good_end_scene = "res://screens/comic_good_end.tscn"

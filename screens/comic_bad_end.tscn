@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsphx7glymwjj"]
+[gd_scene load_steps=4 format=3 uid="uid://bie7i5rt2s8el"]
 
 [ext_resource type="Texture2D" uid="uid://cwavbm8jx17dd" path="res://ui/Badend.png" id="1_svu3d"]
 [ext_resource type="PackedScene" path="res://ui/SceneTransitionButton.tscn" id="8_xyf3r"]

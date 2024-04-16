@@ -45,7 +45,10 @@ func level_complete() -> void:
 		level_index = 0
 		print("Fin")
 		current_level_scene = ""
-		TransitionManager.transition_to(end_scene)
+		if times_wizard_died >= len(level_list.levels):
+			TransitionManager.transition_to(good_end_scene)
+		else:
+			TransitionManager.transition_to(end_scene)
 	else:
 		TransitionManager.transition_to(level_list.levels[level_index].path)
 
