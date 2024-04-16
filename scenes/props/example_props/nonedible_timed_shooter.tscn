@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b66i48om621gs"]
+[gd_scene load_steps=10 format=3 uid="uid://b66i48om621gs"]
 
 [ext_resource type="Texture2D" uid="uid://bqr13e82oxo75" path="res://sprites/props/dart_trap.png" id="2_1brut"]
 [ext_resource type="PackedScene" uid="uid://ss5smpslw66d" path="res://scenes/components/projectile_shooter_component.tscn" id="2_87gpk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://datf5rrw017yb" path="res://scenes/props/base_props/base_projectile.tscn" id="3_jsdor"]
 [ext_resource type="Script" path="res://editor_sprite.gd" id="4_u0j6d"]
 [ext_resource type="PackedScene" uid="uid://60mn4w74tqgs" path="res://scenes/components/falling_component.tscn" id="7_hslv0"]
+[ext_resource type="Texture2D" uid="uid://bun06xv6wxd50" path="res://sprites/props/bracket.png" id="8_xjarm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ued5"]
 size = Vector2(128, 128)
@@ -35,3 +36,6 @@ texture = ExtResource("3_bj7j4")
 script = ExtResource("4_u0j6d")
 
 [node name="FallingComponent" parent="." instance=ExtResource("7_hslv0")]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("8_xjarm")
