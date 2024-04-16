@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyld64c7wpxww"]
+[gd_scene load_steps=6 format=3 uid="uid://w2gijfuesa35"]
 
 [ext_resource type="Script" path="res://scenes/props/rotator_chamber.gd" id="1_eox1j"]
-[ext_resource type="Texture2D" uid="uid://dobhyt7sxa0k2" path="res://scenes/props/prop_assets/box.png" id="1_teiea"]
+[ext_resource type="Texture2D" uid="uid://tm1teqyrpc5d" path="res://sprites/props/rotator.png" id="2_g2lbm"]
 [ext_resource type="Texture2D" uid="uid://d3h4f0xthe3sp" path="res://scenes/props/prop_assets/rotatey-arrows.png" id="2_gtj1p"]
 [ext_resource type="PackedScene" uid="uid://do7wfpobvc8dq" path="res://scenes/components/timer_activator.tscn" id="4_vsytl"]
 
@@ -13,9 +13,11 @@ script = ExtResource("1_eox1j")
 detector = NodePath("Detector")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_teiea")
+position = Vector2(0, 10)
+texture = ExtResource("2_g2lbm")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_gtj1p")
 
 [node name="Detector" type="Area2D" parent="."]
