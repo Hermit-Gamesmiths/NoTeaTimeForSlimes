@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 
 
 func crushed() -> void:
-	
+
 	hurt(Projectile.DamageType.Crush)
 
 func play_idle() -> void:
@@ -34,11 +34,12 @@ func hurt(damage_type: Projectile.DamageType) -> void:
 	if injured: return
 	injured = true
 	$AnimationPlayer.play(hurt_anim(damage_type))
+	Events.wizard_died.emit()
 	pass
 
 func hurt_anim(damage_type: Projectile.DamageType) -> String:
 	match damage_type:
-		Projectile.DamageType.Fire: 
+		Projectile.DamageType.Fire:
 			var sound_player = $DieSound
 			sound_player.pitch_scale = randf_range(0.9, 1.1)
 			sound_player.play(0.0)
@@ -51,7 +52,7 @@ func hurt_anim(damage_type: Projectile.DamageType) -> String:
 		Projectile.DamageType.Crush:
 			var sound_playerr = $CrushSound
 			sound_playerr.pitch_scale = randf_range(0.9, 1.1)
-			sound_playerr.play(0.0) 
+			sound_playerr.play(0.0)
 			var sound_player = $DieSound
 			sound_player.pitch_scale = randf_range(0.9, 1.1)
 			sound_player.play(0.0)
