@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelCollection" load_steps=5 format=3 uid="uid://cdsgcolvxwu8n"]
+[gd_resource type="Resource" script_class="LevelCollection" load_steps=11 format=3 uid="uid://cxwnne7lgrtd"]
 
 [ext_resource type="Script" path="res://resources/scripts/level_collection.gd" id="1_e0c5n"]
 [ext_resource type="Script" path="res://resources/scripts/level_definition.gd" id="1_w4v5w"]
@@ -7,10 +7,34 @@
 script = ExtResource("1_w4v5w")
 path = "res://screens/levels/final_levels/intro.tscn"
 
-[sub_resource type="Resource" id="Resource_csbmb"]
+[sub_resource type="Resource" id="Resource_thp07"]
 script = ExtResource("1_w4v5w")
 path = "res://screens/levels/final_levels/foyer.tscn"
 
+[sub_resource type="Resource" id="Resource_6whx5"]
+script = ExtResource("1_w4v5w")
+path = "res://screens/levels/final_levels/hallway.tscn"
+
+[sub_resource type="Resource" id="Resource_3ucfk"]
+script = ExtResource("1_w4v5w")
+path = "res://screens/levels/final_levels/parlor.tscn"
+
+[sub_resource type="Resource" id="Resource_1yla3"]
+script = ExtResource("1_w4v5w")
+path = "res://screens/levels/final_levels/pit.tscn"
+
+[sub_resource type="Resource" id="Resource_vkb5g"]
+script = ExtResource("1_w4v5w")
+path = "res://screens/levels/final_levels/quarry.tscn"
+
+[sub_resource type="Resource" id="Resource_smlkt"]
+script = ExtResource("1_w4v5w")
+path = "res://screens/levels/final_levels/shooting_gallery.tscn"
+
+[sub_resource type="Resource" id="Resource_qafyg"]
+script = ExtResource("1_w4v5w")
+path = "res://screens/levels/final_levels/watch_your_footing.tscn"
+
 [resource]
 script = ExtResource("1_e0c5n")
-levels = Array[ExtResource("1_w4v5w")]([SubResource("Resource_hu5re"), SubResource("Resource_csbmb")])
+levels = Array[ExtResource("1_w4v5w")]([SubResource("Resource_hu5re"), SubResource("Resource_thp07"), SubResource("Resource_6whx5"), SubResource("Resource_3ucfk"), SubResource("Resource_1yla3"), SubResource("Resource_vkb5g"), SubResource("Resource_smlkt"), SubResource("Resource_qafyg")])
