@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="1001Slimes"
+config/name="No Tea Time for Slime"
 run/main_scene="res://screens/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
@@ -28,6 +28,7 @@ Hud="*res://screens/hud.tscn"
 
 window/size/viewport_width=2560
 window/size/viewport_height=1440
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

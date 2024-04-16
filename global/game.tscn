@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs2q5udhxgvul"]
 
 [ext_resource type="Script" path="res://global/game.gd" id="1_wipiu"]
-[ext_resource type="Resource" uid="uid://cxwnne7lgrtd" path="res://resources/level_order.tres" id="2_6pgqp"]
+[ext_resource type="Resource" uid="uid://cdsgcolvxwu8n" path="res://resources/level_order.tres" id="2_6pgqp"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wipiu")
