@@ -37,6 +37,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset"):
+		die()
 	if is_dead: return
 	if crush_box.has_overlapping_bodies():
 		die()
@@ -120,11 +122,11 @@ func get_gravity() -> Vector2:
 
 func swallow():
 	print("swallowing")
-	
+
 	var sound_player = $EatSound
 	sound_player.pitch_scale = randf_range(0.9, 1.1)
 	sound_player.play(0.0)
-	
+
 	is_eating = true
 	state_machine.travel("eat")
 	var edibles = swallow_checker.get_overlapping_areas()
