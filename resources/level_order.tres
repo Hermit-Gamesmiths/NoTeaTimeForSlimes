@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelCollection" load_steps=5 format=3 uid="uid://cxwnne7lgrtd"]
+[gd_resource type="Resource" script_class="LevelCollection" load_steps=5 format=3 uid="uid://cdsgcolvxwu8n"]
 
 [ext_resource type="Script" path="res://resources/scripts/level_collection.gd" id="1_e0c5n"]
 [ext_resource type="Script" path="res://resources/scripts/level_definition.gd" id="1_w4v5w"]
